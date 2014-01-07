@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.2'
-gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -18,11 +17,12 @@ group :development, :test do
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'guard', '~> 2.2.5'
   gem 'guard-minitest', '~> 2.1.3'
-  
+  gem 'pg'
 end
 
 group :doc do
   gem 'sdoc', require: false
+  gem 'pg'
 end
 
 # Use ActiveModel has_secure_password
