@@ -18,6 +18,7 @@ group :development, :test do
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'guard', '~> 2.2.5'
   gem 'guard-minitest', '~> 2.1.3'
+  
 end
 
 group :doc do
