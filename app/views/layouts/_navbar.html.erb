@@ -24,4 +24,7 @@
       <%= link_to "Login", "/auth/twitter", class: "uk-button uk-button-primary" %>
     <% end %>
   </div>
+  <% if flash[:notice] %>
+    <div class="uk-navbar-content uk-hidden-small"> <%= flash[:notice] %></div>
+  <% end %>
 </nav>
