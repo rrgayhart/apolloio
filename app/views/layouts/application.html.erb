@@ -4,11 +4,18 @@
   <title>Apolloio</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="content">
 
-<%= yield %>
+    <div class="header">
+      <%= render partial: "layouts/navbar" %>
+    </div>
+
+    <%= yield %>
+  </div>
 
 </body>
 </html>
