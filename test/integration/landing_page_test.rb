@@ -1,6 +1,6 @@
 require "test_helper"
 
-class NonUserNavbarTest < Capybara::Rails::TestCase 
+class NonUserNavbarTest < Capybara::Rails::TestCase
 
   test "non-user navbar" do
   	visit '/'
