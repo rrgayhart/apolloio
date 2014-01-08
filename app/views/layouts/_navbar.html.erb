@@ -10,7 +10,11 @@
   </div>
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Dashboard</a></li>
+      <% if current_user %>
+        <li class="active"><a href="#">Dashboard</a></li>
+      <% else %>
+        <li><a></a></li>
+      <% end %>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
