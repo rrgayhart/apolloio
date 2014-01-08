@@ -17,4 +17,5 @@ class UserLoginTest < Capybara::Rails::TestCase
     assert page.has_content?("Goals")
     assert page.has_content?("Reminders")
   end
+
 end
