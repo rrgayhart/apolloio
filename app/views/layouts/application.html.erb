@@ -5,21 +5,29 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery.js"></script>
 </head>
-<body>
-  <div class="content">
 
-    <div class="header">
+<body>
+  <div class="container">
+
+    <div class="row">
       <%= render partial: "layouts/navbar" %>
+      <% if flash[:notice] %>
+        <div class="col-md-1.1 pull-right alert alert-success alert-dismissable" style="margin-right: 1.2%">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= flash[:notice] %>
+        </div>
+        <% flash[:notice]=nil %>
+      <% end %>
     </div>
 
-    <% if flash[:notice] %>
-      <div class="notice"><%= flash[:notice] %></div>
-    <% end %>
 
     <%= yield %>
 
   </div>
-
 </body>
 </html>
