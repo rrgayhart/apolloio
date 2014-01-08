@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+
+@import "http://cdnjs.cloudflare.com/ajax/libs/uikit/1.2.0/css/uikit.min.css";
+@import "http://cdnjs.cloudflare.com/ajax/libs/uikit/1.2.0/css/uikit.gradient.min.css"
+

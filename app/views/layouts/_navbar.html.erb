@@ -1,15 +1,28 @@
-<div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
-  <a href="#" class="pure-menu-heading"><%= image_tag "logosmall.jpg", id: "navbar-logo" %></a>
-  <ul>
-    <li class="pure-menu-selected"><a href="#">Home</a></li>
-    <li><a href="#">Space Holder</a></li>
-    <li>
-      <% if current_user %>
-        Signed in as <%= current_user.name %>!
-        <%= link_to "Sign out", signout_path %>
-      <% else %>
-        <%= link_to "Login", "/auth/twitter" %>
-      <% end %>
+<nav class="uk-navbar">
+  <a class="uk-navbar-brand" href="#"><%= image_tag "logosmall.jpg", id: "navbar-logo" %></a>
+  <ul class="uk-navbar-nav">
+    <li class="uk-parent uk-active" data-uk-dropdown="">
+      <a href=""><i class="uk-icon-home"></i> Home</a>
+      <div class="uk-dropdown uk-dropdown-navbar" style="">
+        <ul class="uk-nav uk-nav-navbar">
+          <li><a href="#">Item</a></li>
+          <li><a href="#">Another item</a></li>
+          <li class="uk-nav-header">Header</li>
+          <li><a href="#">Item</a></li>
+          <li><a href="#">Another item</a></li>
+          <li class="uk-nav-divider"></li>
+          <li><a href="#">Separated item</a></li>
+        </ul>
+      </div>
     </li>
   </ul>
-</div>
+    <div class="uk-navbar-content uk-navbar-flip uk-hidden-small">
+      <% if current_user %>
+        Signed in as <%= current_user.name %>!
+        <%= link_to "Sign out", signout_path, class: "uk-button uk-button-primary" %>
+      <% else %>
+        <%= link_to "Login", "/auth/twitter", class: "uk-button uk-button-primary" %>
+      <% end %>
+    </div>
+  </div>
+</nav>
