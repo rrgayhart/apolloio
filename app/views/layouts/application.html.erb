@@ -16,6 +16,9 @@
 
     <div class="row">
       <%= render partial: "layouts/navbar" %>
+    </div>
+
+    <div class="row">
       <% if flash[:notice] %>
         <div class="col-md-1.1 pull-right alert alert-success alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -23,9 +26,8 @@
         </div>
         <% flash[:notice]=nil %>
       <% end %>
+      <%= yield %>
     </div>
-
-    <%= yield %>
 
   </div>
 </body>
