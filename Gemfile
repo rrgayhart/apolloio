@@ -7,7 +7,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
-
 gem 'omniauth'
 gem 'omniauth-twitter'
 
@@ -21,6 +20,7 @@ group :development, :test do
   gem 'guard', '~> 2.2.5'
   gem 'guard-minitest', '~> 2.1.3'
   gem 'pg'
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :doc do

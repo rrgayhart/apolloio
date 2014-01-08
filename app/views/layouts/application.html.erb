@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>apollo.io</title>
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <div class="container">
+<head>
+  <title>apollo.io</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery.js"></script>
+</head>
 
-      <div class="header">
-        <%= render partial: "layouts/navbar" %>
-      </div>
+<body>
+  <div class="container">
 
-      <div class="uk-container">
-        <%= yield %>
-      </div>
+    <div class="row" style="margin-top: 1.5%;">
+      <%= render partial: "layouts/navbar" %>
     </div>
-  </body>
+
+    <div class="row">
+      <% if flash[:notice] %>
+        <div class="col-md-1.1 pull-right alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= flash[:notice] %>
+        </div>
+        <% flash[:notice]=nil %>
+      <% end %>
+      <%= yield %>
+    </div>
+
+  </div>
+</body>
 </html>
