@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+@import "http://cdnjs.cloudflare.com/ajax/libs/uikit/1.2.0/js/uikit.min.js"
+@import "//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"
+@import "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"
