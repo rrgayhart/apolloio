@@ -10,15 +10,14 @@
   </div>
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
+      <li class="active"><a href="#">Dashboard</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
         <li><a>Signed in as: <b><%= current_user.name %></b></a></li>
         <li><%= link_to "Log Out", signout_path %></li>
       <% else %>
-        <li><%= link_to "Login", "/auth/twitter" %></li>
+        <li><%= link_to "Log In", "/auth/twitter" %></li>
       <% end %>
     </ul>
   </div><!--/.nav-collapse -->

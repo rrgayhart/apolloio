@@ -20,6 +20,7 @@ group :development, :test do
   gem 'guard', '~> 2.2.5'
   gem 'guard-minitest', '~> 2.1.3'
   gem 'pg'
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :doc do
