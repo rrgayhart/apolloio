@@ -5,18 +5,16 @@ class UserTest < ActiveSupport::TestCase
   def omniauth_hash
     {
       "uid" => "1234567890",
+      "provider" => "twitter",
       "info" => {
       "name" => "appolo"
-    },
-      "credentials" => {
-      "provider" => "twitter"
     }
   }
   end
 
   def test_from_omniauth_creates_user
     user = User.create! do |u|
-      u.name = "jonmagic"
+      u.name     = "Adam"
       u.uid      = "1234567890"
       u.provider = "twitter"
     end
