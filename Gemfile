@@ -8,6 +8,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
+gem 'omniauth'
+gem 'omniauth-twitter'
+
 group :development, :test do
   gem 'minitest-rails', '~> 0.9.2'
   gem 'minitest-rails-capybara', '~> 0.10.0'

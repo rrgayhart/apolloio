@@ -3,6 +3,13 @@
   <ul>
     <li class="pure-menu-selected"><a href="#">Home</a></li>
     <li><a href="#">Space Holder</a></li>
-    <li><a href="#">Login</a></li>
+    <li>
+      <% if current_user %>
+        Signed in as <%= current_user.name %>!
+        <%= link_to "Sign out", signout_path %>
+      <% else %>
+        <%= link_to "Login", "/auth/twitter" %>
+      <% end %>
+    </li>
   </ul>
 </div>
