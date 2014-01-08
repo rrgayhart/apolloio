@@ -1,34 +1,3 @@
-<!-- <nav class="uk-navbar">
-  <a class="uk-navbar-brand" href="#"><%= image_tag "logosmall.png", id: "navbar-logo" %></a>
-  <ul class="uk-navbar-nav">
-    <li class="uk-parent uk-active" data-uk-dropdown="">
-      <a href=""><i class="uk-icon-home"></i> Home</a>
-      <div class="uk-dropdown uk-dropdown-navbar" style="">
-        <ul class="uk-nav uk-nav-navbar">
-          <li><a href="#">Item</a></li>
-          <li><a href="#">Another item</a></li>
-          <li class="uk-nav-header">Header</li>
-          <li><a href="#">Item</a></li>
-          <li><a href="#">Another item</a></li>
-          <li class="uk-nav-divider"></li>
-          <li><a href="#">Separated item</a></li>
-        </ul>
-      </div>
-    </li>
-  </ul>
-  <div class="uk-navbar-content uk-navbar-flip uk-hidden-small">
-    <% if current_user %>
-      Signed in as <%= current_user.name %>!
-      <%= link_to "Sign out", signout_path, class: "uk-button uk-button-primary" %>
-    <% else %>
-      <%= link_to "Login", "/auth/twitter", class: "uk-button uk-button-primary" %>
-    <% end %>
-  </div>
-  <% if flash[:notice] %>
-    <div class="uk-navbar-content uk-hidden-small"> <%= flash[:notice] %></div>
-  <% end %>
-</nav> -->
-
 <div class="navbar navbar-default" role="navigation">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -54,4 +23,3 @@
     </ul>
   </div><!--/.nav-collapse -->
 </div>
-
