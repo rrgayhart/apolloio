@@ -11,7 +11,7 @@ class NewUserSignupTest < Capybara::Rails::TestCase
 
     assert_equal current_path, root_path
 
-    click_link "Login"
+    click_link "Log In"
 
   end
 

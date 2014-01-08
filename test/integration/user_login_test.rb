@@ -8,7 +8,7 @@ class UserLoginTest < Capybara::Rails::TestCase
   test "after_user_logs_in_they_are_redirected_to_dashboard" do
     visit root_path
 
-    click_link "Login"
+    click_link "Log In"
 
     assert_equal dashboard_path, current_path
 
