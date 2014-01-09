@@ -5,5 +5,6 @@ class GoalsControllerTest < ActionController::TestCase
      get :index
      assert_response :success
      assert_template :index
+     assert_not_nil assigns(:goals)
    end
 end

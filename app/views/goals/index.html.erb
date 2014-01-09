@@ -2,4 +2,11 @@
   Profile
   Goals
   Reminders
+
+  <br>
+
+  <% @goals.each do |goal| %>
+    Goal Name <%= goal.name %>
+    <br>
+  <% end %>
 </div>

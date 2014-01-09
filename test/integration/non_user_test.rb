@@ -8,5 +8,5 @@ class NonUserNavbarTest < Capybara::Rails::TestCase
     assert page.has_css?("#navbar-logo")
     refute page.has_content?("Log Out")
   end
-  
+
 end
