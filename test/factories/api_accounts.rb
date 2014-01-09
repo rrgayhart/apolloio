@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :api_account do
-    user nil
-    api nil
+    association :user
+    association :api
   end
 end
