@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140109045909) do
+ActiveRecord::Schema.define(version: 20140109061153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "api_accounts", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "api_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "api_accounts", ["api_id"], name: "index_api_accounts_on_api_id", using: :btree
+  add_index "api_accounts", ["user_id"], name: "index_api_accounts_on_user_id", using: :btree
+
+  create_table "apis", force: true do |t|
+    t.string   "provider"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "goals", force: true do |t|
     t.integer  "user_id"
