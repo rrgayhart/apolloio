@@ -67,6 +67,10 @@ class UserLoginTest < Capybara::Rails::TestCase
 
     assert_equal 200, page.status_code
     assert_equal dashboard_path, current_path
-  end
 
+    click_link 'Log Out'
+
+    assert page.has_content?("Log In"), "Page is missing 'Log In' button"
+    refute page.has_content?("Log Out"), "Page is not supposed to have 'Log Out' button"
+  end
 end
