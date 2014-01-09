@@ -17,6 +17,11 @@ summary {
   display: block;
 }
 
+.centered{
+    float: none;
+    margin: 0 auto;
+}
+
 audio,
 canvas,
 video {
