@@ -5,12 +5,6 @@ class UserLoginTest < Capybara::Rails::TestCase
     @auth = OmniAuth.config.mock_auth[:twitter]
     @user = User.from_omniauth(@auth)
 
-    goal1 = Goal.create(user_id: @user.id, name:"Goal1")
-    goal2 = Goal.create(user_id: @user.id, name:"Goal2")
-    goal3 = Goal.create(user_id: @user.id, name:"Goal3")
-    goal4 = Goal.create(user_id: @user.id+2, name:"Goal4")
-    @goals = [goal1, goal2, goal3]
-
     visit root_path
     click_link "Log In"
   end
@@ -29,9 +23,36 @@ class UserLoginTest < Capybara::Rails::TestCase
   end
 
   test "logged in user sees only their goals" do
+    goal1 = Goal.create(user_id: @user.id, name:"Goal1")
+    goal2 = Goal.create(user_id: @user.id, name:"Goal2")
+    goal3 = Goal.create(user_id: @user.id, name:"Goal3")
+    goal4 = Goal.create(user_id: @user.id+2, name:"Goal4")
+    @goals = [goal1, goal2, goal3]
+
+    visit dashboard_path
+
     @goals.each do |goal|
       assert page.has_content? goal.name
     end
     refute page.has_content? "Goal4"
   end
+
+  test "logged in user sees only their reminders" do
+    goal1 = Goal.create(user_id: @user.id, name:"Goal1")
+    reminder1 = Reminder.create(goal_id: goal1.id, user_id: @user.id, target: 403)
+    reminder2 = Reminder.create(goal_id: goal1.id, user_id: @user.id, target: 7852)
+    reminder3 = Reminder.create(goal_id: goal1.id, user_id: @user.id, target: 1986)
+    reminder4 = Reminder.create(goal_id: goal1.id + 1, user_id: @user.id + 1, target: 55)
+
+    @reminders = [reminder1, reminder2, reminder3]
+
+    visit dashboard_path
+
+    @reminders.each do |reminder|
+      assert page.has_content? reminder.target
+    end
+
+    refute page.has_content? reminder4.target
+  end
+
 end

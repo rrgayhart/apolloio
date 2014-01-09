@@ -9,4 +9,9 @@
     Goal Name <%= goal.name %>
     <br>
   <% end %>
+
+  <% @reminders.each do |reminder| %>
+    Target <%= reminder.target %>
+    <br>
+  <% end %>
 </div>
