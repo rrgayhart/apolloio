@@ -11,7 +11,7 @@ class DashboardController < ApplicationController
 
   def require_api_account
     unless current_user.has_api_account?
-      flash[:error]="Add API Account"
+      flash[:error] = "#{view_context.link_to('Add An API Account', '#')}".html_safe
     end
   end
 end
