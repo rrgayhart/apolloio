@@ -10,22 +10,22 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
   end
 
   test "typical goal thing" do
-
     assert page.has_content?("Add Goal")
     click_link "Add Goal"
     assert page.has_content?("Create New Goal")
     fill_in "Goal Name", :with => "Goal #1"
     fill_in "Goal Description", :with => "Goal #1"
-    assert_select('select#goal_target option[1]').first['value']
-    # fill_in "Goal Target", :with => "Goal #1"
-    assert_select('select#goal_target option[1]').first['value']
-    fill_in "Goal Period", :with => "Goal #1"
-    fill_in "Goal PeriodType", :with => "Goal #1"
-    fill_in "Goal StartDate", :with => "Goal #1"
-    fill_in "Goal StartDate", :with => "Goal #1"
-
-    assert page.has_content?("")
-    click_link "Add goal"
-
+    # Select API that goal is for
+    select('GitHub', :from => 'Select Box')
+    # Goal Target
+    select('5', :from => 'Select Box')
+    # Goal Period
+    select('1', :from => 'Select Box')
+    # Goal Period Type
+    select('Day', :from => 'Select Box')
+    # Select Date from datepicker
+    page.execute_script("$('#goal_start_date').val('1/09/2014')")
+    click_link "Submit Goal"
   end
+  
 end

@@ -1,0 +1,23 @@
+<% if flash[:notice] %>
+  <div class="col-md-1.1 pull-right alert alert-success alert-dismissable" style="margin-top: 1%">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <%= flash[:notice] %>
+  </div>
+  <% flash[:notice]=nil %>
+<% end %>
+
+<% if flash[:no_apis] %>
+  <div class="col-md-1.1 pull-left alert alert-warning alert-dismissable" style="margin-top: 1%; margin-right: 1%;">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <%= flash[:no_apis] %>
+  </div>
+  <% flash[:no_apis]=nil %>
+<% end %>
+
+<% if flash[:no_goals] %>
+  <div class="col-md-1.1 pull-left alert alert-warning alert-dismissable" style="margin-top: 1%">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <%= flash[:no_goals] %>
+  </div>
+  <% flash[:no_goals]=nil %>
+<% end %>

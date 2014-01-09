@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
   def has_api_account?
     self.api_accounts.any?
   end
+
+  def has_goal?
+    self.goals.any?
+  end
 end
