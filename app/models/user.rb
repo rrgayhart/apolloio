@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
       user.name = auth["info"]["nickname"]
     end
   end
+
+  def has_api_account?
+    self.api_accounts.any?
+  end
 end

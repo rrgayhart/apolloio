@@ -28,4 +28,11 @@ class UserTest < ActiveSupport::TestCase
     assert_equal user, User.from_omniauth(omniauth_hash)
   end
 
+  def test_user_has_api_account_method_returns_true
+    user = FactoryGirl.create(:user)
+    assert_equal false, user.has_api_account?
+    FactoryGirl.create(:api_account, user: user)
+    assert_equal true, user.has_api_account?
+  end
+
 end

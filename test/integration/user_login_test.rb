@@ -20,6 +20,7 @@ class UserLoginTest < Capybara::Rails::TestCase
     assert page.has_content?("Profile")
     assert page.has_content?("Goals")
     assert page.has_content?("Reminders")
+    assert page.has_content?("Add API Account")
   end
 
   test "logged in user sees only their goals" do
