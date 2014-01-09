@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  has_many :goals
+  has_many :reminders
+  has_many :api_accounts
+
   def self.from_omniauth(auth)
     where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
   end

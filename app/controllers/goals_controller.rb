@@ -1,7 +1,7 @@
 class GoalsController < ApplicationController
   def index
-    @goals = Goal.where(user_id: current_user)
-    @reminders = Reminder.where(user_id: current_user)
-    @api_accounts = ApiAccount.where(user_id: current_user)
+    @goals = current_user.goals
+    @reminders = current_user.reminders
+    @api_accounts = current_user.api_accounts
   end
 end
