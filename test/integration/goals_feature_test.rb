@@ -23,6 +23,9 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
     fill_in "Goal PeriodType", :with => "Goal #1"
     fill_in "Goal StartDate", :with => "Goal #1"
     fill_in "Goal StartDate", :with => "Goal #1"
-  end
 
+    assert page.has_content?("")
+    click_link "Add goal"
+
+  end
 end

@@ -31,25 +31,25 @@ class UserLoginTest < Capybara::Rails::TestCase
 
   test "user logs in and see's the expected items" do
 
-    assert page.has_content?("Log Out")
-    refute page.has_content?("Log In")
+    assert page.has_content?("Log Out"), "Page is missing 'Log Out' button"
+    refute page.has_content?("Log In"), "Page is not supposed to have 'Log In' button"
 
     assert_equal dashboard_path, current_path
     assert_equal 200, page.status_code
-    assert page.has_content?("Profile")
-    assert page.has_content?("Goals")
-    assert page.has_content?("Reminders")
-    refute page.has_content?("Add API Account")
+    assert page.has_content?("Profile"), "Page is missing content 'Profile'"
+    assert page.has_content?("Goals"), "Page is missing content 'Goals'"
+    assert page.has_content?("Reminders"), "Page is missing content 'Reminders'"
+    refute page.has_content?("Add API Account"), "Page is missing 'Add API Account'"
 
     @goals.each do |goal|
-      assert page.has_content? goal.name
+      assert page.has_content?(goal.name), "Page is missing content #{goal.name}"
     end
-    refute page.has_content? "Goal4"
+    refute page.has_content?("Goal4"), "Page is not supposed to display 'Goal4'"
 
     @reminders.each do |reminder|
-      assert page.has_content? reminder.target
+      assert page.has_content?(reminder.target), "Page is missing content #{reminder.target}"
     end
-    refute page.has_content? @reminder4.target
+    refute page.has_content?(@reminder4.target), "Page is not suposed to display #{@reminder4.target}"
 
     @apis = [
        Api.find(@api_account1.api_id),
@@ -58,7 +58,7 @@ class UserLoginTest < Capybara::Rails::TestCase
      ]
 
     @apis.each do |api|
-      assert page.has_content? api.provider
+      assert page.has_content?(api.provider), "Page is missing content #{api.provider}"
     end
 
     visit root_path
