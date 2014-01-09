@@ -51,8 +51,30 @@ class UserLoginTest < Capybara::Rails::TestCase
     @reminders.each do |reminder|
       assert page.has_content? reminder.target
     end
-
     refute page.has_content? reminder4.target
   end
 
+  test "logged in user sees their api accounts" do
+    #setup the the api accounts
+    api1 = Api.create(name: 'github')
+    api2 = Api.create(name: 'twitter')
+    api3 = Api.create(name: 'exercism')
+
+    api_account1 = ApiAccount.create(user_id: @user.id, api_id: api1.id)
+    api_account2 = ApiAccount.create(user_id: @user.id, api_id: api2.id)
+    api_account3 = ApiAccount.create(user_id: @user.id, api_id: api3.id)
+    api_account4 = ApiAccount.create(user_id: @user.id+1, api_id: api3.id+1)
+
+    @apis = [
+       Api.where(id: api_account1.api_id),
+       Api.where(id: api_account2.api_id),
+       Api.where(id: api_account3.api_id)
+     ]
+
+    visit dashboard_path
+
+    @apis.each do |api|
+      assert page.has_content? api.name
+    end
+  end
 end
