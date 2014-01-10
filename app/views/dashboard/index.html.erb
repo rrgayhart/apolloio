@@ -1,22 +1,37 @@
 <div style="margin-left: .5%; margin-top: 1.5%">
   Profile
-  Goals
-  Reminders
-
   <br>
-
-  <% @goals.each do |goal| %>
-    Goal Name <%= goal.name %>
-    <br>
-  <% end %>
-
-  <% @reminders.each do |reminder| %>
-    Target <%= reminder.target %>
-    <br>
-  <% end %>
-
   <% @api_accounts.each do |api_account| %>
     <%= api_account.api.provider %>
     <br>
   <% end %>
+
+</div>
+
+<div class="bs-example bs-example-tabs">
+  <ul id="myTab" class="nav nav-tabs">
+    <li class="active"><a href="#goals" data-toggle="tab">Goals</a></li>
+    <li class=""><a href="#reminders" data-toggle="tab">Reminders</a></li>
+  </ul>
+  <div id="myTabContent" class="tab-content dashboard-outline" >
+    <div class="tab-pane fade active in" id="goals">
+      <div style="margin-left: 1%; padding-top: 1%">
+        <p><%= link_to "Add Goal", '#' %></p>
+        <p>Goals:</p>
+        <% @goals.each do |goal| %>
+          Goal Name <%= goal.name %>
+          <br>
+        <% end %>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="reminders">
+      <div style="margin-left: 1%; padding-top: 1%">
+        <p>Reminders:</p>
+        <% @reminders.each do |reminder| %>
+          Target <%= reminder.target %>
+          <br>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

@@ -19,20 +19,7 @@
     </div>
 
     <div class="row">
-      <% if flash[:notice] %>
-        <div class="col-md-1.1 pull-right alert alert-success alert-dismissable" style="margin-top: 1%">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <%= flash[:notice] %>
-        </div>
-        <% flash[:notice]=nil %>
-      <% end %>
-      <% if flash[:error] %>
-        <div class="col-md-1.1 pull-right alert alert-warning alert-dismissable" style="margin-top: 1%">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <%= flash[:error] %>
-        </div>
-        <% flash[:error]=nil %>
-      <% end %>
+      <%= render partial: "layouts/flashes" %>
       <div style="margin-top:6.5%">
         <%= yield %>
       </div>

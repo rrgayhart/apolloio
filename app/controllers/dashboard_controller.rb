@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
   before_action :require_api_account
+  before_action :require_goal
 
   def index
     @goals = current_user.goals
@@ -11,7 +12,14 @@ class DashboardController < ApplicationController
 
   def require_api_account
     unless current_user.has_api_account?
-      flash[:error]="Add API Account"
+      flash[:no_apis] = "#{view_context.link_to('Add An API Account', '#')}".html_safe
     end
   end
+
+  def require_goal
+    unless current_user.has_goal?
+      flash[:no_goals] = "#{view_context.link_to('Add A Goal', '#')}".html_safe
+    end
+  end
+
 end

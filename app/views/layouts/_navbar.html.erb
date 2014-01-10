@@ -1,6 +1,5 @@
 <div class="nav nav-justified">
   <div class="navbar navbar-default" role="navigation">
-  <!-- <div class="navbar navbar-default" role="navigation"> -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -13,7 +12,7 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <% if current_user %>
-          <li class="active"><a href="#">Dashboard</a></li>
+          <li class="active"><%= link_to "Dashboard", dashboard_path %></li>
         <% else %>
           <li><a></a></li>
         <% end %>
