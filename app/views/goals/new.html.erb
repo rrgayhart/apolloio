@@ -1,0 +1,21 @@
+<h1>Create New Goal</h1>
+<%= form_for @goal do |g| %>
+  <%= g.label :name, "Goal Name" %>
+  <%= g.text_field :name %>
+  <br>
+  <%= g.label :description, "Goal Description" %>
+  <%= g.text_field :description %>
+  <br>
+  <%= g.label :api_account, "Api Account" %>
+  <%= g.select(:api_account, ["Github"]) %>
+  <br>
+  <%= g.label :target, "Target" %>
+  <%= g.select(:target, [1,2,3,4,5]) %>
+  <br>
+  <%= g.label :period  %>
+  <%= g.select(:period, [1,2,3,4,5]) %>
+  <br>
+  <%= g.label :period_type  %>
+  <%= g.select(:period_type, ["Day", "Week", "Month"]) %>
+  <br>
+<% end %>
