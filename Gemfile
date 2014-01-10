@@ -22,6 +22,7 @@ group :development, :test do
   gem 'pg'
   gem "factory_girl_rails", "~> 4.0"
   gem 'simplecov', :require => false
+  gem "minitest-reporters", '>= 0.5.0'
 end
 
 group :doc do
