@@ -1,4 +1,3 @@
-<div style="margin-left: .5%; margin-top: 1.5%">
   Profile
   <br>
   <% @api_accounts.each do |api_account| %>
@@ -16,7 +15,7 @@
   <div id="myTabContent" class="tab-content dashboard-outline" >
     <div class="tab-pane fade active in" id="goals">
       <div style="margin-left: 1%; padding-top: 1%">
-        <p><%= link_to "Add Goal", '#' %></p>
+        <p><%= link_to "Add Goal", new_goal_path %></p>
         <p>Goals:</p>
         <% @goals.each do |goal| %>
           Goal Name <%= goal.name %>
