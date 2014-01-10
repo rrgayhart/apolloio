@@ -10,7 +10,6 @@ class NewUserSignupTest < Capybara::Rails::TestCase
     visit root_path
     assert_equal current_path, root_path
     click_link "Log In"
-
   end
 
 end
