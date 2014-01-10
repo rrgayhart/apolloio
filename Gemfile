@@ -9,6 +9,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'pg'
 
 group :development, :test do
   gem 'minitest-rails', '~> 0.9.2'
@@ -19,7 +20,6 @@ group :development, :test do
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'guard', '~> 2.2.5'
   gem 'guard-minitest', '~> 2.1.3'
-  gem 'pg'
   gem "factory_girl_rails", "~> 4.0"
   gem 'simplecov', :require => false
   gem "minitest-reporters", '>= 0.5.0'
@@ -27,7 +27,6 @@ end
 
 group :doc do
   gem 'sdoc', require: false
-  gem 'pg'
 end
 
 # Use ActiveModel has_secure_password

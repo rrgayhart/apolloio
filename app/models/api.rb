@@ -1,6 +1,3 @@
 class Api < ActiveRecord::Base
-
-  def init
-
-  end
+  has_many :api_accounts
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140109163028) do
+ActiveRecord::Schema.define(version: 20140110025902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140109163028) do
     t.integer  "api_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "api_username"
   end
 
   add_index "api_accounts", ["api_id"], name: "index_api_accounts_on_api_id", using: :btree
