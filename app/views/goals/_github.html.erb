@@ -1,5 +1,5 @@
 <%= form_for @goal, :html => {:id => "Github", :class => "form-horizontal"} do |g| %>
-  <div class="form-group">
+  <div class="form-group" style="margin-top: 1%;">
 
     <%= g.label :name, "Name", class: "col-sm-2 control-label" %>
     <div class="col-sm-10" style="padding-bottom: 1%;">
@@ -10,16 +10,6 @@
     <div class="col-sm-10" style="padding-bottom: 1%;">
       <%= g.text_field :description, class: "form-control", placeholder: "Goal Description"   %>
     </div>
-
-
-<!-- <option value="" disabled="disabled" selected="selected">Please Select An Account</option>
-
-<%= options_for_select([['Madrid', 2, {'data-size' => '3.2 million'}]], 2) %>
-output: 
-<option value="2" selected="selected" data-size="3.2 million">Madrid</option>
- -->
-
-
 
     <%= g.label :target, "Target Goal", class: "col-sm-2 control-label" %>
     <div class="col-sm-10" style="padding-bottom: 1%;">
@@ -38,7 +28,8 @@ output:
 
     <%= g.label :start_date, "Start Date", class: "col-sm-2 control-label" %>
     <div class="col-sm-10" style="padding-bottom: 5%;">
-      <%= g.date_field :start_date, class: "form-control" %>
+      <%= g.date_field :start_date, class: "form-control", placeholder: "Pick A Start Date" %>
+      <!-- class: datepicker -->
     </div>
 
     <%= g.hidden_field :api_account_id, :value => 1 %>
@@ -50,4 +41,8 @@ output:
   </div>
 <% end %>
 
+
+<!-- <script>
+  $('.datepicker').datepicker();
+</script> -->
 
