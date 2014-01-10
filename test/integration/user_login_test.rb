@@ -24,9 +24,7 @@ class UserLoginTest < Capybara::Rails::TestCase
     @api_account2 = ApiAccount.create(user_id: @user.id, api_id: api2.id)
     @api_account3 = ApiAccount.create(user_id: @user.id, api_id: api3.id)
     @api_account4 = ApiAccount.create(user_id: @user.id+1, api_id: api3.id+1)
-
     visit root_path
-    click_link "Log In"
   end
 
   test "user logs in and see's the expected items" do
@@ -56,7 +54,6 @@ class UserLoginTest < Capybara::Rails::TestCase
        Api.find(@api_account2.api_id),
        Api.find(@api_account3.api_id)
      ]
-
     @apis.each do |api|
       assert page.has_content?(api.provider), "Page is missing content #{api.provider}"
     end

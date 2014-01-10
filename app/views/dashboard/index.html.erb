@@ -2,8 +2,10 @@
   <br>
   <p>API Accounts:</p>
   <% @api_accounts.each do |api_account| %>
-    Api account <%= link_to api_account.api_username, api_account_path(api_account), id: "api_account_#{api_account.id}"%>
-    <br>
+      Provider: <%= api_account.api.provider %>
+      <br >
+      Api Account <%= link_to api_account.api_username, api_account_path(api_account), id: "api_account_#{api_account.id}"%>
+    <hr>
   <% end %>
 
 </div>
