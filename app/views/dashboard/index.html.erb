@@ -1,8 +1,11 @@
   Profile
   <br>
+  <p>API Accounts:</p>
   <% @api_accounts.each do |api_account| %>
-    <%= api_account.api.provider %>
-    <br>
+      Provider: <%= api_account.api.provider %>
+      <br >
+      Api Account <%= link_to api_account.api_username, api_account_path(api_account), id: "api_account_#{api_account.id}"%>
+    <hr>
   <% end %>
 
 </div>
@@ -23,6 +26,7 @@
         <% end %>
       </div>
     </div>
+
     <div class="tab-pane fade" id="reminders">
       <div style="margin-left: 1%; padding-top: 1%">
         <p>Reminders:</p>
