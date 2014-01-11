@@ -50,7 +50,6 @@ class UserLoginTest < Capybara::Rails::TestCase
       click_button "Create Api account"
     end
     assert page.has_content?("Added API Account")
-    puts "last created api account #{ApiAccount.last.inspect} and the APIs #{Api.all.inspect}"
     assert page.has_content?("James API")
   end
 
