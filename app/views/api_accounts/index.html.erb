@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    <h3 class="panel-title">Connect An API Account</h3>
+  </div>
+  
+  <div class="panel-body">
+
+    <div class="col-md-3" style="margin-top: .5%">
+      <div>
+        Github
+        <%= form_for @api_account do |api| %>
+          <%= api.label :api_username %>
+          <%= api.text_field :api_username %>
+          <%= api.submit %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-6" >
+      <h4>Currently Added API Accounts:</h4>
+      <% @api_accounts.each do |api_account| %>
+        <p><%= api_account.api_username %></p>
+      <% end %>
+    </div>
+
+  </div>
+</div>
