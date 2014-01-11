@@ -1,4 +1,3 @@
-
 require "test_helper"
 
 class UserLoginTest < Capybara::Rails::TestCase
@@ -25,15 +24,32 @@ class UserLoginTest < Capybara::Rails::TestCase
     assert page.has_content?("Goals List")
   end
 
-  test "add an api account" do
+  test "add a github api account" do
     assert page.has_content?("Add An API Account")
     click_link "Add An API Account"
     assert page.has_content?("Connect An API Account")
     assert page.has_content?("Github")
-    fill_in("api_account_api_username", with: "Bobs API")
-    click_button "Create Api account"
+    assert page.has_css?("#github_form")
+    within("#github_form") do
+      fill_in("api_account_api_username", with: "Bobs API")
+      click_button "Create Api account"
+    end
     assert page.has_content?("Added API Account")
     assert page.has_content?("Bobs API")
-  end 
+  end
+
+  test "add a fitbit api account" do
+    assert page.has_content?("Add An API Account")
+    click_link "Add An API Account"
+    assert page.has_content?("Connect An API Account")
+    assert page.has_content?("Fitbit")
+    assert page.has_css?("#fitbit_form")
+    within("#fitbit_form") do
+      fill_in("api_account_api_username", with: "James API")
+      click_button "Create Api account"
+    end
+    assert page.has_content?("Added API Account")
+    assert page.has_content?("James API")
+  end
 
 end
