@@ -2,7 +2,7 @@ Apolloio::Application.routes.draw do
   root to: "landing#index"
 
   resources :goals
-  resources :api_accounts, only: :show
+  resources :api_accounts, only: [:index, :show, :create]
 
   get 'dashboard', to: 'dashboard#index'
   get 'auth/twitter/callback', to: 'sessions#create'
