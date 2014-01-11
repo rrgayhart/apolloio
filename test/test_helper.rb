@@ -8,7 +8,7 @@ require "minitest/rails"
 require "minitest/rails/capybara"
 
 # Uncomment for awesome colorful output
-require "minitest/pride"
+require "minitest/emoji"
 require 'minitest/reporters'
 MiniTest::Reporters.use!
 
