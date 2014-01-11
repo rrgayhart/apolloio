@@ -15,6 +15,13 @@ MiniTest::Reporters.use!
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   fixtures :all
+  DatabaseCleaner.strategy = :transaction
 
-  # Add more helper methods to be used by all tests here...
+  before :each do
+    DatabaseCleaner.start
+  end
+
+  after :each do
+    DatabaseCleaner.clean
+  end
 end

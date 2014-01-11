@@ -12,6 +12,8 @@ gem 'omniauth-twitter'
 gem 'pg'
 
 group :development, :test do
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
   gem 'minitest-rails', '~> 0.9.2'
   gem 'minitest-rails-capybara', '~> 0.10.0'
   gem 'launchy', '~> 2.4.2'
