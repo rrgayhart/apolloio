@@ -14,7 +14,6 @@ class UserLoginTest < Capybara::Rails::TestCase
   end
 
   test "api account show page holds correct data for github accounts" do
-    skip
     assert page.has_css?("#api_account_#{@api_account.id}"), "Expecting link for api account"
     click_link @api_account.api_username
     assert page.has_content?("Github"), "Page shoud have content GitHub"
