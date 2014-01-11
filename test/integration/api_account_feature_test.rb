@@ -6,6 +6,7 @@ class UserLoginTest < Capybara::Rails::TestCase
     @user = User.from_omniauth(@auth)
     goal = Goal.create(user_id: @user.id, name:"Goal")
     @api1 = Api.create(provider: 'Github')
+    @api2 = Api.create(provider: 'Fitbit')
     @api_account = FactoryGirl.create(:api_account, user: @user, api: @api1)
 
     visit root_path
@@ -49,6 +50,7 @@ class UserLoginTest < Capybara::Rails::TestCase
       click_button "Create Api account"
     end
     assert page.has_content?("Added API Account")
+    puts "last created api account #{ApiAccount.last.inspect} and the APIs #{Api.all.inspect}"
     assert page.has_content?("James API")
   end
 

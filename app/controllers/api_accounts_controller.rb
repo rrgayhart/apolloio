@@ -3,6 +3,8 @@ class ApiAccountsController < ApplicationController
   def index
     @api_account = ApiAccount.new
     @api_accounts = current_user.api_accounts
+    @github_api_id = Api.find_by(provider: "Github").id
+    @fitbit_api_id = Api.find_by(provider: "Fitbit").id
   end
 
   def create
