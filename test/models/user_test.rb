@@ -13,7 +13,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   def test_from_omniauth_creates_user
-    user = User.create! do |u|
+    user = User.create do |u|
       u.name     = "Adam"
       u.uid      = "1234567890"
       u.provider = "twitter"
