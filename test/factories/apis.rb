@@ -2,6 +2,14 @@
 
 FactoryGirl.define do
   factory :api do
-    provider "MyString"
+    provider "github"
+  end
+
+  factory :fitbit_api, class: Api do
+    provider "fitbit"
+  end
+
+  factory :exercism_api, class: Api do
+    provider "exercism"
   end
 end

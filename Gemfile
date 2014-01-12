@@ -10,6 +10,9 @@ gem 'jbuilder', '~> 1.2'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'pg'
+#Parsing JSON and making HTTP Requests
+gem 'faraday'
+gem 'json'
 
 group :development, :test do
   gem 'selenium-webdriver'
