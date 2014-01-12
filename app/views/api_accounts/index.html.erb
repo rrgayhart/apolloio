@@ -29,13 +29,14 @@
       </div>
     </div>
 
-
-    <div class="col-md-6" >
-      <h4>Currently Added API Accounts:</h4>
-      <% @api_accounts.each do |api_account| %>
-        <p><%= api_account.api_username %> - <%= api_account.api.provider %></p>
-      <% end %>
-    </div>
-
+    <% if @api_accounts.count > 0 %>
+      <div class="col-md-6" >
+        <h4>Currently Added API Accounts:</h4>
+        <% @api_accounts.each do |api_account| %>
+          <p><%= api_account.api_username %> - <%= api_account.api.provider %></p>
+        <% end %>
+      </div>
+    <% end %>
+    
   </div>
 </div>

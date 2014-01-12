@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Api.create(:provider => 'Github')
+Api.create(:provider => 'Fitbit')
+Api.create(:provider => 'Exercism')
