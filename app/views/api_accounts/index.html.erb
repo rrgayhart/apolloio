@@ -14,7 +14,7 @@
           <%= api.label :api_username %>
           <%= api.text_field :api_username %>
           <%= api.hidden_field :api_id, :value => @github_api_id %>
-          <%= api.submit %>
+          <%= api.submit "Link My Account" %>
         <% end %>
       </div>
 
@@ -24,7 +24,7 @@
           <%= api.label :api_username %>
           <%= api.text_field :api_username %>
           <%= api.hidden_field :api_id, :value => @fitbit_api_id %>
-          <%= api.submit %>
+          <%= api.submit "Link My Account" %>
         <% end %>
       </div>
     </div>
@@ -33,10 +33,11 @@
       <div class="col-md-6" >
         <h4>Currently Added API Accounts:</h4>
         <% @api_accounts.each do |api_account| %>
-          <p><%= api_account.api_username %> - <%= api_account.api.provider %></p>
+          <h3><%= api_account.api.provider %></h3>
+          <h4><%= link_to api_account.api_username, api_account_path(api_account) %></h4>
         <% end %>
       </div>
     <% end %>
-    
+
   </div>
 </div>

@@ -32,11 +32,14 @@ class UserLoginTest < Capybara::Rails::TestCase
     assert page.has_content?("Github")
     assert page.has_css?("#github_form")
     within("#github_form") do
-      fill_in("api_account_api_username", with: "Bobs API")
-      click_button "Create Api account"
+      fill_in("api_account_api_username", with: "jcasimir")
+      click_button "Link My Account"
     end
     assert page.has_content?("Added API Account")
-    assert page.has_content?("Bobs API")
+    assert page.has_content?("jcasimir")
+    #Testing the show page
+    click_link "jcasimir"
+    assert page.has_content?("Languages")
   end
 
   test "add a fitbit api account" do
@@ -47,7 +50,7 @@ class UserLoginTest < Capybara::Rails::TestCase
     assert page.has_css?("#fitbit_form")
     within("#fitbit_form") do
       fill_in("api_account_api_username", with: "James API")
-      click_button "Create Api account"
+      click_button "Link My Account"
     end
     assert page.has_content?("Added API Account")
     assert page.has_content?("James API")

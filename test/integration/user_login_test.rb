@@ -20,10 +20,10 @@ class UserLoginTest < Capybara::Rails::TestCase
     api2 = Api.create(provider: 'twitter')
     api3 = Api.create(provider: 'exercism')
 
-    @api_account1 = ApiAccount.create(user_id: @user.id, api_id: api1.id)
-    @api_account2 = ApiAccount.create(user_id: @user.id, api_id: api2.id)
-    @api_account3 = ApiAccount.create(user_id: @user.id, api_id: api3.id)
-    @api_account4 = ApiAccount.create(user_id: @user.id+1, api_id: api3.id+1)
+    @api_account1 = ApiAccount.create(user_id: @user.id, api_id: api1.id, api_username: "john")
+    @api_account2 = ApiAccount.create(user_id: @user.id, api_id: api2.id, api_username: "steven")
+    @api_account3 = ApiAccount.create(user_id: @user.id, api_id: api3.id, api_username: "james")
+    @api_account4 = ApiAccount.create(user_id: @user.id+1, api_id: api3.id+1, api_username: "beth")
     visit root_path
   end
 
