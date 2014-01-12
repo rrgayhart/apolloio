@@ -5,8 +5,9 @@ class UserLoginTest < Capybara::Rails::TestCase
     @auth = OmniAuth.config.mock_auth[:twitter]
     @user = User.from_omniauth(@auth)
     goal = Goal.create(user_id: @user.id, name:"Goal")
-    @api1 = Api.create(provider: 'Github')
-    @api2 = Api.create(provider: 'Fitbit')
+    @api1 = Api.create(provider: 'Github', image_url: "githublogo.png")
+    @api2 = Api.create(provider: 'Fitbit', image_url: "fitbitlogo.png")
+    @api3 = Api.create(provider: 'Exercism', image_url: "exercismlogo.png")
     @api_account = FactoryGirl.create(:api_account, user: @user, api: @api1)
 
     visit root_path
@@ -37,9 +38,11 @@ class UserLoginTest < Capybara::Rails::TestCase
     end
     assert page.has_content?("Added API Account")
     assert page.has_content?("jcasimir")
+    #Testing logo for api
+    assert page.has_css?('#github-logo'), "Page is missing '#logo' element"
     #Testing the show page
     click_link "jcasimir"
-    assert page.has_content?("Languages")
+    assert page.has_content?("Streak")
   end
 
   test "add a fitbit api account" do
@@ -49,11 +52,35 @@ class UserLoginTest < Capybara::Rails::TestCase
     assert page.has_content?("Fitbit")
     assert page.has_css?("#fitbit_form")
     within("#fitbit_form") do
-      fill_in("api_account_api_username", with: "James API")
+      fill_in("api_account_api_username", with: "jamesaccount")
       click_button "Link My Account"
     end
     assert page.has_content?("Added API Account")
-    assert page.has_content?("James API")
+    assert page.has_content?("jamesaccount")
+    #Testing logo for api
+    assert page.has_css?('#fitbit-logo'), "Page is missing '#logo' element"
+    #Testing the show page
+    click_link "jamesaccount"
+    assert page.has_content?("Streak")
+  end
+
+  test "add an exercism api account" do
+    assert page.has_content?("Add An API Account")
+    click_link "Add An API Account"
+    assert page.has_content?("Connect An API Account")
+    assert page.has_content?("Exercism.io")
+    assert page.has_css?("#exercism_form")
+    within("#exercism_form") do
+      fill_in("api_account_api_username", with: "markaccount")
+      click_button "Link My Account"
+    end
+    assert page.has_content?("Added API Account")
+    assert page.has_content?("markaccount")
+        #Testing logo for api
+    assert page.has_css?('#exercism-logo'), "Page is missing '#logo' element"
+    #Testing the show page
+    click_link "markaccount"
+    assert page.has_content?("Streak")
   end
 
 end

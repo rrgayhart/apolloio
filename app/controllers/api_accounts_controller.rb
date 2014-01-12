@@ -5,6 +5,7 @@ class ApiAccountsController < ApplicationController
     @api_accounts = current_user.api_accounts
     @github_api_id = Api.find_by(provider: "Github").id
     @fitbit_api_id = Api.find_by(provider: "Fitbit").id
+    @exercism_api_id = Api.find_by(provider: "Exercism").id
   end
 
   def create
