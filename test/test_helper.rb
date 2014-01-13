@@ -9,8 +9,8 @@ require "minitest/rails/capybara"
 
 # Uncomment for awesome colorful output
 require "minitest/emoji"
-require 'minitest/reporters'
-MiniTest::Reporters.use!
+# require 'minitest/reporters'
+# MiniTest::Reporters.use!
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
