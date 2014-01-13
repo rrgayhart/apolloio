@@ -22,10 +22,8 @@ group :development, :test do
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'guard', '~> 2.2.5'
   gem 'guard-minitest', '~> 2.1.3'
-  gem "factory_girl_rails", "~> 4.0"
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'simplecov', :require => false
-  gem "minitest-reporters", '>= 0.5.0'
-  gem 'minitest-emoji', '~>1.0.0'
 end
 
 group :doc do
