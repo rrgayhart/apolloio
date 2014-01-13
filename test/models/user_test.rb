@@ -21,7 +21,7 @@ class UserTest < ActiveSupport::TestCase
 
     assert_equal user, User.from_omniauth(omniauth_hash)
   end
-
+   
   def test_from_omniauth_finds_user_that_exists
     user = User.from_omniauth(omniauth_hash)
 
