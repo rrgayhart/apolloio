@@ -10,7 +10,7 @@ require "capybara/rails"
 require "minitest/rails/capybara"
 
 # Uncomment for awesome colorful output
-require "minitest/emoji"
+require "minitest/pride"
 
 class ActiveSupport::TestCase
   self.use_transactional_fixtures = false
