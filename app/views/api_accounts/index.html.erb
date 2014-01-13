@@ -6,49 +6,71 @@
   
   <div class="panel-body">
 
-    <div class="col-md-3" style="margin-top: .5%">
-
-      <div id="github_form">
-        Github
-        <%= form_for @api_account do |api| %>
-          <%= api.label :api_username %>
-          <%= api.text_field :api_username %>
-          <%= api.hidden_field :api_id, :value => @github_api_id %>
-          <%= api.submit "Link My Account" %>
-        <% end %>
-      </div>
-
-      <div id="fitbit_form">
-        Fitbit
-        <%= form_for @api_account do |api| %>
-          <%= api.label :api_username %>
-          <%= api.text_field :api_username %>
-          <%= api.hidden_field :api_id, :value => @fitbit_api_id %>
-          <%= api.submit "Link My Account" %>
-        <% end %>
-      </div>
-
-      <div id="exercism_form">
-        Exercism.io
-        <%= form_for @api_account do |api| %>
-          <%= api.label :api_username %>
-          <%= api.text_field :api_username %>
-          <%= api.hidden_field :api_id, :value => @exercism_api_id %>
-          <%= api.submit "Link My Account" %>
-        <% end %>
+    <div class="row center-block" style="margin-top: .5%; margin-left: .5%;">
+      <div id="github">
+        <div id="github-image">
+          <%= image_tag("githublogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;") %>
+        </div>
+        <h1>Github</h1>
+        <br />
+        <div id="github_form">
+          <%= form_for @api_account do |api| %>
+            <%= api.text_field :api_username, placeholder: "Github Username" %>
+            <%= api.hidden_field :api_id, :value => @github_api_id %>
+            <%= api.submit "Link My Account" %>
+          <% end %>
+        </div>
+        <div style="margin-left: 21%;">
+          <% @api_accounts.each do |api_account| %>
+            <li><%= api_account.api_username %></li>
+          <% end %>
+        </div>
       </div>
     </div>
 
-    <% if @api_accounts.count > 0 %>
-      <div class="col-md-6" >
-        <h4>Currently Added API Accounts:</h4>
-        <% @api_accounts.each do |api_account| %>
-          <%= image_tag "small-#{api_account.api.image_url}", id: "#{api_account.api.provider.downcase}-logo"%>
-          <h3><%= api_account.api.provider %></h3>
-          <h4><%= link_to api_account.api_username, api_account_path(api_account) %></h4>
-        <% end %>
+    <div class="row" style="margin-top: .5%; margin-left: .5%;">
+      <div id="fitbit">
+        <div id="fitbit-image">
+          <%= image_tag("fitbitlogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;") %>
+        </div>
+        <h1>Fitbit</h1>
+        <br />
+        <div id="fitbit_form">
+          <%= form_for @api_account do |api| %>
+            <%= api.text_field :api_username, placeholder: "Fitbit Username" %>
+            <%= api.hidden_field :api_id, :value => @_api_id %>
+            <%= api.submit "Link My Account" %>
+          <% end %>
+        </div>
+        <div style="margin-left: 21%;">
+          <% @api_accounts.each do |api_account| %>
+            <li><%= api_account.api_username %></li>
+          <% end %>
+        </div>
       </div>
-    <% end %>
+    </div>
+
+    <div class="row" style="margin-top: .5%; margin-left: .5%;">
+      <div id="exercism">
+        <div id="exercism-image">
+          <%= image_tag("exercismlogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;") %>
+        </div>
+        <h1>Exercism</h1>
+        <br />
+        <div id="exercism_form">
+          <%= form_for @api_account do |api| %>
+            <%= api.text_field :api_username, placeholder: "Exercism Username" %>
+            <%= api.hidden_field :api_id, :value => @_api_id %>
+            <%= api.submit "Link My Account" %>
+          <% end %>
+        </div>
+        <div style="margin-left: 21%;">
+          <% @api_accounts.each do |api_account| %>
+            <li><%= api_account.api_username %></li>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
   </div>
 </div>
