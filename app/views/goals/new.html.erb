@@ -4,36 +4,40 @@
     <h3 class="panel-title">Create A New Goal</h3>
   </div>
   
-  <div class="panel-body">
+  <div class="panel-body center-block">
+    <div class="text-center">
 
-    <div class="col-md-10 " style="margin-top: .5%">
-      <div class="api_selection">
-        <select id="api_selection" name="api_selection">
-          <option value="" disabled="disabled" selected="selected">Please Select An Account</option>
-          <option value="Github">Github</option>
-          <option value="Fitbit">Fitbit</option>
-          <option value="Exercism">Exercism</option>
-        </select>
+      <div style="margin-top: .5%">
+        <div class="api_selection">
+          <select id="api_selection" name="api_selection">
+            <option value="" disabled="disabled" selected="selected">Please Select An Account</option>
+            <option value="Github">Github</option>
+            <option value="Fitbit">Fitbit</option>
+            <option value="Exercism">Exercism</option>
+          </select>
+        </div>
+        <br />
+        <p>
+          paragraph or few sentences describing what adding a goal is and what it can do etc
+        </p>
+        <hr>
       </div>
-      <br />
-      <p>
-        paragraph or few sentences describing what adding a goal is and what it can do etc
-      </p>
+
+      <div class="col-md-12" style="padding-right: 8%;">
+        <div id="github_form" style="display: none;" class="forms">
+          <%= render partial: "goals/github" %>
+        </div>
+        <div id="fitbit_form" style="display: none;" class="forms">
+          <%= render partial: "goals/fitbit" %>
+        </div>
+        <div id="exercism_form" style="display: none;" class="forms">
+          <%= render partial: "goals/exercism" %>
+        </div>
+      </div>
+
     </div>
-
-    <div class="col-md-9">
-      <div id="github_form" style="display: none;" class="forms">
-        <%= render partial: "goals/github" %>
-      </div>
-      <div id="fitbit_form" style="display: none;" class="forms">
-        <%= render partial: "goals/fitbit" %>
-      </div>
-      <div id="exercism_form" style="display: none;" class="forms">
-        <%= render partial: "goals/exercism" %>
-      </div>
-    </div>
-
   </div>
+
 </div>
 
 <script>
