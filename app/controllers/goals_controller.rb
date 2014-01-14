@@ -2,6 +2,13 @@ class GoalsController < ApplicationController
 
   def new
     @goal = Goal.new
+    @github_account = Api.find_by(provider: 'Github')
+    @fitbit_account = Api.find_by(provider: 'Fitbit')
+    @exercism_account = Api.find_by(provider: 'Exercism')
+  end
+
+  def show
+    @goal = Goal.find(params['id'])
   end
 
   def create
@@ -18,7 +25,7 @@ class GoalsController < ApplicationController
 private
 
   def goal_params
-    params.require(:goal).permit(:name, :description, :api_account_id, :target, :period, :period_type, :start_date)
+    params.require(:goal).permit(:pledge, :api_account_id, :target, :period, :period_type, :start_date)
   end
 
 end

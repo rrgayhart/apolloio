@@ -4,10 +4,10 @@ class UserLoginTest < Capybara::Rails::TestCase
   setup do
     @auth = OmniAuth.config.mock_auth[:twitter]
     @user = User.from_omniauth(@auth)
-    goal1 = Goal.create(user_id: @user.id, name:"Goal1")
-    goal2 = Goal.create(user_id: @user.id, name:"Goal2")
-    goal3 = Goal.create(user_id: @user.id, name:"Goal3")
-    goal4 = Goal.create(user_id: @user.id+2, name:"Goal4")
+    goal1 = Goal.create(user_id: @user.id, pledge:"Goal1")
+    goal2 = Goal.create(user_id: @user.id, pledge:"Goal2")
+    goal3 = Goal.create(user_id: @user.id, pledge:"Goal3")
+    goal4 = Goal.create(user_id: @user.id+2, pledge:"Goal4")
     @goals = [goal1, goal2, goal3]
 
     reminder1 = Reminder.create(goal_id: goal1.id, user_id: @user.id, target: 403)
@@ -40,7 +40,7 @@ class UserLoginTest < Capybara::Rails::TestCase
     refute page.has_content?("Add API Account"), "Page is missing 'Add API Account'"
 
     @goals.each do |goal|
-      assert page.has_content?(goal.name), "Page is missing content #{goal.name}"
+      assert page.has_content?(goal.pledge), "Page is missing content #{goal.pledge}"
     end
     refute page.has_content?("Goal4"), "Page is not supposed to display 'Goal4'"
 

@@ -1,15 +1,7 @@
+<p>Pledge: <span id='github-pledge-display'>Pledge: <span id='github-pledge'>My goal is to reach <span id='github-target'>_</span> <span id='github-target-type'>commit</span> every <span id='github-period'>_</span> <span id='github-period-type'>_</span></span></span>
+
 <%= form_for @goal, :html => {:id => "Github", :class => "form-horizontal"} do |g| %>
   <div class="form-group" style="margin-top: 1%;">
-
-    <%= g.label :name, "Name", class: "col-sm-2 control-label" %>
-    <div class="col-sm-10" style="padding-bottom: 1%;">
-      <%= g.text_field :name, class: "form-control", placeholder: "Goal Name" %>
-    </div>
-
-    <%= g.label :description, "Description", class: "col-sm-2 control-label"  %>
-    <div class="col-sm-10" style="padding-bottom: 1%;">
-      <%= g.text_field :description, class: "form-control", placeholder: "Goal Description"   %>
-    </div>
 
     <%= g.label :target, "Target Goal", class: "col-sm-2 control-label" %>
     <div class="col-sm-10" style="padding-bottom: 1%;">
@@ -23,7 +15,7 @@
 
     <%= g.label :period_type, "Period Type", class: "col-sm-2 control-label" %>
     <div class="col-sm-10" style="padding-bottom: 1%;">
-      <%= g.select(:period_type, [['Select How Often You Want To Hit The Goal', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"Daily", "Weekly", "Monthly"], {}, { :class => 'form-control col-sm-2 control-label'}) %>
+      <%= g.select(:period_type, [['Select How Often You Want To Hit The Goal', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"days", "weeks", "months"], {}, { :class => 'form-control col-sm-2 control-label'}) %>
     </div>
 
     <%= g.label :start_date, "Start Date", class: "col-sm-2 control-label" %>
@@ -32,17 +24,55 @@
       <!-- class: datepicker -->
     </div>
 
-    <%= g.hidden_field :api_account_id, :value => 1 %>
+    <%= g.hidden_field :api_account_id, :value => @github_account.id %>
+    <%= g.hidden_field :pledge %>
+
     <div class="col-sm-2 control-label"></div>
-      <div class="col-sm-10">
-        <%= g.submit "Submit Goal", class: "form-control" %>
+    <div class="col-sm-10">
+      <%= g.submit "Submit Goal", class: "form-control" %>
     </div>
 
   </div>
 <% end %>
 
+<script type="text/javascript">
+  $(document).ready(function(){
 
-<!-- <script>
-  $('.datepicker').datepicker();
-</script> -->
+      //change target
+      $('#goal_target').change(function(event){
+        event.preventDefault();
+        $('#github-target').text(this.value)
+        });
+
+      //change target-type
+      $('#target-type-input').change(function(event){
+        event.preventDefault();
+        var target_type = $('#github-target-type-input').find(':selected').text();
+        $('#github-target-type').text(target_type);
+        });
+
+      //change target-input
+      $('#goal_period').change(function(event){
+        event.preventDefault();
+        $('#github-period').text(this.value)
+        });
+
+      //change target-type-input
+      $('#goal_period_type').change(function(event){
+          event.preventDefault();
+          var target_type = $('#goal_period_type').find(':selected').text();
+          $('#github-period-type').text(target_type);
+          });
+
+      $('#goal_target, #goal_target_type, #goal_period, #goal_period_type').change(function(event){
+
+          event.preventDefault();
+          var pledge = $('#github-pledge-display').text();
+          $('#goal_pledge').val(pledge);
+          var a = $('#goal_pledge');
+          console.log(a);
+          });
+
+  });
+</script>
 

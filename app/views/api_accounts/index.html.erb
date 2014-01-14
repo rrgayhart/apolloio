@@ -9,7 +9,7 @@
     <div class="row center-block" style="margin-left: .5%;">
       <div id="github">
         <div id="github-image">
-          <%= image_tag("githublogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;") %>
+          <%= image_tag("githublogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;", id: "github-logo" ) %>
         </div>
         <h1>Github</h1>
         <br />
@@ -21,8 +21,8 @@
           <% end %>
         </div>
         <div style="margin-left: 21%;">
-          <% @api_accounts.each do |api_account| %>
-            <li><%= api_account.api_username %></li>
+          <% @github_accounts.each do |github_account| %>
+            <li><%= github_account.api_username %></li>
           <% end %>
         </div>
       </div>
@@ -31,20 +31,20 @@
     <div class="row" style="margin-left: .5%;">
       <div id="fitbit">
         <div id="fitbit-image">
-          <%= image_tag("fitbitlogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;") %>
+          <%= image_tag("fitbitlogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;", id: "fitbit-logo") %>
         </div>
         <h1>Fitbit</h1>
         <br />
         <div id="fitbit_form">
           <%= form_for @api_account do |api| %>
             <%= api.text_field :api_username, placeholder: "Fitbit Username" %>
-            <%= api.hidden_field :api_id, :value => @_api_id %>
+            <%= api.hidden_field :api_id, :value => @fitbit_api_id %>
             <%= api.submit "Link My Account" %>
           <% end %>
         </div>
         <div style="margin-left: 21%;">
-          <% @api_accounts.each do |api_account| %>
-            <li><%= api_account.api_username %></li>
+          <% @fitbit_accounts.each do |fitbit_account| %>
+            <li><%= fitbit_account.api_username %></li>
           <% end %>
         </div>
       </div>
@@ -53,20 +53,20 @@
     <div class="row" style="margin-left: .5%; margin-bottom: 10%;">
       <div id="exercism">
         <div id="exercism-image">
-          <%= image_tag("exercismlogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;") %>
+          <%= image_tag("exercismlogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;", id: "exercism-logo") %>
         </div>
         <h1>Exercism</h1>
         <br />
         <div id="exercism_form">
           <%= form_for @api_account do |api| %>
             <%= api.text_field :api_username, placeholder: "Exercism Username" %>
-            <%= api.hidden_field :api_id, :value => @_api_id %>
+            <%= api.hidden_field :api_id, :value => @exercism_api_id %>
             <%= api.submit "Link My Account" %>
           <% end %>
         </div>
         <div style="margin-left: 21%;">
-          <% @api_accounts.each do |api_account| %>
-            <li><%= api_account.api_username %></li>
+          <% @exercism_accounts.each do |exercism_account| %>
+            <li><%= exercism_account.api_username %></li>
           <% end %>
         </div>
       </div>

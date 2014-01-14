@@ -14,14 +14,12 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
     click_link 'Add Goal'
     assert page.has_content?('Create A New Goal')
     select('Github', :from => 'api_selection')
-    fill_in 'Name', :with => 'Goal #1'
-    fill_in 'Description', :with => 'Goal #1'
     select('1', :from => 'Target Goal')
     select('1', :from => 'Period')
-    select('Daily', :from => 'Period Type')
+    select('days', :from => 'Period Type')
     fill_in "Start Date", :with => "01/09/2014"
     click_button "Submit Goal"
-    assert page.has_content?('Goal #1')
+    assert page.has_content?('Pledge: My goal is to reach 1 commit every 1 days')
   end
 
 end
