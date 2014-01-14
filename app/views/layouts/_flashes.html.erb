@@ -6,12 +6,12 @@
   <% flash[:notice]=nil %>
 <% end %>
 
-<% if flash[:added_api] %>
+<% if flash[:success] %>
   <div class="col-md-1.1 pull-left alert alert-success alert-dismissable" style="margin-top: 1%; margin-right: 1%;">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <%= flash[:added_api] %>
+    <%= flash[:success] %>
   </div>
-  <% flash[:added_api]=nil %>
+  <% flash[:success]=nil %>
 <% end %>
 
 <% if flash[:no_apis] %>

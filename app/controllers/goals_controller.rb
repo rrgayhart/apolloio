@@ -1,21 +1,21 @@
 class GoalsController < ApplicationController
 
   def new
-    @goal = Goal.new
-    @github_account = Api.find_by(provider: 'Github')
-    @fitbit_account = Api.find_by(provider: 'Fitbit')
+    @goal             = Goal.new
+    @github_account   = Api.find_by(provider: 'Github')
+    @fitbit_account   = Api.find_by(provider: 'Fitbit')
     @exercism_account = Api.find_by(provider: 'Exercism')
   end
 
   def show
-    @goal = Goal.find(params['id'])
+    @goal      = Goal.find(params['id'])
     @reminders = Reminder.new
   end
 
   def create
-    new_params = goal_params
+    new_params           = goal_params
     new_params[:user_id] = current_user.id
-    @goal = Goal.create(new_params)
+    @goal                = Goal.create(new_params)
     if @goal.save
       redirect_to dashboard_path
     else

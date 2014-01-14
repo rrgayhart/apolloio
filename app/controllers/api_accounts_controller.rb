@@ -1,21 +1,21 @@
 class ApiAccountsController < ApplicationController
 
   def index
-    @api_account = ApiAccount.new
-    @api_accounts = current_user.api_accounts
-    @github_accounts = @api_accounts.where(api_id: Api.find_by(provider: "Github").id)
-    @fitbit_accounts = @api_accounts.where(api_id: Api.find_by(provider: "Fitbit").id)
+    @api_account       = ApiAccount.new
+    @api_accounts      = current_user.api_accounts
+    @github_accounts   = @api_accounts.where(api_id: Api.find_by(provider: "Github").id)
+    @fitbit_accounts   = @api_accounts.where(api_id: Api.find_by(provider: "Fitbit").id)
     @exercism_accounts = @api_accounts.where(api_id: Api.find_by(provider: "Exercism").id)
-    @github_api_id = Api.find_by(provider: "Github").id
-    @fitbit_api_id = Api.find_by(provider: "Fitbit").id
-    @exercism_api_id = Api.find_by(provider: "Exercism").id
+    @github_api_id     = Api.find_by(provider: "Github").id
+    @fitbit_api_id     = Api.find_by(provider: "Fitbit").id
+    @exercism_api_id   = Api.find_by(provider: "Exercism").id
   end
 
   def create
-    api_account_data = api_account_params
+    api_account_data           = api_account_params
     api_account_data[:user_id] = current_user.id
     ApiAccount.create(api_account_data)
-    flash[:added_api] = "Added API Account"
+    flash[:success]          = "Added API Account"
     redirect_to :back
   end
 

@@ -1,3 +1,4 @@
+<h1><%= @goal.pledge %></h1>
 <%= link_to @goal.api_account.api_username, api_account_path(@goal.api_account) %>
 
 <a href="#" class="reminder-button">Add Reminder</a>
@@ -25,6 +26,8 @@
 
     <%= r.label :sms %>
     <%= r.check_box :sms %>
+
+    <%= r.hidden_field :goal_id, value: @goal.id%>
 
     <%= r.submit %>
 
