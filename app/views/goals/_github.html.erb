@@ -1,4 +1,4 @@
-<p>Pledge: <span id='github-pledge-display'><span id='github-pledge'>My goal is to reach <span id='github-target'>_</span> <span id='github-target-type'>commit</span> every <span id='github-period'>_</span> <span id='github-period-type'>_</span></span></span></p>
+<p>Pledge: <span id='github-pledge-display'>Pledge: <span id='github-pledge'>My goal is to reach <span id='github-target'>_</span> <span id='github-target-type'>commit</span> every <span id='github-period'>_</span> <span id='github-period-type'>_</span></span></span>
 
 <%= form_for @goal, :html => {:id => "Github", :class => "form-horizontal"} do |g| %>
   <div class="form-group" style="margin-top: 1%;">
@@ -24,7 +24,7 @@
       <!-- class: datepicker -->
     </div>
 
-    <%= g.hidden_field :api_account_id, :value => 1 %>
+    <%= g.hidden_field :api_account_id, :value => @github_account.id %>
     <%= g.hidden_field :pledge %>
 
     <div class="col-sm-2 control-label"></div>
