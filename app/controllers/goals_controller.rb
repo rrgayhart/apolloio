@@ -2,6 +2,13 @@ class GoalsController < ApplicationController
 
   def new
     @goal = Goal.new
+    @github_account = Api.find_by(provider: 'Github')
+    @fitbit_account = Api.find_by(provider: 'Fitbit')
+    @exercism_account = Api.find_by(provider: 'Exercism')
+  end
+
+  def show
+    @goal = Goal.find(params['id'])
   end
 
   def create

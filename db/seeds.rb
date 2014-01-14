@@ -5,7 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Api.destroy_all
 Api.create(:provider => 'Github', image_url: "githublogo.png")
 Api.create(:provider => 'Fitbit', image_url: "fitbitlogo.png")
 Api.create(:provider => 'Exercism', image_url: "exercismlogo.png")
