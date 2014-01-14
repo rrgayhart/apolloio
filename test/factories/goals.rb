@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :goal do
-    user_id nil
+    user 
     target 1
     period 1
     period_type "MyString"

@@ -1,1 +1,41 @@
 <%= link_to @goal.api_account.api_username, api_account_path(@goal.api_account) %>
+
+<a href="#" class="reminder-button">Add Reminder</a>
+
+<div class="reminders-form" hidden="true">
+  <%= form_for @reminders do |r| %>
+
+    <%= r.label :start_date %>
+    <%= r.date_field :start_date %>
+
+    <%= r.label :target %>
+    <%= r.number_field :target %>
+
+    <%= r.label :time_deadline %>
+    <%= r.text_field :time_deadline %>
+
+    <%= r.label :day_deadline %>
+    <%= r.number_field :day_deadline %>
+
+    <%= r.label :twitter %>
+    <%= r.check_box :twitter %>
+
+    <%= r.label :email %>
+    <%= r.check_box :email %>
+
+    <%= r.label :sms %>
+    <%= r.check_box :sms %>
+
+    <%= r.submit %>
+
+  <% end %>
+</div>
+
+<script>
+$(".reminder-button").click(function(event) {
+  event.preventDefault();
+  $(".reminders-form").toggle();
+});
+
+
+</script>

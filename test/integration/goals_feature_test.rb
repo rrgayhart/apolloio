@@ -7,15 +7,19 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
     @auth = OmniAuth.config.mock_auth[:twitter]
     @user = User.from_omniauth(@auth)    
 
-    FactoryGirl.create(:api, :github)
-    FactoryGirl.create(:api, :fitbit)
-    FactoryGirl.create(:api, :exercism)
+    api1 = FactoryGirl.create(:api, :github)
+    api2 = FactoryGirl.create(:api, :fitbit)
+    api3 = FactoryGirl.create(:api, :exercism)
+
+    FactoryGirl.create(:goal, user: @user)
+    FactoryGirl.create(:api_account, api: api1)
+    # FactoryGirl.create(:goal, user: @user)
 
     visit root_path
     click_link 'Log In'
   end
 
-  test 'typical_goal_thing' do
+  test 'a goal and reminder can be added' do
     click_link 'Add Goal'
     assert page.has_content?('Create A New Goal')
     select('Github', :from => 'api_selection')
@@ -25,6 +29,11 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
     fill_in "Start Date", :with => "01/09/2014"
     click_button "Submit Goal"
     assert page.has_content?('Pledge: My goal is to reach 1 commit every 1 days')
+    click_link 'My goal is to reach 1 commit every 1 days'
+    refute page.has_content?("Target")
+    assert page.has_content?("Add Reminder")
+    click_link "Add Reminder"
+    assert page.has_content?("Target")
   end
 
 end

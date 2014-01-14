@@ -14,6 +14,6 @@ ApiAccount.create(user_id: 1, api_id: 2, api_username: "Q")
 
 Goal.create(user_id: 1, target: 5, period: 10, period_type: "weekly", pledge: "yeah", api_account_id: 1)
 
-Reminder.create(user_id: 1, goal_id: 1, target: 4, deadline: 1400, twitter: true)
+Reminder.create(user_id: 1, goal_id: 1, target: 4, time_deadline: 1400, day_deadline: 4, twitter: true)
 
 

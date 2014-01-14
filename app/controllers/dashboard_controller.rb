@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
     @api_accounts = current_user.api_accounts
   end
 
-  private
+private
 
   def require_api_account
     unless current_user.has_api_account?

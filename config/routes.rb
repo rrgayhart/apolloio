@@ -1,6 +1,7 @@
 Apolloio::Application.routes.draw do
   root to: "landing#index"
 
+  resources :reminders
   resources :goals
   resources :api_accounts, only: [:index, :show, :create]
 

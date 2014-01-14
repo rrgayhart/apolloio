@@ -3,8 +3,7 @@
 FactoryGirl.define do
   factory :api do
     provider {"api"}
-
-
+    
     trait :github do
       provider "Github"
     end
