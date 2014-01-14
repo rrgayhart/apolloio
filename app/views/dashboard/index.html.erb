@@ -26,9 +26,7 @@
         <p><%= link_to "Add Goal", new_goal_path %></p>
         <p>Goals:</p>
         <% @goals.each do |goal| %>
-          Goal Name: <%= goal.name %>
-          <br />
-          Goal Description: <%= goal.description %>
+          Goal Pledge: <%= goal.pledge %>
           <br />
           <br />
         <% end %>

@@ -9,7 +9,7 @@
     <div class="row center-block" style="margin-top: .5%; margin-left: .5%;">
       <div id="github">
         <div id="github-image">
-          <%= image_tag("githublogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;") %>
+          <%= image_tag("githublogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;", id: "github-logo" ) %>
         </div>
         <h1>Github</h1>
         <br />
@@ -21,8 +21,8 @@
           <% end %>
         </div>
         <div style="margin-left: 21%;">
-          <% @api_accounts.each do |api_account| %>
-            <li><%= api_account.api_username %></li>
+          <% @github_accounts.each do |github_account| %>
+            <li><%= github_account.api_username %></li>
           <% end %>
         </div>
       </div>
@@ -31,7 +31,7 @@
     <div class="row" style="margin-top: .5%; margin-left: .5%;">
       <div id="fitbit">
         <div id="fitbit-image">
-          <%= image_tag("fitbitlogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;") %>
+          <%= image_tag("fitbitlogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;", id: "fitbit-logo") %>
         </div>
         <h1>Fitbit</h1>
         <br />
@@ -43,8 +43,8 @@
           <% end %>
         </div>
         <div style="margin-left: 21%;">
-          <% @api_accounts.each do |api_account| %>
-            <li><%= api_account.api_username %></li>
+          <% @fitbit_accounts.each do |fitbit_account| %>
+            <li><%= fitbit_account.api_username %></li>
           <% end %>
         </div>
       </div>
@@ -53,7 +53,7 @@
     <div class="row" style="margin-top: .5%; margin-left: .5%;">
       <div id="exercism">
         <div id="exercism-image">
-          <%= image_tag("exercismlogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;") %>
+          <%= image_tag("exercismlogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;", id: "exercism-logo") %>
         </div>
         <h1>Exercism</h1>
         <br />
@@ -65,8 +65,8 @@
           <% end %>
         </div>
         <div style="margin-left: 21%;">
-          <% @api_accounts.each do |api_account| %>
-            <li><%= api_account.api_username %></li>
+          <% @exercism_accounts.each do |exercism_account| %>
+            <li><%= exercism_account.api_username %></li>
           <% end %>
         </div>
       </div>
