@@ -4,9 +4,14 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
 
   setup do
     Capybara.current_driver = :selenium
-    visit root_path
     @auth = OmniAuth.config.mock_auth[:twitter]
-    @user = User.from_omniauth(@auth)
+    @user = User.from_omniauth(@auth)    
+
+    FactoryGirl.create(:api, :github)
+    FactoryGirl.create(:api, :fitbit)
+    FactoryGirl.create(:api, :exercism)
+
+    visit root_path
     click_link 'Log In'
   end
 
