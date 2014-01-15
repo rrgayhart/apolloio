@@ -11,6 +11,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'pg'
 gem 'faraday'
+gem 'best_in_place', github: 'aaronchi/best_in_place'
 
 group :development, :test do
   gem 'selenium-webdriver'
