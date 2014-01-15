@@ -25,11 +25,26 @@
       <div style="margin-left: 1%; padding-top: 1%">
         <p><%= link_to "Add Goal", new_goal_path %></p>
         <p>Goals</p>
-        <% @goals.each do |goal| %>
-          Goal Pledge: <%= link_to goal.pledge, goal_path(goal) %>
-          <br />
-          <br />
-        <% end %>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Account</th>
+              <th>Pledge</th>
+              <th>Progress</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @goals.each do |goal| %>
+              <tr>
+                <td><%= link_to goal.api_account.api_username, api_account_path(goal.api_account) %></td>
+                <td><%= link_to goal.pledge, goal_path(goal) %></td>
+                <td></td>
+                <td>ON/OFF</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
 
