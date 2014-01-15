@@ -10,11 +10,11 @@ class ApiRequest
     if stub
       @user_array = stub
     elsif provider.downcase == "github"
-      @user_array = get_array
+      @user_array = github_array
     end
   end
 
-  def get_array
+  def github_array
     url = "http://github-history.herokuapp.com/find/#{username}.json"
     response = Faraday.get(url)
     JSON.parse(response.body)
