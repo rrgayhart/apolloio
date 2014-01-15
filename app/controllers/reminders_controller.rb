@@ -1,5 +1,6 @@
 class RemindersController < ApplicationController
   respond_to :html, :json
+
   def index
     @reminders = Reminder.where(user_id: current_user)
   end
@@ -26,10 +27,18 @@ class RemindersController < ApplicationController
 
   def update
     @reminder = Reminder.find(params[:id])
-    @reminder = Reminder.update(reminder_params)
-    respond_with @reminder
+    respond_to do |format|
+      if @reminder.update(reminder_params)
+        format.html { redirect_to @reminder, notice: 'Reminder successfully updated.' }
+        format.json { respond_with_bip(@reminder) }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @reminder.errors, status: :unprocessable_entity }
+      end
+    end
   end
-private
+
+  private
 
   def reminder_params
     params.require(:reminder).permit(:goal_id, :start_date, :target, :time_deadline, :day_deadline, :twitter, :sms, :email)
