@@ -20,19 +20,18 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
 
   test 'a goal and reminder can be added' do
     click_link 'Add Goal'
-    assert page.has_content?('Create A New Goal')
+    assert page.has_css?('.create-goal-title')
     select('Github', :from => 'api_selection')
     select('1', :from => 'Target Goal')
     select('1', :from => 'Period')
     select('days', :from => 'Period Type')
-    fill_in "Start Date", :with => "01/09/2014"
     click_button "Submit Goal"
     assert page.has_content?('I am committing to reach 1 commit every 1 days')
     click_link 'I am committing to reach 1 commit every 1 days'
     refute page.has_content?("Target")
     assert page.has_content?("Add Reminder")
     click_link "Add Reminder"
-    assert page.has_content?("Target")
+    assert page.has_css?(".reminder-submit-button")
     fill_in "Start date", :with => "01/09/2014"
     fill_in "Target", :with => "2"
     fill_in "Time deadline", :with => "4:00PM"

@@ -3,7 +3,7 @@ class Goal < ActiveRecord::Base
   belongs_to :api_account
   has_many :reminders
 
-  validates_presence_of :user_id, :target, :period, :period_type, :start_date, :pledge
+  validates_presence_of :user_id, :target, :period, :period_type, :pledge
   validate :acceptable_target
   validate :acceptable_period
   validates :period_type, inclusion: { in: %w(days weeks months),

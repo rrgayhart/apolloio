@@ -32,11 +32,6 @@
         <%= g.select(:period_type, [['Select How Often You Want To Hit The Goal', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"days", "weeks", "months"], {}, { :class => 'form-control col-sm-2 control-label'}) %>
       </div>
 
-      <%= g.label :start_date, "Start Date", class: "col-sm-2 control-label" %>
-      <div class="col-sm-10" style="padding-bottom: 5%;">
-        <%= g.date_field :start_date, class: "form-control", placeholder: "Pick A Start Date" %>
-        <!-- class: datepicker -->
-      </div>
 
       <%= g.hidden_field :api_account_id, :value => @github_account.id %>
       <%= g.hidden_field :pledge %>
