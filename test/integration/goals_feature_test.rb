@@ -34,7 +34,6 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
     assert page.has_content?("Add Reminder")
     click_link "Add Reminder"
     assert page.has_content?("Target")
-
     fill_in "Start date", :with => "01/09/2014"
     fill_in "Target", :with => "2"
     fill_in "Time deadline", :with => "4:00PM"
