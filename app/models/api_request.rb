@@ -51,11 +51,11 @@ class ApiRequest
     user_hash["percentage_days_commited_known_history"] || error_message
   end
 
-  private
-
   def github_error?
     user_hash["error"]
   end
+
+private
 
   def error_message
     "#{username} is not a valid username with #{provider}"

@@ -27,6 +27,7 @@ class UserLoginTest < Capybara::Rails::TestCase
     @api_account4 = ApiAccount.create(user_id: @user.id+1, api_id: api3.id+1, api_username: "beth")
     @api_accounts = [@api_account1, @api_account2, @api_account3] 
     visit root_path
+    click_link "Log In"
   end
 
   test "user logs in and see's the expected items" do
