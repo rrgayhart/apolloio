@@ -15,10 +15,10 @@ class DashboardTest < Capybara::Rails::TestCase
     @goal4 = Goal.create(user_id: @user.id+2, pledge:"Goal4", api_account_id: @api1.id)
     @goals = [@goal1, @goal2, @goal3]
 
-    @reminder1 = Reminder.create(goal_id: @goal1.id, user_id: @user.id, target: 403)
-    @reminder2 = Reminder.create(goal_id: @goal1.id, user_id: @user.id, target: 7852)
-    @reminder3 = Reminder.create(goal_id: @goal1.id, user_id: @user.id, target: 1986)
-    @reminder4 = Reminder.create(goal_id: @goal1.id + 1, user_id: @user.id + 1, target: 55)
+    @reminder1 = Reminder.create!(goal_id: @goal1.id, user_id: @user.id, target: 403)
+    @reminder2 = Reminder.create!(goal_id: @goal1.id, user_id: @user.id, target: 7852)
+    @reminder3 = Reminder.create!(goal_id: @goal1.id, user_id: @user.id, target: 1986)
+    @reminder4 = Reminder.create!(goal_id: @goal1.id + 1, user_id: @user.id + 1, target: 55)
     @reminders = [@reminder1, @reminder2, @reminder3]
 
     @api_account1 = ApiAccount.create(user_id: @user.id, api_id: @api1.id, api_username: "john")
