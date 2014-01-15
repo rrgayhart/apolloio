@@ -4,4 +4,4 @@
   <%= @reminder.day_deadline %>|
   <%= @reminder.time_deadline %>|
 
-  <%= link_to "Api Account", @reminder.goal.api_accounts %>
+  <%= link_to @reminder.goal.api_account.api_username, api_account_path(@reminder.goal.api_account) %>
