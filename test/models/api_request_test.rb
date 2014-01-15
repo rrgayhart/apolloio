@@ -8,13 +8,13 @@ class ApiRequestTest < ActiveSupport::TestCase
 
   def test_get_streak
     user = "adam89"
-    ai = ApiRequest.new(user, @stub)
+    ai = ApiRequest.new(user, "github", @stub)
     assert_equal 34, ai.get_streak
   end
 
   def test_get_error_for_invalid_user
     user = "adamasdfcueahg89"
-    ai = ApiRequest.new(user)
+    ai = ApiRequest.new(user, "github")
     assert_equal "INVALID USERNAME", ai.get_streak
   end
 end

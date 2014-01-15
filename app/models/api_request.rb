@@ -3,26 +3,28 @@ require 'json'
 
 class ApiRequest
 
-  def initialize(user, stub=nil)
+  attr_reader :username, :user_array
+
+  def initialize(user, provider, stub=nil)
     @username = user
     if stub
       @user_array = stub
-    else
+    elsif provider.downcase == "github"
       @user_array = get_array
     end
   end
 
   def get_array
-    url = "http://github-history.herokuapp.com/find/#{@username}.json"
+    url = "http://github-history.herokuapp.com/find/#{username}.json"
     response = Faraday.get(url)
     JSON.parse(response.body)
   end
 
   def get_streak
-    if @user_array["error"]
-      @user_array["error"]
+    if user_array["error"]
+      user_array["error"]
     else
-      @user_array["current_streak"]
+      user_array["current_streak"]
     end
   end
 
