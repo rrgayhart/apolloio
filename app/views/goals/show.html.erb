@@ -37,6 +37,7 @@
 <div class='center-block' >
   <h3>Current Reminders For Goal</h3>
   <% @goal.reminders.each do |r| %>
+    <%= link_to "View Reminder", reminder_path(r) %>
     <%= r.target %>|
     <%= r.deadline %>|
     <%= r.day_deadline %>|
