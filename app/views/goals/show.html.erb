@@ -34,6 +34,16 @@
   <% end %>
 </div>
 
+<div class='center-block' >
+  <h3>Current Reminders For Goal</h3>
+  <% @goal.reminders.each do |r| %>
+    <%= link_to "View Reminder", reminder_path(r) %>
+    <%= r.target %>|
+    <%= r.day_deadline %>|
+    <%= r.time_deadline %><br>
+  <% end %>
+</div>
+
 <script>
 $(".reminder-button").click(function(event) {
   event.preventDefault();

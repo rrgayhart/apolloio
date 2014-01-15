@@ -14,6 +14,9 @@ class UserLoginTest < Capybara::Rails::TestCase
     click_link 'Log In'
   end
 
+  # As a user on the a github api account show page
+  # I want to see my current streak
+
   test "api account show page holds correct data for github accounts" do
     assert page.has_css?("#api_account_#{@api_account.id}"), "Expecting link for api account"
     click_link @api_account.api_username

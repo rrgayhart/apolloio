@@ -15,6 +15,10 @@ class RemindersController < ApplicationController
     end
   end
 
+  def show
+    @reminder = Reminder.find(params[:id])
+  end
+
 private
 
   def reminder_params
