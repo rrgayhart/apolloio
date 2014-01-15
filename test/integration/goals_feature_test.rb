@@ -29,7 +29,7 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
     fill_in "Start Date", :with => "01/09/2014"
     click_button "Submit Goal"
     # within(".github-pledge-display") do
-        assert page.has_content?('I am committing to reach 1 commit every 1 days starting today.')
+    assert page.has_content?('I am committing to reach 1 commit every 1 days starting today.')
     # end
     # click_link 'My goal is to reach 1 commit every 1 days'
     # refute page.has_content?("Target")
