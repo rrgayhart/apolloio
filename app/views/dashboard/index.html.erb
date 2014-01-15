@@ -37,7 +37,9 @@
           <tbody>
             <% @goals.each do |goal| %>
               <tr>
-                <td><%= link_to goal.api_account.api_username, api_account_path(goal.api_account) %></td>
+                <td>
+                <%= goal.api_account.api.provider %> -
+                <%= link_to goal.api_account.api_username, api_account_path(goal.api_account) %></td>
                 <td><%= link_to goal.pledge, goal_path(goal) %></td>
                 <td></td>
                 <td>ON/OFF</td>
