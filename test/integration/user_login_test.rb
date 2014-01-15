@@ -1,13 +1,26 @@
 require "test_helper"
 
 class UserLoginTest < Capybara::Rails::TestCase
+
   setup do
     @auth  = OmniAuth.config.mock_auth[:twitter]
     @user  = User.from_omniauth(@auth)
-    goal1  = Goal.create!(user_id: @user.id, target:1, period:3, period_type:'months', start_date: Time.now, pledge:"Goal1")
-    goal2  = Goal.create!(user_id: @user.id, target:1, period:3, period_type:'months', start_date: Time.now, pledge:"Goal2")
-    goal3  = Goal.create!(user_id: @user.id, target:1, period:3, period_type:'months', start_date: Time.now, pledge:"Goal3")
-    goal4  = Goal.create!(user_id: @user.id+1,target:1, period:3, period_type:'months', start_date: Time.now, pledge:"Goal4")
+
+    api1 = Api.create!(provider: 'Github')
+    api2 = Api.create!(provider: 'Fitbit')
+    api3 = Api.create!(provider: 'Exercism')
+    @apis = [api1, api2, api3]
+
+    @api_account1 = ApiAccount.create!(user_id: @user.id, api_id: api1.id, api_username: "john")
+    @api_account2 = ApiAccount.create!(user_id: @user.id, api_id: api2.id, api_username: "steven")
+    @api_account3 = ApiAccount.create!(user_id: @user.id, api_id: api3.id, api_username: "james")
+    @api_account4 = ApiAccount.create(user_id: @user.id+1, api_id: api3.id+1, api_username: "beth")
+    @api_accounts = [@api_account1, @api_account2, @api_account3] 
+    
+    goal1  = Goal.create!(user_id: @user.id, target:1, period:3, period_type:'months', start_date: Time.now, pledge:"Goal1", api_account_id: @api_account1.id )
+    goal2  = Goal.create!(user_id: @user.id, target:1, period:3, period_type:'months', start_date: Time.now, pledge:"Goal2", api_account_id: @api_account2.id)
+    goal3  = Goal.create!(user_id: @user.id, target:1, period:3, period_type:'months', start_date: Time.now, pledge:"Goal3", api_account_id: @api_account3.id)
+    goal4  = Goal.create!(user_id: @user.id+1,target:1, period:3, period_type:'months', start_date: Time.now, pledge:"Goal4", api_account_id: @api_account4.id)
     @goals = [goal1, goal2, goal3]
 
     reminder1  = Reminder.create!(goal_id: goal1.id, user_id: @user.id, target: 403)
@@ -16,16 +29,6 @@ class UserLoginTest < Capybara::Rails::TestCase
     @reminder4 = Reminder.create(goal_id: goal1.id+1, user_id: @user.id+1, target: 55)
     @reminders = [reminder1, reminder2, reminder3]
 
-    api1 = Api.create!(provider: 'github')
-    api2 = Api.create!(provider: 'twitter')
-    api3 = Api.create!(provider: 'exercism')
-    @apis = [api1, api2, api3]
-
-    @api_account1 = ApiAccount.create!(user_id: @user.id, api_id: api1.id, api_username: "john")
-    @api_account2 = ApiAccount.create!(user_id: @user.id, api_id: api2.id, api_username: "steven")
-    @api_account3 = ApiAccount.create!(user_id: @user.id, api_id: api3.id, api_username: "james")
-    @api_account4 = ApiAccount.create(user_id: @user.id+1, api_id: api3.id+1, api_username: "beth")
-    @api_accounts = [@api_account1, @api_account2, @api_account3] 
     visit root_path
     click_link "Log In"
   end
