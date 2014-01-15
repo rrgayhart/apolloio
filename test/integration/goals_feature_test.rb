@@ -26,8 +26,7 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
     select('1', :from => 'Period')
     select('days', :from => 'Period Type')
     click_button "Submit Goal"
-    assert page.has_content?('I am committing to reach 1 commit every 1 days')
-    click_link 'I am committing to reach 1 commit every 1 days'
+    assert page.has_css?('.goal-title')
     refute page.has_content?("Target")
     assert page.has_content?("Add Reminder")
     click_link "Add Reminder"
@@ -43,6 +42,7 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
     assert page.has_content?('I am committing to reach 1 commit every 1 days')
     assert page.has_content?("View Reminder")
     assert page.has_content?("16:00:00")
+    assert page.has_css?(".view-reminder-link")
     click_link "View Reminder"
     assert_equal reminder_path(1), current_path
   end
