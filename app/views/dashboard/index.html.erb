@@ -27,9 +27,10 @@
         <p>Goals</p>
         <% @goals.each do |goal| %>
           Goal Pledge: <%= link_to goal.pledge, goal_path(goal) %>
-          <br />
-          <br />
+          
         <% end %>
+        <br />
+        <br />
       </div>
     </div>
 

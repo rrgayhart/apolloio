@@ -17,7 +17,7 @@ class GoalsController < ApplicationController
     new_params[:user_id] = current_user.id
     @goal                = Goal.create(new_params)
     if @goal.save
-      redirect_to dashboard_path
+      redirect_to goal_path(@goal)
     else
       render :new, notice: "Goal Unsuccessfully Created."
     end
