@@ -1,4 +1,4 @@
-<h1><%= @goal.pledge %></h1>
+<h1 class="goal-title"><%= @goal.pledge %></h1>
 <%= link_to @goal.api_account.api_username, api_account_path(@goal.api_account) %>
 
 <a href="#" class="reminder-button">Add Reminder</a>
@@ -37,7 +37,7 @@
 <div class='center-block' >
   <h3>Current Reminders For Goal</h3>
   <% @goal.reminders.each do |r| %>
-    <%= link_to "View Reminder", reminder_path(r) %>
+    <%= link_to "View Reminder", reminder_path(r), :class => "view-reminder-link" %>
     <%= r.target %>|
     <%= r.day_deadline %>|
     <%= r.time_deadline %><br>
