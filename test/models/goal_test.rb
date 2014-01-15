@@ -5,7 +5,8 @@ class GoalTest < ActiveSupport::TestCase
   def setup
     @time_now = Date.new
     @user = User.create
-    @goal = Goal.create(user_id:@user.id, target:2, period:3, period_type:'month', start_date:@time_now)
+    @goal = Goal.create(user_id:@user.id, target:2, period:3, period_type:'months', start_date:@time_now)
+    @valid_goal = Goal.new(user_id:@user.id, target:1, period:3, period_type:'months', start_date:@time_now, pledge: "My goal is to reach 2 commit every 3 months")
   end
 
   def teardown
@@ -13,13 +14,37 @@ class GoalTest < ActiveSupport::TestCase
     Goal.destroy_all
   end
 
-  def test_its_attributes
-    assert_equal @user.id, @goal.user_id
-    assert_equal 2, @goal.target
-    assert_equal 3, @goal.period
-    assert_equal 'month', @goal.period_type
-    assert_equal @time_now, @goal.start_date
+  def test_it_activates
+    assert_equal true, @goal.active
+    @goal.active = false
+    assert_equal false, @goal.active
   end
 
+  def test_validation_for_target
+    assert @valid_goal.valid?
+    @valid_goal.target = -1
+    refute @valid_goal.valid?
+    @valid_goal.target = nil
+    refute @valid_goal.valid?
+  end
+
+  def test_validation_for_period
+    @valid_goal.period = -1
+    refute @valid_goal.valid?
+    @valid_goal.period = nil
+    refute @valid_goal.valid?
+  end
+
+  def test_validation_for_period_type
+    ["days","weeks","months"].each do |type|
+      @valid_goal.period_type = type
+      assert @valid_goal.valid?
+    end
+    
+    @valid_goal.period_type = "jokes"
+    refute @valid_goal.valid?
+    @valid_goal.period_type = nil
+    refute @valid_goal.valid?
+  end
 
 end

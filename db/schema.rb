@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140114051724) do
+ActiveRecord::Schema.define(version: 20140114211254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140114051724) do
     t.datetime "updated_at"
     t.string   "pledge"
     t.integer  "api_account_id"
+    t.boolean  "active",         default: true
   end
 
   add_index "goals", ["api_account_id"], name: "index_goals_on_api_account_id", using: :btree

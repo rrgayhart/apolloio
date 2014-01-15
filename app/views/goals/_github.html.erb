@@ -1,40 +1,54 @@
-<p>Pledge: <span id='github-pledge-display'>Pledge: <span id='github-pledge'>My goal is to reach <span id='github-target'>_</span> <span id='github-target-type'>commit</span> every <span id='github-period'>_</span> <span id='github-period-type'>_</span></span></span>
+<div>
+  <p class="text-center">
+    <span style="font-size: 3em;">Pledge:</span><br/>
+    <span id='github-pledge-display'>
+      <span id='github-pledge'>I am committing to reach 
+        <span id='github-target'>_</span>
+        <span id='github-target-type'>commit</span> every
+        <span id='github-period'>_</span> 
+        <span id='github-period-type'>_</span>
+      </span>
+    </span>
+    starting today.
+    <br />
+  </p>
+</div>
+<div style="padding-right: 8%;">
+  <%= form_for @goal, :html => {:id => "Github", :class => "form-horizontal"} do |g| %>
+    <div class="form-group" style="margin-top: 1%;">
 
-<%= form_for @goal, :html => {:id => "Github", :class => "form-horizontal"} do |g| %>
-  <div class="form-group" style="margin-top: 1%;">
+      <%= g.label :target, "Target Goal", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10" style="padding-bottom: 1%;">
+        <%= g.select(:target, [['Select A Target To Achieve', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],1,2,3,4], {}, { :class => 'form-control col-sm-2 control-label'}) %>
+      </div>
 
-    <%= g.label :target, "Target Goal", class: "col-sm-2 control-label" %>
-    <div class="col-sm-10" style="padding-bottom: 1%;">
-      <%= g.select(:target, [['Select A Target To Achieve', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],1,2,3,4], {}, { :class => 'form-control col-sm-2 control-label'}) %>
+      <%= g.label :period, "Period", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10" style="padding-bottom: 1%;">
+        <%= g.select(:period, [['Select A Period Of Time To Hit Your Target', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],1,2,3,4], {}, { :class => 'form-control col-sm-2 control-label'}) %>
+      </div>
+
+      <%= g.label :period_type, "Period Type", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10" style="padding-bottom: 1%;">
+        <%= g.select(:period_type, [['Select How Often You Want To Hit The Goal', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"days", "weeks", "months"], {}, { :class => 'form-control col-sm-2 control-label'}) %>
+      </div>
+
+      <%= g.label :start_date, "Start Date", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10" style="padding-bottom: 5%;">
+        <%= g.date_field :start_date, class: "form-control", placeholder: "Pick A Start Date" %>
+        <!-- class: datepicker -->
+      </div>
+
+      <%= g.hidden_field :api_account_id, :value => @github_account.id %>
+      <%= g.hidden_field :pledge %>
+
+      <div class="col-sm-2 control-label"></div>
+      <div class="col-sm-10">
+        <%= g.submit "Submit Goal", class: "form-control" %>
+      </div>
+
     </div>
-
-    <%= g.label :period, "Period", class: "col-sm-2 control-label" %>
-    <div class="col-sm-10" style="padding-bottom: 1%;">
-      <%= g.select(:period, [['Select A Period Of Time To Hit Your Target', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],1,2,3,4], {}, { :class => 'form-control col-sm-2 control-label'}) %>
-    </div>
-
-    <%= g.label :period_type, "Period Type", class: "col-sm-2 control-label" %>
-    <div class="col-sm-10" style="padding-bottom: 1%;">
-      <%= g.select(:period_type, [['Select How Often You Want To Hit The Goal', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"days", "weeks", "months"], {}, { :class => 'form-control col-sm-2 control-label'}) %>
-    </div>
-
-    <%= g.label :start_date, "Start Date", class: "col-sm-2 control-label" %>
-    <div class="col-sm-10" style="padding-bottom: 5%;">
-      <%= g.date_field :start_date, class: "form-control", placeholder: "Pick A Start Date" %>
-      <!-- class: datepicker -->
-    </div>
-
-    <%= g.hidden_field :api_account_id, :value => @github_account.id %>
-    <%= g.hidden_field :pledge %>
-
-    <div class="col-sm-2 control-label"></div>
-    <div class="col-sm-10">
-      <%= g.submit "Submit Goal", class: "form-control" %>
-    </div>
-
-  </div>
-<% end %>
-
+  <% end %>
+</div>
 <script type="text/javascript">
   $(document).ready(function(){
 

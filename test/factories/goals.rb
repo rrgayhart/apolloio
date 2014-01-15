@@ -5,7 +5,8 @@ FactoryGirl.define do
     user 
     target 1
     period 1
-    period_type "MyString"
+    period_type "months"
     start_date "2014-01-08"
+    pledge "goal"
   end
 end
