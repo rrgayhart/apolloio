@@ -12,7 +12,7 @@ Api.create(:provider => 'Exercism', image_url: "exercismlogo.png")
 ApiAccount.create(user_id: 1, api_id: 1, api_username: "Jonah")
 ApiAccount.create(user_id: 1, api_id: 2, api_username: "Q")
 
-Goal.create(user_id: 1, target: 5, period: 10, period_type: "weekly", pledge: "I am committing to reach 1 commit every 1 days", api_account_id: 1)
+Goal.create(user_id: 1, target: 5, period: 10, period_type: "weeks", pledge: "I am committing to reach 1 commit every 1 days", api_account_id: 1)
 
 Reminder.create(user_id: 1, goal_id: 1, target: 4, time_deadline: 1400, day_deadline: 4, twitter: true)
 
