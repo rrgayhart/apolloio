@@ -26,8 +26,13 @@
         <p><%= link_to "Add Goal", new_goal_path %></p>
         <p>Goals</p>
         <% @goals.each do |goal| %>
-          Goal Pledge: <%= link_to goal.pledge, goal_path(goal) %>
-          
+          Goal Pledge: 
+          <p>
+            <%= link_to goal.pledge, goal_path(goal) %> -
+            <%= link_to goal.api_account.api.provider, api_account_path(goal) %>
+            - 
+            <%= goal.api_account.api_username %>
+          </p>
         <% end %>
         <br />
         <br />
