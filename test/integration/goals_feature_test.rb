@@ -13,7 +13,6 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
 
     FactoryGirl.create(:goal, user: @user)
     FactoryGirl.create(:api_account, api: api1)
-    # FactoryGirl.create(:goal, user: @user)
 
     visit root_path
     click_link 'Log In'
@@ -28,28 +27,21 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
     select('days', :from => 'Period Type')
     fill_in "Start Date", :with => "01/09/2014"
     click_button "Submit Goal"
-    # within(".github-pledge-display") do
-    assert page.has_content?('I am committing to reach 1 commit every 1 days starting today.')
-    # end
-    # click_link 'My goal is to reach 1 commit every 1 days'
-    # refute page.has_content?("Target")
-    # assert page.has_content?("Add Reminder")
-    # click_link "Add Reminder"
-    # assert page.has_content?("Target")
-
-    # fill_in "Start date", :with => "01/09/2014"
-    # fill_in "Target", :with => "2"
-    # fill_in "Time deadline", :with => "4:00PM"
-    # fill_in "Day deadline", :with => "5"
-    # check "Twitter"
-    # check "Sms"
-    # check "Email"
-    # click_button "Create Reminder"
-    # assert page.has_content?('My goal is to reach 1 commit every 1 days')
-    # verify new reminder is on page
-    
-
-
+    assert page.has_content?('I am committing to reach 1 commit every 1 days')
+    click_link 'I am committing to reach 1 commit every 1 days'
+    refute page.has_content?("Target")
+    assert page.has_content?("Add Reminder")
+    click_link "Add Reminder"
+    assert page.has_content?("Target")
+    fill_in "Start date", :with => "01/09/2014"
+    fill_in "Target", :with => "2"
+    fill_in "Time deadline", :with => "4:00PM"
+    fill_in "Day deadline", :with => "5"
+    check "Twitter"
+    check "Sms"
+    check "Email"
+    click_button "Create Reminder"
+    assert page.has_content?('I am committing to reach 1 commit every 1 days')
   end
 
 end

@@ -4,7 +4,6 @@ class UserLoginTest < Capybara::Rails::TestCase
   setup do
     @auth  = OmniAuth.config.mock_auth[:twitter]
     @user  = User.from_omniauth(@auth)
-    # @user2  = User.create!(p)
     goal1  = Goal.create!(user_id: @user.id, target:1, period:3, period_type:'months', start_date: Time.now, pledge:"Goal1")
     goal2  = Goal.create!(user_id: @user.id, target:1, period:3, period_type:'months', start_date: Time.now, pledge:"Goal2")
     goal3  = Goal.create!(user_id: @user.id, target:1, period:3, period_type:'months', start_date: Time.now, pledge:"Goal3")
@@ -31,10 +30,6 @@ class UserLoginTest < Capybara::Rails::TestCase
   end
 
   test "user logs in and see's the expected items" do
-    # assert_equal "boo", @goals
-    # assert_equal "boo", @apis
-    # assert_equal "boo", @api_accounts
-    # assert_equal "boo", @reminders
     assert page.has_content?("Log Out"), "Page is missing 'Log Out' button"
     refute page.has_content?("Log In"), "Page is not supposed to have 'Log In' button"
 
@@ -65,14 +60,10 @@ class UserLoginTest < Capybara::Rails::TestCase
     end
 
     visit root_path
-
     click_link "Dashboard"
-
     assert_equal 200, page.status_code
     assert_equal dashboard_path, current_path
-
     click_link 'Log Out'
-
     assert page.has_content?("Log In"), "Page is missing 'Log In' button"
     refute page.has_content?("Log Out"), "Page is not supposed to have 'Log Out' button"
   end
