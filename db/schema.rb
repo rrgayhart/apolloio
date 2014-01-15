@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140114051724) do
     t.integer  "user_id"
     t.integer  "goal_id"
     t.integer  "target"
+    t.time     "deadline"
     t.boolean  "twitter"
     t.boolean  "email"
     t.boolean  "sms"

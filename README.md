@@ -24,6 +24,7 @@ The best API tracking app of all time.
 1. Prepare the test environment with `RACK_ENV=test rake db:migrate`.
 2. Make sure that `postgres` is running.
 3. Run the test suite with `rake test`.
+4. Run individual tests with `ruby -I test test/models/api_request_test.rb`.
 
 ## Production Link
 
