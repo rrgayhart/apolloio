@@ -1,6 +1,8 @@
-<h1 class="goal-title"><%= @goal.pledge %></h1>
 <div>User Account: <%= link_to @goal.api_account.api_username, api_account_path(@goal.api_account) %></div>
 
+<h1 class="goal-title"><%= @goal.pledge %></h1>
+
+<%= render partial: "progressgit" %>
 
 <div><a href="#" class="reminder-button btn btn-lg btn-info">Add Reminder</a></div>
 
