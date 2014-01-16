@@ -31,10 +31,9 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
     check "Email"
     click_button "Create Reminder"
     assert page.has_content?('I am committing to reach 1 commit every 1 days')
-    assert page.has_content?("View Reminder")
-    assert page.has_content?("16:00:00 UTC")
+    assert page.has_content?("I need to reach")
     assert page.has_css?(".view-reminder-link")
-    click_link "View Reminder"
+    click_link "I need to reach"
     assert page.has_css?("#reminder-show-page")
   end
 
