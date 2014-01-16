@@ -14,9 +14,15 @@ class ApiAccountsController < ApplicationController
   def create
     api_account_data           = api_account_params
     api_account_data[:user_id] = current_user.id
-    ApiAccount.create(api_account_data)
-    flash[:success]          = "Added API Account"
-    redirect_to :back
+    new_account = ApiAccount.new(api_account_data)
+    if new_account.api_account_exists
+      new_account.save
+      flash[:success] = "Added API Account"
+      redirect_to :back
+    else
+      flash[:error] = "Username is Not Valid"
+      redirect_to :back
+    end
   end
 
   def show
