@@ -22,7 +22,8 @@ class Reminder < ActiveRecord::Base
   def render_time_deadline
     time = self.time_deadline
     if time.class == Time
-      time.strftime("%I:%M%p")
+      time.strftime("%T")
+      #time.strftime("%I:%M%p")
     end
   end
 
