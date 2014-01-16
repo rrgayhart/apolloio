@@ -35,7 +35,7 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
     assert page.has_content?("16:00:00 UTC")
     assert page.has_css?(".view-reminder-link")
     click_link "View Reminder"
-    assert_equal reminder_path(5), current_path
+    assert page.has_css?("#reminder-show-page")
   end
 
 end
