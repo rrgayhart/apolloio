@@ -2,7 +2,8 @@ class GoalsController < ApplicationController
 
   def new
     @goal             = Goal.new
-    @github_account   = Api.find_by(provider: 'Github')
+    @api_accounts   = current_user.api_accounts
+    # @github_account   = Api.find_by(provider: 'Github')
     @fitbit_account   = Api.find_by(provider: 'Fitbit')
     @exercism_account = Api.find_by(provider: 'Exercism')
   end
@@ -19,7 +20,8 @@ class GoalsController < ApplicationController
     if @goal.save
       redirect_to goal_path(@goal)
     else
-      render :new, notice: "Goal Unsuccessfully Created."
+      flash[:error] = "Goal Unsuccessfully Created."
+      redirect_to new_goal_path 
     end
   end
 

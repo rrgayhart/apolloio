@@ -11,9 +11,9 @@
         <div class="api_selection">
           <select id="api_selection" name="api_selection">
             <option value="" disabled="disabled" selected="selected">Please Select An Account</option>
-            <option value="Github">Github</option>
-            <option value="Fitbit">Fitbit</option>
-            <option value="Exercism">Exercism</option>
+            <% @api_accounts.each do |api_account| %>
+              <option value="<%= api_account.id %>"><%= api_account.api.provider %> - <%= api_account.api_username %></option>
+            <% end %>
           </select>
         </div>
         <br />
@@ -22,17 +22,22 @@
         </p>
       </div>
 
-      <div class="col-md-12 panel panel-default" id="all-forms" style="display: none;">
+      <div class="col-md-12 panel panel-default" id="all-forms" >
         <div class="panel-body">
-          <div id="github_form" style="display: none;" class="forms">
-            <%= render partial: "goals/github" %>
-          </div>
-          <div id="fitbit_form" style="display: none;" class="forms">
-            <%= render partial: "goals/github" %>
+          <% @api_accounts.each do |api_account| %>
+            <div id="github_form_<%=api_account.id%>" style="display: none;" class="forms">
+              <%= render partial: "goals/github", locals: { api_account_id: api_account.id } %>
+            </div>
+          <% end %>
+
+          <!-- <div id="fitbit_form" style="display: none;" class="forms">
+           
           </div>
           <div id="exercism_form" style="display: none;" class="forms">
-            <%= render partial: "goals/github" %>
-          </div>
+           
+          </div> -->
+
+
         </div>
       </div>
 
@@ -42,21 +47,10 @@
 </div>
 
 <script>
-  $('#api_selection').change(function(){
+  $('#api_selection').change(function(e){
     $(".forms").hide()
-    switch ($('select option:selected').val()){
-      case "Github":
-        $('#all-forms').show();
-        $('#github_form').show();
-        break
-      case "Fitbit":
-        $('#all-forms').show();
-        $('#fitbit_form').show();
-        break
-      case "Exercism":
-        $('#all-forms').show();
-        $('#exercism_form').show();
-    }
+    var value = $(e.target).val();
+    $("#github_form_" + value).show();
     $('#goal-message').hide();
   });
 </script>
