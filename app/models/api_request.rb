@@ -35,6 +35,10 @@ class ApiRequest
     user_hash["days_without_contributions"] || error_message
   end
 
+  def get_this_years_total_commits
+    user_hash["commits_this_year"] || error_message
+  end
+
   def get_days_this_year_with_contributions
     user_hash["days_this_year_with_contributions"] || error_message
   end

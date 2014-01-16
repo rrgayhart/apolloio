@@ -32,7 +32,8 @@ class ApiAccountsController < ApplicationController
       @username = @api_account.api_username
       @api_request = ApiRequest.new(@username, @provider)
       @streak = @api_request.get_streak
-      @this_year = @api_request.get_percentage_days_commited_this_year
+      @year_percentage = @api_request.get_percentage_days_commited_this_year
+      @this_year = @api_request.get_this_years_total_commits
     else
       redirect_to dashboard_path
     end
