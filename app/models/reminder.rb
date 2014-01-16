@@ -19,6 +19,13 @@ class Reminder < ActiveRecord::Base
   has_one :api_account, through: :goal
   has_one :api, through: :api_account
 
+  def render_time_deadline
+    time = self.time_deadline
+    if time.class == Time
+      time.strftime("%I:%M%p")
+    end
+  end
+
   def render_day_name(day_number)
     Date::DAYNAMES[day_number]
   end
@@ -28,7 +35,7 @@ class Reminder < ActiveRecord::Base
   end
 
   def goal_render
-    number = self.day_deadline
+    number = self.day_deadline || 0
     case self.goal.period_type
     when "weeks", "weekly"
       "Every #{render_day_name(number)}"

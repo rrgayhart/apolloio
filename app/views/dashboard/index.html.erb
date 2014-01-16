@@ -1,6 +1,6 @@
   Profile
   <br>
-  <div>
+  <div class="api-dashboard-div">
     <p>API Accounts:</p>
     <br />
     <%= link_to "Add An API Account", api_accounts_path %>
@@ -74,7 +74,7 @@
                 <td><%= link_to reminder.target, reminder_path(reminder) %></td>
                 <td> <%= reminder.goal_render %>
                 </td>
-                <td><%= reminder.time_deadline.strftime("%I:%M%p") %></td>
+                <td><%= reminder.render_time_deadline %></td>
                 <td><%= reminder.created_at.to_s(:short) %></td>
                 <td><%= reminder.twitter %></td>
                 <td><%= reminder.email %></td>
