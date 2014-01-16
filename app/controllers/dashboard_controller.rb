@@ -13,7 +13,7 @@ private
   def require_api_account
     unless current_user.has_api_account?
       #redirect_to api_account_path
-      flash[:no_apis] = "#{view_context.link_to('Add An API Account', '#')}".html_safe
+      flash[:no_apis] = "#{view_context.link_to('Add An API Account', 'api_accounts_path')}".html_safe
     end
   end
 
