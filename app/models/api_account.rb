@@ -1,4 +1,10 @@
 class ApiAccount < ActiveRecord::Base
+    # t.integer  "user_id"
+    # t.integer  "api_id"
+    # t.datetime "created_at"
+    # t.datetime "updated_at"
+    # t.string   "api_username"
+
   belongs_to :user
   belongs_to :api
   has_many :goals
