@@ -15,7 +15,7 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
     select('Github', :from => 'api_selection')
     select('1', :from => 'Target Goal')
     select('1', :from => 'Period')
-    select('days', :from => 'Period Type')
+    select('day', :from => 'Period Type')
     click_button "Submit Goal"
     assert page.has_css?('.goal-title')
     refute page.has_content?("Target")
