@@ -13,7 +13,7 @@ class RemindersController < ApplicationController
       flash[:success]="Reminder Successfully Saved"
     else
       redirect_to :back
-      flash[:success]="oh shit"
+      flash[:error]="Reminder Unsuccesful"
     end
   end
 
