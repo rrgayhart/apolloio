@@ -4,9 +4,9 @@
     <span id='github-pledge-display'>
       <span id='github-pledge'>I am committing to reach 
         <span id='github-target'>_</span>
-        <span id='github-target-type'>commit</span> every
+        <span id='github-target-type'>commit</span><span id='github-commits'></span> every
         <span id='github-period'>_</span> 
-        <span id='github-period-type'>_</span>
+        <span id='github-period-type'>_</span><span id='github-lengths'></span>
       </span>
     </span>
     starting today.
@@ -29,7 +29,7 @@
 
       <%= g.label :period_type, "Period Type", class: "col-sm-2 control-label" %>
       <div class="col-sm-10" style="padding-bottom: 1%;">
-        <%= g.select(:period_type, [['Select How Often You Want To Hit The Goal', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"days", "weeks", "months"], {}, { :class => 'form-control col-sm-2 control-label'}) %>
+        <%= g.select(:period_type, [['Select How Often You Want To Hit The Goal', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"day", "week", "month"], {}, { :class => 'form-control col-sm-2 control-label'}) %>
       </div>
 
 
@@ -50,7 +50,15 @@
       //change target
       $('#goal_target').change(function(event){
         event.preventDefault();
-        $('#github-target').text(this.value)
+        var target = this.value;
+
+        $('#github-target').text(target);
+
+        if(target == '1'){
+          $('#github-commits').text('');
+        }else{
+          $('#github-commits').text('s');
+        }
         });
 
       //change target-type
@@ -63,7 +71,16 @@
       //change target-input
       $('#goal_period').change(function(event){
         event.preventDefault();
-        $('#github-period').text(this.value)
+
+        var period = this.value;
+
+        $('#github-period').text(period);
+
+        if(period=='1'){
+          $('#github-lengths').text('');
+        }else{
+          $('#github-lengths').text('s');
+        }
         });
 
       //change target-type-input
