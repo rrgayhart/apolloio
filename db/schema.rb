@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140114211254) do
+ActiveRecord::Schema.define(version: 20140116031012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,14 +54,15 @@ ActiveRecord::Schema.define(version: 20140114211254) do
     t.integer  "user_id"
     t.integer  "goal_id"
     t.integer  "target"
-    t.boolean  "twitter"
-    t.boolean  "email"
-    t.boolean  "sms"
+    t.boolean  "twitter",       default: false
+    t.boolean  "email",         default: false
+    t.boolean  "sms",           default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "day_deadline"
     t.time     "time_deadline"
     t.date     "start_date"
+    t.boolean  "active",        default: true
   end
 
   add_index "reminders", ["goal_id"], name: "index_reminders_on_goal_id", using: :btree

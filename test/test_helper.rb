@@ -15,6 +15,35 @@ require "minitest/rails/capybara"
 # MiniTest::Reporters.use!
 require "minitest/pride"
 
+def capybara_setup
+  @auth = OmniAuth.config.mock_auth[:twitter]
+  @user = User.from_omniauth(@auth)
+  other_user = FactoryGirl.create(:user)
+
+  api1  = FactoryGirl.create(:api, :github)
+  api2  = FactoryGirl.create(:api, :fitbit)
+  api3  = FactoryGirl.create(:api, :exercism)
+  @apis = [api1, api2, api3]
+
+  @api_account1 = FactoryGirl.create(:api_account, api: api1, user: @user)
+  @api_account2 = FactoryGirl.create(:api_account, api: api2, user: @user)
+  @api_account3 = FactoryGirl.create(:api_account, api: api3, user: @user)
+  @api_accounts = [@api_account1, @api_account2, @api_account3]
+  @api_account4 = FactoryGirl.create(:api_account, api: api1, user: other_user)
+  
+  goal1 = FactoryGirl.create(:goal, user: @user, api_account: @api_account1)
+  goal2 = FactoryGirl.create(:goal, user: @user, api_account: @api_account2)
+  goal3 = FactoryGirl.create(:goal, user: @user, api_account: @api_account3)
+  @goals = [goal1, goal2, goal3]
+  @goal4 = FactoryGirl.create(:goal, user: other_user, api_account: @api_account3, pledge: "Other user's goal pledge")
+
+  reminder1  = FactoryGirl.create(:reminder, user: @user, goal: goal1, target: 403)
+  reminder2  = FactoryGirl.create(:reminder, user: @user, goal: goal1, target: 7852)
+  reminder3  = FactoryGirl.create(:reminder, user: @user, goal: goal1, target: 1986)
+  @reminder4 =  FactoryGirl.create(:reminder, user: other_user, goal: goal1, target: 55)
+  @reminders = [reminder1, reminder2, reminder3]
+end
+
 class ActiveSupport::TestCase
   self.use_transactional_fixtures = false
   include Capybara::DSL

@@ -9,7 +9,7 @@ class RemindersController < ApplicationController
     @reminder = Reminder.new(reminder_params)
     @reminder.user_id = current_user.id
     if @reminder.save
-      redirect_to :back
+      redirect_to goal_path(@reminder.goal)
       flash[:success]="Reminder Successfully Saved"
     else
       redirect_to :back
