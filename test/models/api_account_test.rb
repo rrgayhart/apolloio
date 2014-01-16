@@ -20,6 +20,6 @@ class ApiAccountTest < ActiveSupport::TestCase
 
   test "it validates api_username" do
     @api_account.api_username = "jlak23sdjbre12"
-    refute @api_account.valid?
+    refute @api_account.api_account_exists
   end
 end

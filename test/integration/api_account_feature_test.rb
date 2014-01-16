@@ -3,15 +3,7 @@ require "test_helper"
 class ApiAccountFeatureTest < Capybara::Rails::TestCase
 
   setup do
-    @auth = OmniAuth.config.mock_auth[:twitter]
-    @user = User.from_omniauth(@auth)
-    goal = Goal.create(user_id: @user.id, pledge:"Goal")
-    @api1 = Api.create(provider: 'Github', image_url: "githublogo.png")
-    @api2 = Api.create(provider: 'Fitbit', image_url: "fitbitlogo.png")
-    @api3 = Api.create(provider: 'Exercism', image_url: "exercismlogo.png")
-    
-    @api_account = FactoryGirl.create(:api_account, user: @user, api: @api1)
-
+    capybara_setup
     visit root_path
     click_link 'Log In'
   end
@@ -20,10 +12,12 @@ class ApiAccountFeatureTest < Capybara::Rails::TestCase
   # I want to see my current streak
 
   test "api account show page holds correct data for github accounts" do
-    assert page.has_css?("#api_account_#{@api_account.id}"), "Expecting link for api account"
-    click_link @api_account.api_username
+    assert page.has_css?("#api_account_#{@api_account1.id}"), "Expecting link for api account"
+    within(".api-dashboard-div") do
+      click_link @api_account1.api_username
+    end
     assert page.has_content?("Github"), "Page shoud have content GitHub"
-    assert page.has_content?("jonahmoses"), "Page should have content #{@api_account.api_username}"
+    assert page.has_content?(@api_account1.api_username), "Page should have content #{@api_account1.api_username}"
     assert page.has_content?("Languages")
     assert page.has_content?("Current Streak")
     assert page.has_content?("Commits This Year")

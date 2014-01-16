@@ -4,7 +4,7 @@ class ApiAccount < ActiveRecord::Base
   has_many :goals
   validate :acceptable_user_id
   validate :acceptable_api_id
-  validate :acceptable_username
+  #validate :acceptable_username
   # validates :api_username, presence: true
   # validates :api_id, presence: true
 

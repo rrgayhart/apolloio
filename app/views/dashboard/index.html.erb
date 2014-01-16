@@ -1,6 +1,6 @@
   Profile
   <br>
-  <div>
+  <div class="api-dashboard-div">
     <p>API Accounts:</p>
     <br />
     <%= link_to "Add An API Account", api_accounts_path %>
@@ -52,10 +52,37 @@
     <div class="tab-pane fade" id="reminders">
       <div style="margin-left: 1%; padding-top: 1%">
         <p>Reminders:</p>
-        <% @reminders.each do |reminder| %>
-          Target <%= reminder.target %>
-          <br>
-        <% end %>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Username/Account</th>
+              <th>Target</th>
+              <th>Deadline</th>
+              <th>Time of Reminder</th>
+              <th>Start Date</th>
+              <th>Twitter<th>
+              <th>Email</th>
+              <th>SMS</th>
+              <th>On/Off</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @reminders.each do |reminder| %>
+              <tr>
+                <td><%= link_to reminder.goal.api_account.api_username, api_account_path(reminder.goal.api_account) %>/<%= link_to reminder.goal.api_account.api.provider, api_account_path(reminder.goal.api_account) %></td>
+                <td><%= link_to reminder.target, reminder_path(reminder) %></td>
+                <td> <%= reminder.goal_render %>
+                </td>
+                <td><%= reminder.render_time_deadline %></td>
+                <td><%= reminder.created_at.to_s(:short) %></td>
+                <td><%= reminder.twitter %></td>
+                <td><%= reminder.email %></td>
+                <td><%= reminder.sms %></td>
+                <td>On/Off </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
