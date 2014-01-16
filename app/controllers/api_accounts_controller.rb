@@ -29,6 +29,10 @@ class ApiAccountsController < ApplicationController
     @api_account = current_user.api_accounts.where(id: params[:id]).first
     if @api_account
       @provider = @api_account.api.provider
+      @username = @api_account.api_username
+      @api_request = ApiRequest.new(@username, @provider)
+      @streak = @api_request.get_streak
+      @this_year = @api_request.get_percentage_days_commited_this_year
     else
       redirect_to dashboard_path
     end
