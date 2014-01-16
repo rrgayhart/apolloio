@@ -33,7 +33,7 @@ class RemindersController < ApplicationController
         format.json { respond_with_bip(@reminder) }
       else
         format.html { render action: "edit" }
-        format.json { render json: @reminder.errors, status: :unprocessable_entity }
+        format.json { render json: @reminder.errors }
       end
     end
   end
