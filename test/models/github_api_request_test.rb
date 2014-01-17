@@ -16,7 +16,7 @@ class GithubApiTest < ActiveSupport::TestCase
   end
 
   def test_pull_dates_returns_todays_contributions
-    assert_equal Date.today, @request.pull_dates.last[0].to_date
+    assert_equal "Thu, 16 Jan 2014".to_date, @request.pull_dates.last[0].to_date
   end
 
   def test_pull_contribution_count_returns_contribution_count
