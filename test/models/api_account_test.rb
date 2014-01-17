@@ -1,7 +1,7 @@
 require "test_helper"
 
 class ApiAccountTest < ActiveSupport::TestCase
-  setup do 
+  setup do
     @user        = User.create(uid: "1", provider: "twitter", name: "user")
     @api         = FactoryGirl.create(:api, :github)
     @api_account = ApiAccount.create!(user_id: @user.id, api_id: @api.id , api_username: "QuillyT")
@@ -19,7 +19,9 @@ class ApiAccountTest < ActiveSupport::TestCase
   end
 
   test "it validates api_username" do
-    @api_account.api_username = "jlak23sdjbre12"
-    refute @api_account.api_account_exists
+    VCR.use_cassette('check_valid_1') do
+      @api_account.api_username = "jlak23sdjbre12"
+      refute @api_account.api_account_exists
+    end
   end
 end
