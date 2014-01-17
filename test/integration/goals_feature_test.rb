@@ -36,5 +36,4 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
     click_link "I need to reach"
     assert page.has_css?("#reminder-show-page")
   end
-
 end

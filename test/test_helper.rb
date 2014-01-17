@@ -14,6 +14,13 @@ require "minitest/rails/capybara"
 # require 'minitest/reporters'
 # MiniTest::Reporters.use!
 require "minitest/pride"
+require 'faraday'
+require 'vcr'
+
+VCR.configure do |c|
+  c.cassette_library_dir = './cassettes'
+  c.hook_into :faraday
+end
 
 def capybara_setup
   @auth = OmniAuth.config.mock_auth[:twitter]

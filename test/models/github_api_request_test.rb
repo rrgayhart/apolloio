@@ -3,7 +3,9 @@ require "test_helper"
 class GithubApiTest < ActiveSupport::TestCase
 
   def setup
-    @request = GithubApiRequest.new(1, 5, "mhartl")
+    VCR.use_cassette('hartl_history') do
+      @request = GithubApiRequest.new(1, 5, "mhartl")
+    end
   end
 
   def teardown
@@ -21,13 +23,30 @@ class GithubApiTest < ActiveSupport::TestCase
     assert_equal 6, @request.pull_contribution_count([["2014/01/14",1],["2014/01/15",2],["2014/01/16",3]])
   end
 
-  def test_progress_prepares_the_progress_data
-    assert_equal "60", @request.progress
-    request2 = GithubApiRequest.new(2, 5, "mhartl")
-    assert_equal "100", request2.progress
-    request3 = GithubApiRequest.new(3, 5, "mhartl")
-    assert_equal "120", request3.progress
-    request4 = GithubApiRequest.new(3, 9, "mhartl")
-    assert_equal "67", request4.progress
+  def test_progress_normal_progress
+    VCR.use_cassette('hartl_history2') do
+      assert_equal "80", @request.progress
+    end
+  end
+
+  def test_progress_at_100_percent
+    VCR.use_cassette('hartl_history3') do
+      request2 = GithubApiRequest.new(2, 6, "mhartl")
+      assert_equal "100", request2.progress
+    end
+  end
+
+  def test_progress_at_over_100_percent
+    VCR.use_cassette('hartl_history4') do
+      request3 = GithubApiRequest.new(3, 5, "mhartl")
+      assert_equal "140", request3.progress
+    end
+  end
+
+  def test_progress_at_uneven_number 
+    VCR.use_cassette('hartl_history5') do
+      request4 = GithubApiRequest.new(3, 9, "mhartl")
+      assert_equal "78", request4.progress
+    end
   end
 end

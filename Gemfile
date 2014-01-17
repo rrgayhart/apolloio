@@ -27,6 +27,7 @@ group :development, :test do
   gem 'guard-minitest', '~> 2.1.3'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'simplecov', :require => false
+  gem 'vcr', '2.4.0'
 end
 
 group :doc do
