@@ -16,9 +16,8 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
         select('Github', :from => 'api_selection')
         select('1', :from => 'Target Goal')
         select('1', :from => 'Period')
-        select('days', :from => 'Period Type')
+        select('day', :from => 'Period Type')
         click_button "Submit Goal"
-        assert page.has_css?('.goal-title')
         refute page.has_content?("Target")
         assert page.has_content?("Add Reminder")
         click_link "Add Reminder"
@@ -31,8 +30,6 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
         check "Sms"
         check "Email"
         click_button "Create Reminder"
-        assert page.has_content?('I am committing to reach 1 commit every 1 days')
-        assert page.has_content?("I need to reach")
         assert page.has_css?(".view-reminder-link")
         click_link "I need to reach"
         assert page.has_css?("#reminder-show-page")

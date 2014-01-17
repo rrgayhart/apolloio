@@ -14,7 +14,7 @@ class ProgressFeatureTest < Capybara::Rails::TestCase
     select('Github', :from => 'api_selection')
     select('4', :from => 'Target Goal')
     select('1', :from => 'Period')
-    select('days', :from => 'Period Type')
+    select('day', :from => 'Period Type')
     VCR.use_cassette('goal_progress1') do
       click_button "Submit Goal"
       assert page.has_css?(".progress-bar")
