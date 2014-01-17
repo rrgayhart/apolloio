@@ -6,7 +6,7 @@ class Goal < ActiveRecord::Base
   validates_presence_of :user_id, :target, :period, :period_type, :pledge
   validate :acceptable_target
   validate :acceptable_period
-  validates :period_type, inclusion: { in: %w(days weeks months),
+  validates :period_type, inclusion: { in: %w(day days week weeks month months),
     message: "%{value} is not a valid size" }
 
   def acceptable_target

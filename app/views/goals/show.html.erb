@@ -1,54 +1,62 @@
 <h1 class="goal-title"><%= @goal.pledge %></h1>
-<%= link_to @goal.api_account.api_username, api_account_path(@goal.api_account) %>
+<div>User Account: <%= link_to @goal.api_account.api_username, api_account_path(@goal.api_account) %></div>
 
-<a href="#" class="reminder-button">Add Reminder</a>
 
-<div class="reminders-form" hidden="true">
+<div><a href="#" class="reminder-button btn btn-lg btn-info">Add Reminder</a></div>
+
+<div class="reminders-form well" hidden="true">
   <%= form_for @reminders do |r| %>
-
-    <%= r.label :start_date %>
-    <%= r.date_field :start_date %>
-
-    <%= r.label :target %>
-    <%= r.number_field :target %>
-
-    <%= r.label :time_deadline %>
-    <%= r.text_field :time_deadline %>
-
-    <%= r.label :day_deadline %>
-    <%= r.number_field :day_deadline %>
-
-    <%= r.label :twitter %>
-    <%= r.check_box :twitter %>
-
-    <%= r.label :email %>
-    <%= r.check_box :email %>
-
-    <%= r.label :sms %>
-    <%= r.check_box :sms %>
-
-    <%= r.hidden_field :goal_id, value: @goal.id%>
-
-    <%= r.submit :class => "reminder-submit-button" %>
-
+    <table class='table'>
+      <thead>
+        <tr>
+          <th><%= r.label :start_date %></th>
+          <th><%= r.label :target %></th>
+          <th><%= r.label :time_deadline %></th>
+          <th><%= r.label :day_deadline %></th>
+          <th><%= r.label :twitter %></th>
+          <th><%= r.label :email %></th>
+          <th><%= r.label :sms %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= r.date_field :start_date %></td>
+          <td><%= r.number_field :target %></td>
+          <td><%= r.text_field :time_deadline %></td>
+          <td><%= r.number_field :day_deadline %></td>
+          <td><%= r.check_box :twitter %></td>
+          <td><%= r.check_box :email %></td>
+          <td><%= r.check_box :sms %></td>
+          <td><%= r.submit :class => "reminder-submit-button btn btn-primary" %></td>
+        </tr>
+      </tbody>
+      <%= r.hidden_field :goal_id, value: @goal.id%>
+    </table>
   <% end %>
 </div>
 
 <div class='center-block' >
   <h3>Current Reminders For Goal</h3>
-  <% @goal.reminders.each do |r| %>
-    <%= link_to "View Reminder", reminder_path(r), :class => "view-reminder-link" %>
-    <%= r.target %>|
-    <%= r.day_deadline %>|
-    <%= r.time_deadline %><br>
-  <% end %>
+  <table class='table table-hover'>
+    <thead>
+      <tr>
+        <th>Reminder</th>
+        <th></th>
+      </tr>
+    </thead>
+    <% @goal.reminders.each do |r| %>
+      <tr>
+        <td><%= link_to "I need to reach #{r.target} commits by #{r.render_time_deadline} every #{r.day_deadline} days", reminder_path(r), :class => "view-reminder-link" %></td>
+        <td>ON/OFF</td>
+      </tr>
+    <% end %>
+  </table>
 </div>
 
 <script>
-$(".reminder-button").click(function(event) {
-  event.preventDefault();
-  $(".reminders-form").toggle();
-});
-
-
+  $(".reminder-button").click(function(event) {
+    event.preventDefault();
+    $(".reminders-form").toggle();
+  });
 </script>
