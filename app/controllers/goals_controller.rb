@@ -2,8 +2,7 @@ class GoalsController < ApplicationController
 
   def new
     @goal             = Goal.new
-    @api_accounts   = current_user.api_accounts
-    # @github_account   = Api.find_by(provider: 'Github')
+    @api_accounts     = current_user.api_accounts
     @fitbit_account   = Api.find_by(provider: 'Fitbit')
     @exercism_account = Api.find_by(provider: 'Exercism')
   end
