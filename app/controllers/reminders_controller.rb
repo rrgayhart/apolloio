@@ -6,7 +6,9 @@ class RemindersController < ApplicationController
   end
 
   def create
-    @reminder = Reminder.new(reminder_params)
+    @add_email = params[:reminder][:add_email]
+    current_user.update(email: @add_email)
+    @reminder = Reminder.new(reminder_params.except(:add_email))
     @reminder.user_id = current_user.id
     if @reminder.save
       redirect_to goal_path(@reminder.goal)
@@ -41,6 +43,6 @@ class RemindersController < ApplicationController
   private
 
   def reminder_params
-    params.require(:reminder).permit(:goal_id, :start_date, :target, :time_deadline, :day_deadline, :twitter, :sms, :email)
+    params.require(:reminder).permit(:goal_id, :start_date, :target, :time_deadline, :day_deadline, :twitter, :sms, :email, :add_email)
   end
 end
