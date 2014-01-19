@@ -1,6 +1,8 @@
 require "test_helper"
+require 'minitest/metadata'
 
 class GoalsFeatureTest < Capybara::Rails::TestCase
+  include MiniTest::Metadata
 
   setup do
     Capybara.current_driver = :webkit

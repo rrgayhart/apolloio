@@ -29,7 +29,7 @@ group :development, :test do
   gem 'simplecov', :require => false
   gem 'vcr', '2.4.0'
   gem "capybara-webkit"
-  gem 'minitest-metadata'
+  gem 'minitest-metadata', :require => false
 end
 
 group :doc do
