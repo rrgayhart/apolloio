@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20140119005652) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "day_deadline"
-    t.string   "time_deadline", default: "evening"
+    t.string   "time_deadline"
     t.date     "start_date"
     t.boolean  "active",        default: true
   end

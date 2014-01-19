@@ -1,19 +1,5 @@
 class Reminder < ActiveRecord::Base
 
-  # create_table "reminders", force: true do |t|
-  #   t.integer  "user_id"
-  #   t.integer  "goal_id"
-  #   t.integer  "target" - What I need to be at in order to not receive a notification
-  #   t.boolean  "twitter"
-  #   t.boolean  "email"
-  #   t.boolean  "sms"
-  #   t.datetime "created_at"
-  #   t.datetime "updated_at"
-  #   t.integer  "day_deadline" - Day of the week or month for the notification
-  #   t.time     "time_deadline" - Time of the day that I would get this notification
-  #   t.date     "start_date" - Date for when this reminder system starts
-  # end
-
   belongs_to :user
   belongs_to :goal
   has_one :api_account, through: :goal
