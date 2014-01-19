@@ -17,3 +17,10 @@
 //= require_tree .
 
 
+
+$(document).ready( function(){
+  window.activateSidr();
+})
+$(document).on('page:load', function(){
+  window.activateSidr();
+})
