@@ -22,12 +22,13 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
         assert page.has_content?("Add Reminder")
         click_link "Add Reminder"
         assert page.has_css?(".reminder-submit-button")
-        fill_in "Start date", :with => "01/09/2014"
         fill_in "Target", :with => "2"
-        fill_in "Time deadline", :with => "4:00pm"
+        select("Afternoon", :from => "Time Deadline")
         fill_in "Day deadline", :with => "5"
         check "Twitter"
         check "Sms"
+        assert page.has_content?("Enter phone number:")
+        fill_in "reminder[add_phone_number]", :with => "7174250868"
         check "Email"
         assert page.has_content?("Enter email address:")
         fill_in "reminder[add_email]", :with => "example@example.org"

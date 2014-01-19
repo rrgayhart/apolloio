@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'pg'
+gem 'twilio-ruby'
 gem 'faraday'
 gem 'best_in_place', github: 'aaronchi/best_in_place'
 

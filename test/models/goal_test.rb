@@ -40,11 +40,15 @@ class GoalTest < ActiveSupport::TestCase
       @valid_goal.period_type = type
       assert @valid_goal.valid?
     end
-    
     @valid_goal.period_type = "jokes"
     refute @valid_goal.valid?
     @valid_goal.period_type = nil
     refute @valid_goal.valid?
   end
 
+  def test_start_date_after_create
+    current_date = DateTime.now.to_date
+    goal = Goal.create(user_id:@user.id, target: 2, period: 3, period_type: 'months', start_date: '', pledge: "the pledge")
+    assert_equal current_date, goal.start_date
+  end
 end

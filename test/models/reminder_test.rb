@@ -33,4 +33,10 @@ class ReminderTest < ActiveSupport::TestCase
     reminder = FactoryGirl.create(:reminder, user: @user1, goal: goal1)
     assert_equal "5th of the month", reminder.goal_render
   end
+
+  def test_start_date_after_create
+    current_date = DateTime.now.to_date
+    reminder = FactoryGirl.create(:reminder, user: @user1)
+    assert_equal current_date, reminder.start_date
+  end
 end

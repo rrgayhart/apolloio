@@ -13,10 +13,12 @@ Profile
 </div>
 
 <div class="bs-example bs-example-tabs" style="margin-bottom: 5%;">
+  
   <ul id="myTab" class="nav nav-tabs">
     <li class="active"><a href="#goals" data-toggle="tab">Goals</a></li>
     <li class=""><a href="#reminders" data-toggle="tab">Reminders</a></li>
   </ul>
+
   <div id="myTabContent" class="tab-content dashboard-outline" >
     <div class="tab-pane fade active in" id="goals">
       <div style="margin-left: 1%; padding-top: 1%">
@@ -27,7 +29,6 @@ Profile
               <th>Account</th>
               <th>Pledge</th>
               <th>Progress</th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -37,10 +38,7 @@ Profile
                 <%= goal.api_account.api.provider %> -
                 <%= link_to goal.api_account.api_username, api_account_path(goal.api_account) %></td>
                 <td><%= link_to goal.pledge, goal_path(goal) %></td>
-                <td></td>
-                <td>
-                ON/OFF
-                </div>
+                <td>ON/OFF</td>
               </tr>
             <% end %>
           </tbody>
@@ -69,14 +67,14 @@ Profile
               <tr>
                 <td><%= link_to reminder.goal.api_account.api_username, api_account_path(reminder.goal.api_account) %>/<%= link_to reminder.goal.api_account.api.provider, api_account_path(reminder.goal.api_account) %></td>
                 <td><%= link_to reminder.target, reminder_path(reminder) %></td>
-                <td> <%= reminder.goal_render %>
-                </td>
+                <td><%= reminder.goal_render %></td>
                 <td><%= reminder.render_time_deadline %></td>
-                <td><%= reminder.created_at.to_s(:short) %></td>
-                <td><%= reminder.twitter %></td>
-                <td><%= reminder.email %></td>
-                <td><%= reminder.sms %></td>
-                <td>On/Off </td>
+                <td><%= reminder.created_at.strftime("%d %b. %Y") %></td>
+                <td><%= reminder.twitter.to_s.capitalize %></td>
+                <td></td>
+                <td><%= reminder.email.to_s.capitalize %></td>
+                <td><%= reminder.sms.to_s.capitalize %></td>
+                <td>On/Off</td>
               </tr>
             <% end %>
           </tbody>

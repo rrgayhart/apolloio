@@ -4,16 +4,15 @@
 
 <%= render partial: "progressgit" %>
 
-<div><a href="#" class="reminder-button btn btn-lg btn-info">Add Reminder</a></div>
+<div><a href="#" class="reminder-button">Add Reminder</a></div>
 
 <div class="reminders-form well" hidden="true">
   <%= form_for @reminders do |r| %>
     <table class='table'>
       <thead>
         <tr>
-          <th><%= r.label :start_date %></th>
           <th><%= r.label :target %></th>
-          <th><%= r.label :time_deadline %></th>
+          <th><%= r.label :time_deadline, "Time Deadline" %></th>
           <th><%= r.label :day_deadline %></th>
           <th><%= r.label :twitter %></th>
           <th><%= r.label :email %></th>
@@ -23,9 +22,10 @@
       </thead>
       <tbody>
         <tr>
-          <td><%= r.date_field :start_date %></td>
           <td><%= r.number_field :target %></td>
-          <td><%= r.text_field :time_deadline %></td>
+          <td>
+            <%= r.select(:time_deadline, [['Select Time Of Reminder', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"Morning", "Afternoon", "Evening"], {}, { :class => ''}) %>
+          </td>
           <td><%= r.number_field :day_deadline %></td>
           <td><%= r.check_box :twitter %></td>
           <td><%= r.check_box :email %></td>
@@ -33,25 +33,22 @@
           <td><%= r.submit :class => "reminder-submit-button btn btn-primary" %></td>
         </tr>
         <% unless current_user.email %>
-        <tr id="add-email-tr">
-          <td>Enter email address:</td>
-          <td><%= r.text_field :add_email %></td>
-        </tr>
+          <tr id="add-email-tr">
+            <td>Enter email address:</td>
+            <td><%= r.text_field :add_email %></td>
+          </tr>
+        <% end %>
+        <% unless current_user.phone_number %>
+          <tr id="add-phone-number-tr">
+            <td>Enter phone number:</td>
+            <td><%= r.text_field :add_phone_number %></td>
+          </tr>
         <% end %>
       </tbody>
       <%= r.hidden_field :goal_id, value: @goal.id%>
     </table>
   <% end %>
 </div>
-
-<script>
-jQuery(document).ready(function($) {
-   $('input#reminder_email').change(function(){
-        if ($(this).is(':checked')) $('#add-email-tr').show();
-        else $('#add-email-tr').hide();
-    }).change();
-});
-</script>
 
 <div class='center-block' >
   <h3>Current Reminders For Goal</h3>
@@ -70,6 +67,19 @@ jQuery(document).ready(function($) {
     <% end %>
   </table>
 </div>
+
+<script>
+  jQuery(document).ready(function($) {
+    $('input#reminder_email').change(function(){
+      if ($(this).is(':checked')) $('#add-email-tr').show();
+      else $('#add-email-tr').hide();
+      }).change();
+    $('input#reminder_sms').change(function(){
+      if ($(this).is(':checked')) $('#add-phone-number-tr').show();
+      else $('#add-phone-number-tr').hide();
+      }).change();
+  });
+</script>
 
 <script>
   $(".reminder-button").click(function(event) {
