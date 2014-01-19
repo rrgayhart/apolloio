@@ -19,6 +19,7 @@ class RemindersController < ApplicationController
     if @reminder.save
       redirect_to goal_path(@reminder.goal)
       flash[:success]="Reminder Successfully Saved"
+      UserMailer.reminder_confirmation(current_user).deliver
       # send_sms
     else
       redirect_to :back
