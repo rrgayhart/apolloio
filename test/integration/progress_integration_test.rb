@@ -3,7 +3,7 @@ require "test_helper"
 class ProgressFeatureTest < Capybara::Rails::TestCase
 
   setup do
-    Capybara.javascript_driver = :poltergeist
+    Capybara.current_driver = :webkit
     limited_setup
     visit root_path
     click_link 'Log In'

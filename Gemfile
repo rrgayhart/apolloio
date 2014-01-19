@@ -28,7 +28,8 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'simplecov', :require => false
   gem 'vcr', '2.4.0'
-  gem "poltergeist"
+  gem "capybara-webkit"
+  gem 'minitest-metadata'
 end
 
 group :doc do
