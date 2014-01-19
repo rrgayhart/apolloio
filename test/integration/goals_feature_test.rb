@@ -3,7 +3,7 @@ require "test_helper"
 class GoalsFeatureTest < Capybara::Rails::TestCase
 
   setup do
-    Capybara.current_driver = :selenium
+    Capybara.javascript_driver = :poltergeist
     capybara_setup
     visit root_path
     click_link 'Log In'
