@@ -31,6 +31,7 @@ group :development, :test do
   gem 'vcr', '2.4.0'
   gem "capybara-webkit"
   gem 'minitest-metadata', :require => false
+  gem 'figaro'
 end
 
 group :doc do
