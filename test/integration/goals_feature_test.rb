@@ -51,7 +51,7 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
         select('1', :from => 'Period')
         select('day', :from => 'Period Type')
         select('ruby', :from => 'Language')
-        select('nitpicks', :from => 'Type')
+        select('nitpick', :from => 'Type')
         click_button "Submit Goal"
         refute page.has_content?("Target")
     end

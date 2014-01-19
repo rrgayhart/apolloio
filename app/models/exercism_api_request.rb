@@ -31,12 +31,16 @@ class ExercismApiRequest
   end
 
   def get_array_by_language(language)
+    if language != "any language"
     dates = generate_hash.map {|o| o.slice(language).values}
     dates.flatten!
     just_important = dates.select do |d|
       d['date'].to_date.past? && d['date'].to_date >= start_date
     end
     just_important
+    else
+      nil #NEED TO IMPLEMENT THIS
+    end
   end
 
   def generate_hash
