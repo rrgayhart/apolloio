@@ -4,6 +4,7 @@ require "rails/test_help"
 require "minitest/rails"
 require "database_cleaner"
 require "capybara/rails"
+require 'capybara-webkit'
 
 # To add Capybara feature tests add `gem "minitest-rails-capybara"`
 # to the test group in the Gemfile and uncomment the following:
@@ -52,7 +53,7 @@ def capybara_setup
   @api_account3 = FactoryGirl.create(:api_account, api: api3, user: @user)
   @api_accounts = [@api_account1, @api_account2, @api_account3]
   @api_account4 = FactoryGirl.create(:api_account, api: api1, user: other_user, api_username: "jcasimir")
-  
+
   @goal1 = FactoryGirl.create(:goal, user: @user, api_account: @api_account1, pledge: "one pledge")
   @goal2 = FactoryGirl.create(:goal, user: @user, api_account: @api_account2, pledge: "two pledge")
   @goal3 = FactoryGirl.create(:goal, user: @user, api_account: @api_account3, pledge: "three pledge")
@@ -70,6 +71,7 @@ class ActiveSupport::TestCase
   self.use_transactional_fixtures = false
   include Capybara::DSL
   include Capybara::Assertions
+
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   fixtures :all
   DatabaseCleaner.strategy = :truncation

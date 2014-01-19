@@ -1,9 +1,11 @@
 require "test_helper"
+require 'minitest/metadata'
 
 class ProgressFeatureTest < Capybara::Rails::TestCase
+  include MiniTest::Metadata
 
   setup do
-    Capybara.current_driver = :selenium
+    Capybara.current_driver = :webkit
     limited_setup
     visit root_path
     click_link 'Log In'

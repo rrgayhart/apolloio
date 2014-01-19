@@ -17,3 +17,6 @@
 
 #Ignore the rubymine idea directory
 /.idea
+
+# Ignore application configuration
+/config/application.yml

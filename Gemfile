@@ -12,12 +12,12 @@ gem 'omniauth-twitter'
 gem 'pg'
 gem 'twilio-ruby'
 gem 'faraday'
+gem 'travis'
+gem 'travis-lint'
 gem 'best_in_place', github: 'aaronchi/best_in_place'
 gem 'timecop'
 
-
 group :development, :test do
-  gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'minitest-rails', '~> 0.9.2'
   gem 'minitest-rails-capybara', '~> 0.10.0'
@@ -30,20 +30,11 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'simplecov', :require => false
   gem 'vcr', '2.4.0'
+  gem "capybara-webkit"
+  gem 'minitest-metadata', :require => false
+  gem 'figaro'
 end
 
 group :doc do
   gem 'sdoc', require: false
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
