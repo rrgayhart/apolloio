@@ -19,6 +19,9 @@ class Reminder < ActiveRecord::Base
   has_one :api_account, through: :goal
   has_one :api, through: :api_account
 
+  def add_email
+  end
+
   def render_time_deadline
     time = self.time_deadline
     if time.class == Time
