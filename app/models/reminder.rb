@@ -8,10 +8,7 @@ class Reminder < ActiveRecord::Base
   attr_accessor :add_email
 
   def render_time_deadline
-    time = self.time_deadline
-    if time.class == Time
-      time.strftime("%T")
-    end
+    self.time_deadline
   end
 
   def render_day_name(day_number)

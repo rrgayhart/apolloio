@@ -14,7 +14,7 @@ class ApiAccountsController < ApplicationController
   def create
     api_account_data           = api_account_params
     api_account_data[:user_id] = current_user.id
-    new_account = ApiAccount.new(api_account_data)
+    new_account                = ApiAccount.new(api_account_data)
     if new_account.api_account_exists
       new_account.save
       flash[:success] = "Added API Account"
@@ -28,12 +28,12 @@ class ApiAccountsController < ApplicationController
   def show
     @api_account = current_user.api_accounts.where(id: params[:id]).first
     if @api_account
-      @provider = @api_account.api.provider
-      @username = @api_account.api_username
-      @api_request = ApiRequest.new(@username, @provider)
-      @streak = @api_request.get_streak
+      @provider        = @api_account.api.provider
+      @username        = @api_account.api_username
+      @api_request     = ApiRequest.new(@username, @provider)
+      @streak          = @api_request.get_streak
       @year_percentage = @api_request.get_percentage_days_commited_this_year
-      @this_year = @api_request.get_this_years_total_commits
+      @this_year       = @api_request.get_this_years_total_commits
     else
       redirect_to dashboard_path
     end

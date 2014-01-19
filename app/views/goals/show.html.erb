@@ -4,7 +4,7 @@
 
 <%= render partial: "progressgit" %>
 
-<div><a href="#" class="reminder-button btn btn-lg btn-info">Add Reminder</a></div>
+<div><a href="#" class="reminder-button">Add Reminder</a></div>
 
 <div class="reminders-form well" hidden="true">
   <%= form_for @reminders do |r| %>
@@ -24,7 +24,7 @@
         <tr>
           <td><%= r.number_field :target %></td>
           <td>
-            <%= r.select(:time_deadline, [['Select Time Of Reminder', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"morning", "afternoon", "evening"], {}, { :class => ''}) %>
+            <%= r.select(:time_deadline, [['Select Time Of Reminder', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"Morning", "Afternoon", "Evening"], {}, { :class => ''}) %>
           </td>
           <td><%= r.number_field :day_deadline %></td>
           <td><%= r.check_box :twitter %></td>
