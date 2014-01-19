@@ -1,0 +1,34 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://github-history.herokuapp.com/find/jcasimir.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - application/json;charset=utf-8
+      date:
+      - Fri, 17 Jan 2014 05:38:09 GMT
+      server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      x-content-type-options:
+      - nosniff
+      content-length:
+      - '299'
+      connection:
+      - Close
+    body:
+      encoding: UTF-8
+      string: '{"username":"jcasimir","contributions_today":7,"current_streak":94,"days_without_contributions":87,"days_this_year_with_contributions":16,"days_in_the_year":17,"percentage_days_commited_this_year":0.9411764705882353,"percentage_days_commited_known_history":0.7622950819672131,"commits_this_year":63}'
+    http_version: 
+  recorded_at: Fri, 17 Jan 2014 05:38:09 GMT
+recorded_with: VCR 2.4.0

@@ -1,18 +1,15 @@
-  Profile
-  <br>
-  <div class="api-dashboard-div">
-    <p>API Accounts:</p>
-    <br />
-    <%= link_to "Add An API Account", api_accounts_path %>
-    <br />
-    <% @api_accounts.each do |api_account| %>
-        Provider: <%= api_account.api.provider %>
-        <br >
-        Api Account <%= link_to api_account.api_username, api_account_path(api_account), id: "api_account_#{api_account.id}"%>
-      <hr>
-    <% end %>
-    </div>
-
+Profile
+<br>
+<div class="api-dashboard-div">
+  <p>API Accounts:</p>
+  <br />
+  <%= link_to "Add An API Account", api_accounts_path %>
+  <br />
+  <% @api_accounts.each do |api_account| %>
+    Provider: <%= api_account.api.provider %>
+    <br >
+    Api Account <%= link_to api_account.api_username, api_account_path(api_account), id: "api_account_#{api_account.id}"%>
+  <% end %>
 </div>
 
 <div class="bs-example bs-example-tabs" style="margin-bottom: 5%;">

@@ -1,0 +1,34 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://github-history.herokuapp.com/find/jlak23sdjbre12.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - application/json;charset=utf-8
+      date:
+      - Fri, 17 Jan 2014 05:21:14 GMT
+      server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      x-content-type-options:
+      - nosniff
+      content-length:
+      - '28'
+      connection:
+      - Close
+    body:
+      encoding: UTF-8
+      string: '{"error":"INVALID USERNAME"}'
+    http_version: 
+  recorded_at: Fri, 17 Jan 2014 05:21:13 GMT
+recorded_with: VCR 2.4.0

@@ -31,9 +31,11 @@ class ApiAccountFeatureTest < Capybara::Rails::TestCase
     assert page.has_content?("Connect An API Account")
     assert page.has_content?("Github")
     assert page.has_css?("#github_form")
-    within("#github_form") do
-      fill_in("api_account_api_username", with: "jcasimir")
-      click_button "Link My Account"
+    VCR.use_cassette('new_api_account') do
+      within("#github_form") do
+        fill_in("api_account_api_username", with: "jcasimir")
+        click_button "Link My Account"
+      end
     end
     assert page.has_content?("Added API Account")
     assert page.has_content?("jcasimir")

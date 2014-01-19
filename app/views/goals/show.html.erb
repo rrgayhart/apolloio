@@ -1,6 +1,8 @@
-<h1 class="goal-title"><%= @goal.pledge %></h1>
 <div>User Account: <%= link_to @goal.api_account.api_username, api_account_path(@goal.api_account) %></div>
 
+<h1 class="goal-title"><%= @goal.pledge %></h1>
+
+<%= render partial: "progressgit" %>
 
 <div><a href="#" class="reminder-button btn btn-lg btn-info">Add Reminder</a></div>
 
@@ -30,11 +32,26 @@
           <td><%= r.check_box :sms %></td>
           <td><%= r.submit :class => "reminder-submit-button btn btn-primary" %></td>
         </tr>
+        <% unless current_user.email %>
+        <tr id="add-email-tr">
+          <td>Enter email address:</td>
+          <td><%= r.text_field :add_email %></td>
+        </tr>
+        <% end %>
       </tbody>
       <%= r.hidden_field :goal_id, value: @goal.id%>
     </table>
   <% end %>
 </div>
+
+<script>
+jQuery(document).ready(function($) {
+   $('input#reminder_email').change(function(){
+        if ($(this).is(':checked')) $('#add-email-tr').show();
+        else $('#add-email-tr').hide();
+    }).change();
+});
+</script>
 
 <div class='center-block' >
   <h3>Current Reminders For Goal</h3>
@@ -60,3 +77,4 @@
     $(".reminders-form").toggle();
   });
 </script>
+

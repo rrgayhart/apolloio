@@ -9,9 +9,11 @@ class ApiRequestTest < ActiveSupport::TestCase
   end
 
   def test_get_error_for_invalid_user
-    user = "adamasdfcueahg89"
-    ai = ApiRequest.new(user, "github")
-    assert_equal "adamasdfcueahg89 is not a valid username with github", ai.get_streak
+    VCR.use_cassette('invalid_api_cassette') do
+      user = "adamasdfcueahg89"
+      ai = ApiRequest.new(user, "github")
+      assert_equal "adamasdfcueahg89 is not a valid username with github", ai.get_streak
+    end
   end
 
   def test_get_error_for_invalid_provider

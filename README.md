@@ -25,6 +25,11 @@ The best API tracking app of all time.
 2. Make sure that `postgres` is running.
 3. Run the test suite with `rake test`.
 4. Run individual tests with `ruby -I test test/models/api_request_test.rb`.
+5. To add VCR to any test that uses an api call, please wrap any http call in a 
+```ruby
+VCR.use_cassette('use any name here') do
+end
+```
 
 ## Production Link
 
