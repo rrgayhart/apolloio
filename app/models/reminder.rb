@@ -5,13 +5,10 @@ class Reminder < ActiveRecord::Base
   has_one :api_account, through: :goal
   has_one :api, through: :api_account
   after_create :set_start_date
-  attr_accessor :add_email
+  attr_accessor :add_email, :add_phone_number
 
   def render_time_deadline
-    time = self.time_deadline
-    if time.class == Time
-      time.strftime("%T")
-    end
+    self.time_deadline
   end
 
   def render_day_name(day_number)

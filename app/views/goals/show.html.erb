@@ -4,7 +4,7 @@
 
 <%= render partial: "progressgit" %>
 
-<div><a href="#" class="reminder-button btn btn-lg btn-info">Add Reminder</a></div>
+<div><a href="#" class="reminder-button">Add Reminder</a></div>
 
 <div class="reminders-form well" hidden="true">
   <%= form_for @reminders do |r| %>
@@ -24,7 +24,7 @@
         <tr>
           <td><%= r.number_field :target %></td>
           <td>
-            <%= r.select(:time_deadline, [['Select Time Of Reminder', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"morning", "afternoon", "evening"], {}, { :class => ''}) %>
+            <%= r.select(:time_deadline, [['Select Time Of Reminder', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"Morning", "Afternoon", "Evening"], {}, { :class => ''}) %>
           </td>
           <td><%= r.number_field :day_deadline %></td>
           <td><%= r.check_box :twitter %></td>
@@ -33,10 +33,16 @@
           <td><%= r.submit :class => "reminder-submit-button btn btn-primary" %></td>
         </tr>
         <% unless current_user.email %>
-        <tr id="add-email-tr">
-          <td>Enter email address:</td>
-          <td><%= r.text_field :add_email %></td>
-        </tr>
+          <tr id="add-email-tr">
+            <td>Enter email address:</td>
+            <td><%= r.text_field :add_email %></td>
+          </tr>
+        <% end %>
+        <% unless current_user.phone_number %>
+          <tr id="add-phone-number-tr">
+            <td>Enter phone number:</td>
+            <td><%= r.text_field :add_phone_number %></td>
+          </tr>
         <% end %>
       </tbody>
       <%= r.hidden_field :goal_id, value: @goal.id%>
@@ -63,12 +69,16 @@
 </div>
 
 <script>
-jQuery(document).ready(function($) {
-   $('input#reminder_email').change(function(){
-        if ($(this).is(':checked')) $('#add-email-tr').show();
-        else $('#add-email-tr').hide();
-    }).change();
-});
+  jQuery(document).ready(function($) {
+    $('input#reminder_email').change(function(){
+      if ($(this).is(':checked')) $('#add-email-tr').show();
+      else $('#add-email-tr').hide();
+      }).change();
+    $('input#reminder_sms').change(function(){
+      if ($(this).is(':checked')) $('#add-phone-number-tr').show();
+      else $('#add-phone-number-tr').hide();
+      }).change();
+  });
 </script>
 
 <script>
