@@ -5,7 +5,6 @@ FactoryGirl.define do
     user nil
     goal nil
     target 1
-    time_deadline "4pm"
     day_deadline "5"
     twitter false
     email false

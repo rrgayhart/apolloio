@@ -1,5 +1,5 @@
 class Reminder < ActiveRecord::Base
-  
+
   # create_table "reminders", force: true do |t|
   #   t.integer  "user_id"
   #   t.integer  "goal_id"
@@ -18,6 +18,10 @@ class Reminder < ActiveRecord::Base
   belongs_to :goal
   has_one :api_account, through: :goal
   has_one :api, through: :api_account
+
+  TIME_DEADLINE = ["morning", "afternoon", "evening"]
+
+  validates :time_deadline, inclusion: {in: TIME_DEADLINE, message: "Must be either morning, afternoon or evening"}
 
   def add_email
   end
