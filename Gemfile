@@ -11,8 +11,9 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'pg'
 gem 'faraday'
-gem 'best_in_place', github: 'aaronchi/best_in_place'
 gem 'travis'
+gem 'travis-lint'
+gem 'best_in_place', github: 'aaronchi/best_in_place'
 
 group :development, :test do
   gem 'selenium-webdriver'
@@ -33,15 +34,3 @@ end
 group :doc do
   gem 'sdoc', require: false
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
