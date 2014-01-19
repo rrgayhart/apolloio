@@ -3,7 +3,6 @@ class UserMailer < ActionMailer::Base
 
   def reminder_confirmation(user)
     @user = user
-    @user.email = "to@example.org"
 
     mail to: @user.email, subject:"New Reminder Confirmation"
   end
