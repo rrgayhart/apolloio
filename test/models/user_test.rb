@@ -13,7 +13,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   def test_from_omniauth_creates_user
-    user = User.create do |u|
+      User.create do |u|
       u.name     = "Adam"
       u.uid      = "1234567890"
       u.provider = "twitter"
@@ -23,18 +23,6 @@ class UserTest < ActiveSupport::TestCase
   def test_from_omniauth_finds_user_that_exists
     user = User.from_omniauth(omniauth_hash)
     assert_equal user, User.from_omniauth(omniauth_hash)
-  end
-
-  def test_a_user_has_no_api_accounts_if_its_api_accounts_are_empty
-    user = User.new(api_accounts: [])
-
-    assert(!user.has_api_account?)
-  end
-
-  def test_a_user_has_api_accounts_if_its_api_accounts_are_not_empty
-    user = User.new(api_accounts: ['anything'])
-
-    assert(user.has_api_account?)
   end
 
 

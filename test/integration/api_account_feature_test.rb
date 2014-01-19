@@ -13,16 +13,18 @@ class ApiAccountFeatureTest < Capybara::Rails::TestCase
 
   test "api account show page holds correct data for github accounts" do
     assert page.has_css?("#api_account_#{@api_account1.id}"), "Expecting link for api account"
-    within(".api-dashboard-div") do
-      click_link @api_account1.api_username
+    VCR.use_cassette('api_account_show_1') do
+      within(".api-dashboard-div") do
+        click_link @api_account1.api_username
+      end
+      assert page.has_content?("Github"), "Page shoud have content GitHub"
+      assert page.has_content?(@api_account1.api_username), "Page should have content #{@api_account1.api_username}"
+      assert page.has_content?("Languages")
+      assert page.has_content?("Current Streak")
+      assert page.has_content?("Commits This Year")
+      assert page.has_content?("Number of Repos")
+      assert page.has_content?("Goals List")
     end
-    assert page.has_content?("Github"), "Page shoud have content GitHub"
-    assert page.has_content?(@api_account1.api_username), "Page should have content #{@api_account1.api_username}"
-    assert page.has_content?("Languages")
-    assert page.has_content?("Current Streak")
-    assert page.has_content?("Commits This Year")
-    assert page.has_content?("Number of Repos")
-    assert page.has_content?("Goals List")
   end
 
   test "add a github api account" do

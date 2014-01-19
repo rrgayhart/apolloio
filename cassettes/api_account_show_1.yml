@@ -1,0 +1,34 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://github-history.herokuapp.com/find/mhartl.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - application/json;charset=utf-8
+      date:
+      - Sun, 19 Jan 2014 00:47:23 GMT
+      server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
+      x-content-type-options:
+      - nosniff
+      content-length:
+      - '297'
+      connection:
+      - Close
+    body:
+      encoding: UTF-8
+      string: '{"username":"mhartl","contributions_today":0,"current_streak":0,"days_without_contributions":111,"days_this_year_with_contributions":13,"days_in_the_year":19,"percentage_days_commited_this_year":0.6842105263157895,"percentage_days_commited_known_history":0.6967213114754098,"commits_this_year":44}'
+    http_version: 
+  recorded_at: Sun, 19 Jan 2014 00:47:24 GMT
+recorded_with: VCR 2.4.0
