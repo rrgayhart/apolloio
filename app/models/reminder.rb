@@ -5,7 +5,7 @@ class Reminder < ActiveRecord::Base
   has_one :api_account, through: :goal
   has_one :api, through: :api_account
   after_create :set_start_date
-  attr_accessor :add_email
+  attr_accessor :add_email, :add_phone_number
 
   def render_time_deadline
     self.time_deadline
