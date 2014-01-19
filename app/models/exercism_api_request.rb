@@ -3,22 +3,29 @@ require 'json'
 
 class ExercismApiRequest
 
-  attr_reader :days_to_pull, :target, :username, :type
+  attr_reader :days_to_pull, :target, :username, :type, :language
   attr_accessor :user_hash
 
-  def initialize(days_to_pull, target, username, type)
+  def initialize(days_to_pull, target, username, type, language)
     @days_to_pull = days_to_pull
     @target = target
     @username = username
     @user_hash = []
     @type = type
+    @language = language
+  end
+
+  def progress
+    contributions = get_contribution_count_by_language(language)
+    percentage = contributions.to_f / target.to_f * 100
+    percentage.ceil.to_s
   end
 
   def formated_link(formatted_date)
     "http://exercism.io/api/v1/stats/#{username}/#{type}/#{formatted_date}"
   end
 
-  def get_by_language(language)
+  def get_contribution_count_by_language(language)
     a = get_array_by_language(language)
     a.inject(0) {|sum, date| sum + date['count'] }
   end

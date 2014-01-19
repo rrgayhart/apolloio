@@ -11,6 +11,10 @@ class Goal < ActiveRecord::Base
     message: "%{value} is not a valid size" }
 
 
+  def valid_languages
+    ["clojure", "coffeescript", "elixir", "go", "haskell", "javascript", "objective-c", "ocaml", "perl5", "python", "ruby", "scala"] 
+  end
+
   def acceptable_target
     if target == nil || target < 1
       errors.add(:target, "can't be less than 1")

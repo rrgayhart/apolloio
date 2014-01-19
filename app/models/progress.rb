@@ -15,12 +15,17 @@ attr_reader :goal
     when "github"
       github_preparation
     when "exercism"
-      "Exercism not prepared yet"
+      exercism_preparation
     when "fitbit"
       "Fitbit not prepared yet"
     else
      "invalid provider"
     end
+  end
+
+  def exercism_preparation
+    request = ExercismRequest.new(days_to_pull, goal.target, goal.api_account.api_username, goal.type, goal.language)
+    request.progress
   end
 
   def github_preparation
