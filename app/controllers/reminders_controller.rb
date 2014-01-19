@@ -7,7 +7,9 @@ class RemindersController < ApplicationController
 
   def create
     @add_email = params[:reminder][:add_email]
-    current_user.update(email: @add_email)
+    if @add_email
+      current_user.update(email: @add_email) 
+    end
     @reminder = Reminder.new(reminder_params.except(:add_email))
     @reminder.user_id = current_user.id
     if @reminder.save

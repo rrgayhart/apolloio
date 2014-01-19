@@ -29,9 +29,12 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
         check "Twitter"
         check "Sms"
         check "Email"
-        assert page.has_content?("Enter email address for notifications")
-        fill_in "Enter Email Address", :with => "example@example.org"
+        assert page.has_content?("Enter email address:")
+        fill_in "reminder[add_email]", :with => "example@example.org"
         click_button "Create Reminder"
+        click_link "Add Reminder"
+        check "Email"
+        refute page.has_content?("Enter email address:")
         assert page.has_css?(".view-reminder-link")
         click_link "I need to reach"
         assert page.has_css?("#reminder-show-page")

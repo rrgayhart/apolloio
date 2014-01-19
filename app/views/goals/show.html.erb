@@ -32,9 +32,12 @@
           <td><%= r.check_box :sms %></td>
           <td><%= r.submit :class => "reminder-submit-button btn btn-primary" %></td>
         </tr>
+        <% unless current_user.email %>
         <tr id="add-email-tr">
+          <td>Enter email address:</td>
           <td><%= r.text_field :add_email %></td>
         </tr>
+        <% end %>
       </tbody>
       <%= r.hidden_field :goal_id, value: @goal.id%>
     </table>
