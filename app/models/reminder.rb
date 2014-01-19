@@ -4,19 +4,13 @@ class Reminder < ActiveRecord::Base
   belongs_to :goal
   has_one :api_account, through: :goal
   has_one :api, through: :api_account
-
-  TIME_DEADLINE = ["morning", "afternoon", "evening"]
-
-  validates :time_deadline, inclusion: {in: TIME_DEADLINE, message: "Must be either morning, afternoon or evening"}
-
-  def add_email
-  end
+  after_create :set_start_date
+  attr_accessor :add_email
 
   def render_time_deadline
     time = self.time_deadline
     if time.class == Time
       time.strftime("%T")
-      #time.strftime("%I:%M%p")
     end
   end
 
@@ -42,5 +36,9 @@ class Reminder < ActiveRecord::Base
     else
       number
     end
+  end
+
+  def set_start_date
+    update(start_date: DateTime.now.to_date)
   end
 end

@@ -2,7 +2,7 @@ class Goal < ActiveRecord::Base
   belongs_to :user
   belongs_to :api_account
   has_many :reminders
-  after_create :set_time
+  after_create :set_start_date
 
   validates_presence_of :user_id, :target, :period, :period_type, :pledge
   validate :acceptable_target
@@ -26,9 +26,9 @@ class Goal < ActiveRecord::Base
   def provider
     self.api_account.api.provider
   end
-  
-  def set_time
-    update(start_date: DateTime.now)
+
+  def set_start_date
+    update(start_date: DateTime.now.to_date)
   end
 
 end
