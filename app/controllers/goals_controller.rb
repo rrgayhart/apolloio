@@ -17,7 +17,7 @@ class GoalsController < ApplicationController
   def create
     new_params           = goal_params
     new_params[:user_id] = current_user.id
-    @goal                = Goal.create(new_params)
+    @goal                = Goal.new(new_params)
     if @goal.save
       redirect_to goal_path(@goal)
     else
@@ -29,7 +29,7 @@ class GoalsController < ApplicationController
 private
 
   def goal_params
-    params.require(:goal).permit(:pledge, :api_account_id, :target, :period, :period_type, :start_date)
+    params.require(:goal).permit(:pledge, :api_account_id, :target, :period, :period_type, :start_date, :language, :commit_type)
   end
 
 end

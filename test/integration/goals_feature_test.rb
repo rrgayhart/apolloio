@@ -41,4 +41,19 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
         assert page.has_css?("#reminder-show-page")
     end
   end
+
+    test 'an exercism goal can be created' do
+    VCR.use_cassette('goal_progress3') do
+        click_link 'Add Goal'
+        assert page.has_css?('#create-goal-title')
+        select('Exercism', :from => 'api_selection')
+        select('1', :from => 'Target Goal')
+        select('1', :from => 'Period')
+        select('day', :from => 'Period Type')
+        select('ruby', :from => 'Language')
+        select('nitpicks', :from => 'Type')
+        click_button "Submit Goal"
+        refute page.has_content?("Target")
+    end
+  end
 end

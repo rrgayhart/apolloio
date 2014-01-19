@@ -22,7 +22,7 @@ class ExercismApiRequest
   end
 
   def formated_link(formatted_date)
-    "http://exercism.io/api/v1/stats/#{username}/#{type}/#{formatted_date}"
+    "http://exercism.io/api/v1/stats/#{username}/#{type}s/#{formatted_date}"
   end
 
   def get_contribution_count_by_language(language)
@@ -53,7 +53,7 @@ class ExercismApiRequest
   end
 
   def start_date
-    start_date = Date.today - days_to_pull
+    Date.today - days_to_pull
   end
 
   def which_dates

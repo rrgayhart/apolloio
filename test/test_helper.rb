@@ -32,7 +32,7 @@ def limited_setup
   @apis = [api1, api2, api3]
 
   @api_account1 = FactoryGirl.create(:api_account, api: api1, user: @user, api_username: "mhartl")
-  @api_account2 = FactoryGirl.create(:api_account, api: api2, user: @user)
+  @api_account2 = FactoryGirl.create(:api_account, api: api2, user: @user, api_username: "kytrinyx")
   @api_account3 = FactoryGirl.create(:api_account, api: api3, user: @user)
   @api_accounts = [@api_account1, @api_account2, @api_account3]
 end
@@ -48,7 +48,7 @@ def capybara_setup
   @apis = [api1, api2, api3]
 
   @api_account1 = FactoryGirl.create(:api_account, api: api1, user: @user, api_username: "mhartl")
-  @api_account2 = FactoryGirl.create(:api_account, api: api2, user: @user)
+  @api_account2 = FactoryGirl.create(:api_account, api: api2, user: @user, api_username: "kytrinyx")
   @api_account3 = FactoryGirl.create(:api_account, api: api3, user: @user)
   @api_accounts = [@api_account1, @api_account2, @api_account3]
   @api_account4 = FactoryGirl.create(:api_account, api: api1, user: other_user, api_username: "jcasimir")

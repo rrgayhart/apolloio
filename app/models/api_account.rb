@@ -15,7 +15,12 @@ class ApiAccount < ActiveRecord::Base
   # validates :api_id, presence: true
 
   def api_account_exists
-    !ApiRequest.new(api_username, "github").github_error?
+    case self.api.provider.downcase
+    when 'github'
+      !ApiRequest.new(api_username, "github").github_error?
+    when 'exercism'
+      ApiRequest.new(api_username, "exercism").valid_username_exercism?
+    end
   end
 
   def acceptable_username

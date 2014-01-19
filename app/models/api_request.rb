@@ -17,6 +17,10 @@ class ApiRequest
     end
   end
 
+  def valid_username_exercism?
+    Faraday.get("http://exercism.io/api/v1/stats/#{username}/nitpicks/2014/01").status == 200
+  end
+
   def github_hash
     url = "http://github-history.herokuapp.com/find/#{username}.json"
     response = Faraday.get(url)

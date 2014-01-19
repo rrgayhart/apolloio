@@ -24,7 +24,7 @@ attr_reader :goal
   end
 
   def exercism_preparation
-    request = ExercismRequest.new(days_to_pull, goal.target, goal.api_account.api_username, goal.type, goal.language)
+    request = ExercismApiRequest.new(days_to_pull, goal.target, goal.api_account.api_username, goal.commit_type, goal.language)
     request.progress
   end
 

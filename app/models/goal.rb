@@ -12,7 +12,7 @@ class Goal < ActiveRecord::Base
 
 
   def valid_languages
-    ["clojure", "coffeescript", "elixir", "go", "haskell", "javascript", "objective-c", "ocaml", "perl5", "python", "ruby", "scala"] 
+    ["clojure", "coffeescript", "elixir", "go", "haskell", "javascript", "objective-c", "ocaml", "perl5", "python", "ruby", "scala", "any language"] 
   end
 
   def acceptable_target
