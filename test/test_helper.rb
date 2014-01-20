@@ -29,8 +29,8 @@ def limited_setup
   @user = User.from_omniauth(@auth)
 
   api1  = FactoryGirl.create(:api, :github)
-  api2  = FactoryGirl.create(:api, :fitbit)
-  api3  = FactoryGirl.create(:api, :exercism)
+  api2  = FactoryGirl.create(:api, :exercism)
+  api3  = FactoryGirl.create(:api, :fitbit)
   @apis = [api1, api2, api3]
 
   @api_account1 = FactoryGirl.create(:api_account, api: api1, user: @user, api_username: "mhartl")
@@ -45,8 +45,8 @@ def capybara_setup
   other_user = FactoryGirl.create(:user)
 
   api1  = FactoryGirl.create(:api, :github)
-  api2  = FactoryGirl.create(:api, :fitbit)
-  api3  = FactoryGirl.create(:api, :exercism)
+  api2  = FactoryGirl.create(:api, :exercism)
+  api3  = FactoryGirl.create(:api, :fitbit)
   @apis = [api1, api2, api3]
 
   @api_account1 = FactoryGirl.create(:api_account, api: api1, user: @user, api_username: "mhartl")

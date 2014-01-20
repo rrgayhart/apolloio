@@ -23,6 +23,14 @@ class Goal < ActiveRecord::Base
     self.api_account.api.provider
   end
 
+  def get_commit_type
+    if self.commit_type
+    self.commit_type.capitalize.pluralize 
+    else
+    "Commits"
+  end
+  end
+
   def set_start_date
     update(start_date: DateTime.now.to_date)
   end

@@ -44,7 +44,8 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
   end
 
     test 'an exercism goal can be created' do
-    VCR.use_cassette('goal_progress3') do
+    Timecop.travel("Sat, 19 Jan 2014".to_date) do
+      VCR.use_cassette('goal_progress5') do
         click_link 'Add Goal'
         assert page.has_css?('#create-goal-title')
         select('Exercism', :from => 'api_selection')
@@ -54,6 +55,10 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
         select('nitpick', :from => 'Type')
         click_button "Submit Goal"
         refute page.has_content?("Target")
+        assert page.has_content?('Progress:')
+        assert page.has_content?("Time Left to Complete Goal:")
+        assert page.has_content?("Number of Nitpicks Left to Complete Goal:")
+      end
     end
   end
 end
