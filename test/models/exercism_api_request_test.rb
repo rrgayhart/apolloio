@@ -13,6 +13,15 @@ class ExercismApiTest < ActiveSupport::TestCase
   def teardown
   end
 
+  def test_progress_functions
+    Timecop.freeze(Date.today) do
+    VCR.use_cassette('rrgayhart1', :record => :new_episodes) do
+      @submissions = ExercismApiRequest.new(25, 5, "rrgayhart", "submission", "ruby")
+      assert_equal '100', @submissions.progress
+    end
+  end
+  end
+
   def test_valid_exercism_name
     VCR.use_cassette('invalic_checks', :record => :new_episodes) do
       invalid = ApiRequest.new('sdfefsf', 'exercism')
@@ -50,18 +59,18 @@ class ExercismApiTest < ActiveSupport::TestCase
   end
 
   def test_start_date_returns_correct_number
-    VCR.use_cassette('kytrinyx_nitpick', :record => :new_episodes) do
-      Timecop.freeze(Date.today) do
+    Timecop.freeze(Date.today) do
+      VCR.use_cassette('kytrinyx_nitpick', :record => :new_episodes) do
         assert_equal 4, @nitpicks.days_to_pull
-        assert_equal 'Sat, 18 Jan 2014'.to_date, Date.today
-        assert_equal '14 Jan 2014'.to_date, @nitpicks.start_date
+        assert_equal 'Sat, 19 Jan 2014'.to_date, Date.today
+        assert_equal '15 Jan 2014'.to_date, @nitpicks.start_date
       end
     end
   end
 
   def test_generate_hash_renders_correct_format
-    VCR.use_cassette('kytrinyx_nitpick', :record => :new_episodes) do
-      Timecop.freeze(Date.today) do
+    Timecop.freeze(Date.today) do
+      VCR.use_cassette('kytrinyx_nitpick', :record => :new_episodes) do
         languages = ["clojure", "coffeescript", "elixir", "go", "haskell", "javascript", "objective-c", "ocaml", "perl5", "python", "ruby", "scala"]
         assert_equal languages, @nitpicks.generate_hash.first.keys
         days_in_the_month = 31
@@ -73,8 +82,8 @@ class ExercismApiTest < ActiveSupport::TestCase
   end
 
   def test_generate_hash_handles_multiple_months
-    VCR.use_cassette('kytrinyx_nitpick_large', :record => :new_episodes) do
-      Timecop.freeze(Date.today) do
+    Timecop.freeze(Date.today) do
+      VCR.use_cassette('kytrinyx_nitpick_large', :record => :new_episodes) do
         @nitpicks_large = ExercismApiRequest.new(20, 1, "kytrinyx", "nitpick", "ruby")
         months = 2
         assert_equal months, @nitpicks_large.generate_hash.count
@@ -83,8 +92,8 @@ class ExercismApiTest < ActiveSupport::TestCase
   end
 
   def test_get_array_by_language_handles_one_language
-    VCR.use_cassette('kytrinyx_nitpick_large', :record => :new_episodes) do
-      Timecop.freeze(Date.today) do
+    Timecop.freeze(Date.today) do  
+      VCR.use_cassette('kytrinyx_nitpick_large', :record => :new_episodes) do
         nitpicks_large = ExercismApiRequest.new(20, 1, "kytrinyx", "nitpick", "ruby")
         clojure = nitpicks_large.get_array_by_language('clojure')
         ruby = nitpicks_large.get_array_by_language('ruby')
@@ -96,8 +105,8 @@ class ExercismApiTest < ActiveSupport::TestCase
   end
 
   def test_get_array_by_any_language_functions
-    VCR.use_cassette('kytrinyx_nitpick_large', :record => :new_episodes) do
-      Timecop.freeze(Date.today) do
+    Timecop.freeze(Date.today) do  
+      VCR.use_cassette('kytrinyx_nitpick_large', :record => :new_episodes) do
         nitpicks_large = ExercismApiRequest.new(20, 1, "kytrinyx", "nitpick", 'any language')
         any_language = nitpicks_large.get_array_by_language('any language')
         assert_equal 252, any_language.count
@@ -109,13 +118,13 @@ class ExercismApiTest < ActiveSupport::TestCase
     end
   end
   def test_get_contribution_count_by_any_language_functions
-    VCR.use_cassette('kytrinyx_nitpick', :record => :new_episodes) do
-      Timecop.freeze(Date.today) do
+    Timecop.freeze(Date.today) do      
+      VCR.use_cassette('kytrinyx_nitpick', :record => :new_episodes) do
         any_language = @nitpicks.get_contribution_count_by_language('any language')
         ruby = @nitpicks.get_contribution_count_by_language('ruby')
         clojure = @nitpicks.get_contribution_count_by_language('clojure')
         assert_equal 35, any_language
-        assert_equal 17, ruby
+        assert_equal 29, ruby
         assert_equal 0, clojure
       end
     end

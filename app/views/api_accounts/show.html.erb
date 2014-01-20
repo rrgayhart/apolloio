@@ -3,6 +3,8 @@ Username <%= @api_account.api_username %><br>
 Languages <br>
 Current Streak <%= @streak %><br>
 Commits This Year <%= @this_year %><br>
+<% if @provider.downcase == "github" %>
 Percentage of days commited this year: <%= (@year_percentage * 100).round(2) %>%<br>
+<% end %>
 Number of Repos<br>
 Goals List<br>
