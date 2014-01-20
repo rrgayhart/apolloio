@@ -25,10 +25,10 @@ class Goal < ActiveRecord::Base
 
   def get_commit_type
     if self.commit_type
-    self.commit_type.capitalize.pluralize 
+      self.commit_type.capitalize.pluralize 
     else
-    "Commits"
-  end
+      "Commits"
+    end
   end
 
   def set_start_date

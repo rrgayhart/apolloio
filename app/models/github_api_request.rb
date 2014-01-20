@@ -35,4 +35,8 @@ class GithubApiRequest
     percentage.ceil.to_s
   end
 
+  def get_count
+    pull_contribution_count(pull_dates)
+  end
+
 end

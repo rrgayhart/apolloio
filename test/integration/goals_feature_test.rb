@@ -12,7 +12,7 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
   end
 
   test 'a goal and reminder can be added and viewed' do
-    VCR.use_cassette('goal_progress2') do
+    VCR.use_cassette('goal_progress8') do
       click_link 'Add Goal'
       assert page.has_css?('#create-goal-title')
       select('Github', :from => 'api_selection')
@@ -20,6 +20,7 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
       select('day', :from => 'Period Type')
       click_button "Submit Goal"
       refute page.has_content?("Target")
+      assert page.has_content?("Number of Commits Left to Complete Goal:")
       assert page.has_content?("Add Reminder")
       click_link "Add Reminder"
       assert page.has_css?(".reminder-submit-button")
@@ -45,7 +46,7 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
 
     test 'an exercism goal can be created' do
     Timecop.travel("Sat, 19 Jan 2014".to_date) do
-      VCR.use_cassette('goal_progress5') do
+      VCR.use_cassette('goal_progress6') do
         click_link 'Add Goal'
         assert page.has_css?('#create-goal-title')
         select('Exercism', :from => 'api_selection')
@@ -57,7 +58,7 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
         refute page.has_content?("Target")
         assert page.has_content?('Progress:')
         assert page.has_content?("Time Left to Complete Goal:")
-        assert page.has_content?("Number of Nitpicks Left to Complete Goal:")
+        assert page.has_content?("Number of Nitpicks Left to Complete Goal: 0")
       end
     end
   end

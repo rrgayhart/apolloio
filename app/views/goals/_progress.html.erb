@@ -3,10 +3,10 @@
     <span class="sr-only"><%= @percent %>% Complete</span>
   </div>
 </div>
-Progress: <%= @percent %>%
+Progress: <%= @percent %>% Complete
 <br>
-Time Left to Complete Goal: 
+Time Left to Complete Goal: <%= @progress.time_left %>
 <br>
-Number of <%= @goal.get_commit_type %> Left to Complete Goal: 
+Number of <%= @goal.get_commit_type.pluralize %> Left to Complete Goal: <%= @progress.count_to_complete %>
 <br>
 

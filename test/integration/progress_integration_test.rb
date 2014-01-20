@@ -12,15 +12,17 @@ class ProgressFeatureTest < Capybara::Rails::TestCase
   end
 
   test 'a goal has progress that is shown' do
-    click_link 'Add Goal'
-    select('Github', :from => 'api_selection')
-    select('4', :from => 'Target Goal')
-    select('day', :from => 'Period Type')
-    VCR.use_cassette('goal_progress1') do
-      click_button "Submit Goal"
-      assert page.has_css?(".progress-bar")
-      within '.sr-only' do
-        assert page.has_content?('100% Complete')
+    Timecop.travel("Sat, 19 Jan 2014".to_date) do
+      click_link 'Add Goal'
+      select('Github', :from => 'api_selection')
+      select('4', :from => 'Target Goal')
+      select('day', :from => 'Period Type')
+      VCR.use_cassette('goal_progress10') do
+        click_button "Submit Goal"
+        assert page.has_css?(".progress-bar")
+        within '.sr-only' do
+          assert page.has_content?('0% Complete')
+        end
       end
     end
   end

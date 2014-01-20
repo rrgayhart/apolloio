@@ -9,8 +9,8 @@ class GoalsController < ApplicationController
 
   def show
     @goal      = Goal.find(params['id'])
-    goal_progress = Progress.new(@goal)
-    @percent = goal_progress.result
+    @progress = Progress.new(@goal)
+    @percent = @progress.result
     @reminders = Reminder.new
   end
 

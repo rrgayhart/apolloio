@@ -21,6 +21,10 @@ class ExercismApiRequest
     percentage.ceil.to_s
   end
 
+  def get_count
+    contributions = get_contribution_count_by_language(language)
+  end
+
   def formated_link(formatted_date)
     "http://exercism.io/api/v1/stats/#{username}/#{type}s/#{formatted_date}"
   end
