@@ -14,7 +14,7 @@ class ApiAccountsController < ApplicationController
   def create
     api_account_data           = api_account_params
     api_account_data[:user_id] = current_user.id
-    new_account                = ApiAccount.new(api_account_data)
+    new_account                = ApiAccount.find_or_create_by(api_account_data)
     if new_account.api_account_exists
       new_account.save
       flash[:success] = "Added API Account"
@@ -39,7 +39,7 @@ class ApiAccountsController < ApplicationController
     end
   end
 
-private
+  private
 
   def api_account_params
     params.require(:api_account).permit(:id, :api_id, :api_username)
