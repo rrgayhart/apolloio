@@ -35,6 +35,11 @@ class Reminder < ActiveRecord::Base
     end
   end
 
+  def target_met?
+    progress = Progress.new(self.goal).result
+    progress.to_i >= self.target
+  end
+
   def set_start_date
     update(start_date: DateTime.now.to_date)
   end

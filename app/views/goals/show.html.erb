@@ -22,7 +22,9 @@
       </thead>
       <tbody>
         <tr>
-          <td><%= r.number_field :target %></td>
+          <td>
+            <%= r.select(:target, [['Select Target Percentage', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"25%", "50%", "75%"], {}, { :class => ''}) %>
+          </td>
           <td>
             <%= r.select(:time_deadline, [['Select Time Of Reminder', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"Morning", "Afternoon", "Evening"], {}, { :class => ''}) %>
           </td>
