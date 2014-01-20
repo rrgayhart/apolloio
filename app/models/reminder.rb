@@ -16,7 +16,7 @@ class Reminder < ActiveRecord::Base
   end
 
   def render_month_name(day_number)
-    Date::MONTHNAMES[3]
+    Date::MONTHNAMES[day_number]
   end
 
   def goal_render

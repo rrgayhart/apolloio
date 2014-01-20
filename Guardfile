@@ -1,6 +1,6 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
-guard :minitest do
+guard :minitest, spring: 'rake test' do
   # with Minitest::Unit
   watch(%r{^test/(.*)\/(.*)\.rb})
   watch(%r{^test/integration/.+_test\.rb})
