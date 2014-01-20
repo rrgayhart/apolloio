@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+  before_action :require_user
   before_action :require_api_account
   before_action :require_goal
 
