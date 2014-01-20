@@ -15,7 +15,6 @@ class ProgressFeatureTest < Capybara::Rails::TestCase
     click_link 'Add Goal'
     select('Github', :from => 'api_selection')
     select('4', :from => 'Target Goal')
-    select('1', :from => 'Period')
     select('day', :from => 'Period Type')
     VCR.use_cassette('goal_progress1') do
       click_button "Submit Goal"

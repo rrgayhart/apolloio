@@ -29,7 +29,7 @@ class GoalsController < ApplicationController
 private
 
   def goal_params
-    params.require(:goal).permit(:pledge, :api_account_id, :target, :period, :period_type, :start_date, :language, :commit_type)
+    params.require(:goal).permit(:pledge, :api_account_id, :target, :period_type, :start_date, :language, :commit_type)
   end
 
 end

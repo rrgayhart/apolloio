@@ -17,7 +17,6 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
       assert page.has_css?('#create-goal-title')
       select('Github', :from => 'api_selection')
       select('1', :from => 'Target Goal')
-      select('1', :from => 'Period')
       select('day', :from => 'Period Type')
       click_button "Submit Goal"
       refute page.has_content?("Target")
@@ -50,7 +49,6 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
         assert page.has_css?('#create-goal-title')
         select('Exercism', :from => 'api_selection')
         select('1', :from => 'Target Goal')
-        select('1', :from => 'Period')
         select('day', :from => 'Period Type')
         select('ruby', :from => 'Language')
         select('nitpick', :from => 'Type')

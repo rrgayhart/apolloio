@@ -40,17 +40,14 @@ attr_reader :goal
 
   def days_to_pull
     case goal.period_type
-    when "day", "days"
-      goal.period
-    when "week", "weeks"
-      less_one = goal.period - 1
-      days = less_one * 7
-      weekday = Date.today.wday + 1
-      days + weekday
-    when "month", "months"
-      start = Date.today << (goal.period - 1)
-      previous = Date.today - start
-      previous + Date.today.mday
+    when "day", "days", "daily"
+      1
+    when "week", "weeks", "weekly"
+      Date.today.wday + 1
+    when "month", "months", "monthly"
+      Date.today.mday
+    when "year", "years", "yearly"
+      Date.today.yday
     end
   end
 
