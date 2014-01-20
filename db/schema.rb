@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 20140119084549) do
   create_table "reminders", force: true do |t|
     t.integer  "user_id"
     t.integer  "goal_id"
-    t.integer  "target"
     t.boolean  "twitter",       default: false
     t.boolean  "email",         default: false
     t.boolean  "sms",           default: false
@@ -70,6 +69,7 @@ ActiveRecord::Schema.define(version: 20140119084549) do
     t.string   "time_deadline"
     t.date     "start_date"
     t.boolean  "active",        default: true
+    t.integer  "target"
   end
 
   add_index "reminders", ["goal_id"], name: "index_reminders_on_goal_id", using: :btree

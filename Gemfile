@@ -20,6 +20,7 @@ gem 'timecop'
 group :development, :test do
   gem 'database_cleaner'
   gem 'minitest-rails', '~> 0.9.2'
+  gem 'mocha'
   gem 'minitest-rails-capybara', '~> 0.10.0'
   gem 'launchy', '~> 2.4.2'
   gem 'quiet_assets', '~> 1.0.2'

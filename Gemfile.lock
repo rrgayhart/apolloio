@@ -124,6 +124,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.2)
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.5.2)
@@ -142,6 +143,8 @@ GEM
       minitest-capybara (~> 0.4)
       minitest-metadata (~> 0.4)
       minitest-rails (~> 0.9.1)
+    mocha (1.0.0)
+      metaclass (~> 0.0.1)
     multi_json (1.8.4)
     multipart-post (1.2.0)
     net-http-persistent (2.9)
@@ -274,6 +277,7 @@ DEPENDENCIES
   minitest-metadata
   minitest-rails (~> 0.9.2)
   minitest-rails-capybara (~> 0.10.0)
+  mocha
   omniauth
   omniauth-twitter
   pg
