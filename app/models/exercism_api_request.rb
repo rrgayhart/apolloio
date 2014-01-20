@@ -32,14 +32,25 @@ class ExercismApiRequest
 
   def get_array_by_language(language)
     if language != "any language"
-    dates = generate_hash.map {|o| o.slice(language).values}
-    dates.flatten!
-    just_important = dates.select do |d|
-      d['date'].to_date.past? && d['date'].to_date >= start_date
-    end
-    just_important
+      dates = generate_hash.map {|o| o.slice(language).values}
+      dates.flatten!
+      just_important = dates.select do |d|
+        d['date'].to_date.past? && d['date'].to_date >= start_date
+      end
+      just_important
     else
-      nil #NEED TO IMPLEMENT THIS
+    mega_array = []
+     generate_hash.each do |month|
+        month.values.each do |language_array|
+          language_array.each do |dates|
+            mega_array << dates
+          end
+        end
+      end
+      just_important = mega_array.select do |d|
+        d['date'].to_date.past? && d['date'].to_date >= start_date
+      end
+      just_important
     end
   end
 

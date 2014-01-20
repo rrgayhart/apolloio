@@ -98,13 +98,25 @@ class ExercismApiTest < ActiveSupport::TestCase
   def test_get_array_by_any_language_functions
     VCR.use_cassette('kytrinyx_nitpick_large', :record => :new_episodes) do
       Timecop.freeze(Date.today) do
-        nitpicks_large = ExercismApiRequest.new(20, 1, "kytrinyx", "nitpick", "ruby")
+        nitpicks_large = ExercismApiRequest.new(20, 1, "kytrinyx", "nitpick", 'any language')
         any_language = nitpicks_large.get_array_by_language('any language')
-        assert_equal 'boo', any_language
-        # ruby = nitpicks_large.get_array_by_language('ruby')
-        # refute_equal clojure, ruby
-        # assert_equal clojure.first['date'], ruby.first['date']
-        # refute_equal clojure.first['count'], ruby.first['count']
+        assert_equal 252, any_language.count
+        ruby = nitpicks_large.get_array_by_language('ruby')
+        refute_equal any_language, ruby
+        assert_equal any_language.first['date'], ruby.first['date']
+        refute_equal any_language.first['count'], ruby.first['count']
+      end
+    end
+  end
+  def test_get_contribution_count_by_any_language_functions
+    VCR.use_cassette('kytrinyx_nitpick', :record => :new_episodes) do
+      Timecop.freeze(Date.today) do
+        any_language = @nitpicks.get_contribution_count_by_language('any language')
+        ruby = @nitpicks.get_contribution_count_by_language('ruby')
+        clojure = @nitpicks.get_contribution_count_by_language('clojure')
+        assert_equal 35, any_language
+        assert_equal 17, ruby
+        assert_equal 0, clojure
       end
     end
   end
