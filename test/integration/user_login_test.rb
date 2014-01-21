@@ -15,7 +15,7 @@ class UserLoginTest < Capybara::Rails::TestCase
     assert_equal dashboard_path, current_path
     assert_equal 200, page.status_code
     assert page.has_content?("Profile"), "Page is missing content 'Profile'"
-    assert page.has_content?("Goals"), "Page is missing content 'Goals'"
+    assert page.has_content?("Commitments"), "Page is missing content 'Commitments'"
     assert page.has_content?("Reminders"), "Page is missing content 'Reminders'"
     refute page.has_content?("Add API Account"), "Page is missing 'Add API Account'"
 

@@ -32,7 +32,7 @@ class ProgressTest < ActiveSupport::TestCase
     VCR.use_cassette('hartl_history') do
       goal = FactoryGirl.create(:goal, user: @user1, api_account: @api_account1, target: 5, period_type: "days", start_date: Date.today)
       progress = Progress.new(goal)
-      assert_equal "80", progress.result
+      assert_equal "0", progress.result
     end
   end
 

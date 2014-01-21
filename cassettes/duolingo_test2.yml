@@ -17,24 +17,24 @@ http_interactions:
       content-type:
       - application/json; charset=UTF-8
       date:
-      - Tue, 21 Jan 2014 01:24:46 GMT
+      - Tue, 21 Jan 2014 21:34:03 GMT
       server:
       - nginx/1.2.0
       set-cookie:
-      - wuuid=212ae5da-c5f2-44dd-8d62-0de5d3cc727a
+      - wuuid=a7d2f09c-830d-4922-af35-e6f2adb741a4
       x-runtime:
-      - '0.65220'
+      - '0.40187'
       x-tid:
-      - 0316115d52ddc5881038
+      - 03c167ed52dedf3f1749
       x-ws:
-      - 10.0.3.22
+      - 10.0.3.193
       transfer-encoding:
       - chunked
       connection:
       - Close
     body:
       encoding: UTF-8
-      string: '{"username":"rrgayhart","bio":"","tts_cdn_url":"http:\/\/static.duolingo.com\/","avatar":"https:\/\/s3.amazonaws.com\/duolingo-images\/avatar\/default_1","js_version":"\/\/d7mj4aqfscim2.cloudfront.net\/s3\/js\/9cd3ec082d7d679229af6cd18518a110_mv_.min.js-\/\/d7mj4aqfscim2.cloudfront.net\/s3\/js\/84a77d13f8ed7ac69000a9a8d424a37d_mv_.min.js","inventory":{"timed_practice":"grandfathered"},"deactivated":false,"notif_event_ids":null,"ui_language":"en","is_following":false,"language_data":{"es":{"streak":0,"language_string":"Spanish","level_progress":59,"first_time":false,"num_global_practice":1,"points_rank":1,"max_level":false,"level_tests":[],"next_level":13,"show_real_world_practice":true,"points_ranking_data":[{"username":"rrgayhart","language_string":"Spanish","points_data":{"languages":[{"language_string":"Spanish","points":3959},{"language_string":"German","points":655},{"language_string":"French","points":0},{"language_string":"Italian","points":0},{"language_string":"Portuguese","points":0}],"total":4614},"avatar":"https:\/\/s3.amazonaws.com\/duolingo-images\/avatar\/default_1","language":"es","self":true,"id":2600785,"rank":1}],"num_skills_learned":56,"calendar":[],"level_left":941,"no_dep":true,"language_strength":0.25,"level_percent":5,"language":"es","level":12,"skills":[{"language_string":"Spanish","dependencies_name":["VERBS-CONDITIONAL","VERBS-PAST-IMPERFECT"],"disabled":false,"missing_lessons":1,"url_title":"Verbs:-Subjunctive-Past","description":"The
+      string: '{"username":"rrgayhart","bio":"","tts_cdn_url":"http:\/\/static.duolingo.com\/","avatar":"https:\/\/s3.amazonaws.com\/duolingo-images\/avatar\/default_1","js_version":"\/\/d7mj4aqfscim2.cloudfront.net\/s3\/js\/9cd3ec082d7d679229af6cd18518a110_mv_.min.js-\/\/d7mj4aqfscim2.cloudfront.net\/s3\/js\/c8ba23de621047d621eafef79dcdd8a4_mv_.min.js","inventory":{"timed_practice":"grandfathered"},"deactivated":false,"notif_event_ids":null,"ui_language":"en","is_following":false,"language_data":{"es":{"streak":0,"language_string":"Spanish","level_progress":59,"first_time":false,"num_global_practice":1,"points_rank":1,"max_level":false,"level_tests":[],"next_level":13,"show_real_world_practice":true,"points_ranking_data":[{"username":"rrgayhart","language_string":"Spanish","points_data":{"languages":[{"language_string":"Spanish","points":3959},{"language_string":"German","points":655},{"language_string":"French","points":0},{"language_string":"Italian","points":0},{"language_string":"Portuguese","points":0}],"total":4614},"avatar":"https:\/\/s3.amazonaws.com\/duolingo-images\/avatar\/default_1","language":"es","self":true,"id":2600785,"rank":1}],"num_skills_learned":56,"calendar":[],"level_left":941,"no_dep":true,"language_strength":0.25,"level_percent":5,"language":"es","level":12,"skills":[{"language_string":"Spanish","dependencies_name":["VERBS-CONDITIONAL","VERBS-PAST-IMPERFECT"],"disabled":false,"missing_lessons":1,"url_title":"Verbs:-Subjunctive-Past","description":"The
         subjunctive past tense of actions, such as <i>if I were<\/i>.","category":"new-verbs","index":"41","strength":0,"title":"Verbs:
         Subjunctive Past","coords_y":32,"coords_x":1,"id":"41acf48ad5e8b7211e253311d59c0c88","learned":false,"show_strength_message":false,"icon_color":"red","num_lexemes":6,"num_missing":6,"dependencies":["Verbs:
         Conditional","Verbs: Past Imperfect"],"known_lexemes":[],"words":["fu\u00e9ramos","hubiese","hiciera","tuviera","fueras","quisiera"],"short":"V.
@@ -232,5 +232,5 @@ http_interactions:
         and Proverbs","coords_y":7,"coords_x":99,"id":"fd5f82e69415c743c37e0c32b6d0c4b7","learned":false,"icon_color":"purple","dependencies":[],"words":["con","consejo","coraz\u00f3n","cuenta","de","dios","el","hay","mal","m\u00e1s"],"short":"Idioms","locked":true,"name":"IDIOMS","language":"es","new_index":"63","progress_percent":0.0,"mastered":false}],"level_points":1000,"all_time_rank":["2600785"],"show_practice":true,"points":3959,"points_ranking_data_dict":{"2600785":{"username":"rrgayhart","language_string":"Spanish","language":"es","self":true,"points_data":{"languages":[{"language_string":"Spanish","points":3959},{"language_string":"German","points":655},{"language_string":"French","points":0},{"language_string":"Italian","points":0},{"language_string":"Portuguese","points":0}],"total":4614},"avatar":"https:\/\/s3.amazonaws.com\/duolingo-images\/avatar\/default_1","id":2600785}},"max_tree_level":28}},"is_follower_by":false,"events":[],"dict_base_url":"http:\/\/d.duolingo.com\/","notify_comment":true,"certificates":[],"id":2600785,"num_following":0,"cohort":null,"rupees":20,"delete-permissions":false,"num_followers":2,"following":[],"gplus_id":null,"learning_language":"es","created":"\n\n\n\n\n\n\n\n10
         months ago\n\n","site_streak":0,"twitter_id":null,"contribution_points":0,"languages":[{"streak":0,"language_string":"French","language":"fr","level":1,"points":0,"learning":true,"current_learning":false,"sentences_translated":0},{"streak":0,"language_string":"Portuguese","language":"pt","level":1,"points":0,"learning":true,"current_learning":false,"sentences_translated":0},{"streak":0,"language_string":"German","language":"de","level":6,"points":655,"learning":true,"current_learning":false,"sentences_translated":0},{"streak":0,"language_string":"Italian","language":"it","level":1,"points":0,"learning":true,"current_learning":false,"sentences_translated":0},{"streak":0,"language_string":"Spanish","language":"es","level":12,"points":3959,"learning":true,"current_learning":true,"sentences_translated":0}],"admin":false,"invites_left":3,"followers":[],"location":null,"facebook_id":"75901355","notify_follow":true,"learning_language_string":"Spanish","fullname":null,"tts_base_url":"http:\/\/t.duolingo.com\/","streak_extended_today":false,"notify_pass":true,"change-design":false}'
     http_version: 
-  recorded_at: Tue, 21 Jan 2014 01:24:45 GMT
+  recorded_at: Tue, 21 Jan 2014 21:34:03 GMT
 recorded_with: VCR 2.4.0

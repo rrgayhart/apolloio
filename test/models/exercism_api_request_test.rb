@@ -122,7 +122,7 @@ class ExercismApiTest < ActiveSupport::TestCase
         any_language = @nitpicks.get_contribution_count_by_language('any language')
         ruby = @nitpicks.get_contribution_count_by_language('ruby')
         clojure = @nitpicks.get_contribution_count_by_language('clojure')
-        assert_equal 22, any_language
+        assert_equal 44, any_language
         assert_equal 22, ruby
         assert_equal 0, clojure
       end

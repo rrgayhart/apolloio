@@ -13,7 +13,7 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
 
   test 'a goal and reminder can be added and viewed' do
     VCR.use_cassette('goal_progress8') do
-      click_link 'Add Goal'
+      click_link 'Add Commitment'
       assert page.has_css?('#create-goal-title')
       select('Github', :from => 'api_selection')
       fill_in 'Target Goal', :with => 1
@@ -45,7 +45,7 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
     test 'an exercism goal can be created' do
     Timecop.travel("Sat, 19 Jan 2014".to_date) do
       VCR.use_cassette('goal_progress6') do
-        click_link 'Add Goal'
+        click_link 'Add Commitment'
         assert page.has_css?('#create-goal-title')
         select('Exercism', :from => 'api_selection')
         fill_in 'Target Goal', :with => 1
