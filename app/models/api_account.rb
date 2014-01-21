@@ -1,18 +1,10 @@
 class ApiAccount < ActiveRecord::Base
-    # t.integer  "user_id"
-    # t.integer  "api_id"
-    # t.datetime "created_at"
-    # t.datetime "updated_at"
-    # t.string   "api_username"
-
   belongs_to :user
   belongs_to :api
   has_many :goals
   validate :acceptable_user_id
   validate :acceptable_api_id
-  #validate :acceptable_username
-  # validates :api_username, presence: true
-  # validates :api_id, presence: true
+  validate :acceptable_username, uniqueness: true
 
   def api_account_exists
     case self.api.provider.downcase
