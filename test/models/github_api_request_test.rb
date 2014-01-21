@@ -16,7 +16,7 @@ class GithubApiTest < ActiveSupport::TestCase
   end
 
   def test_pull_dates_returns_todays_contributions
-    assert_equal "Thu, 16 Jan 2014".to_date, @request.pull_dates.last[0].to_date
+    assert_equal "Tue, 21 Jan 2014".to_date, @request.pull_dates.last[0].to_date
   end
 
   def test_pull_contribution_count_returns_contribution_count
@@ -24,29 +24,37 @@ class GithubApiTest < ActiveSupport::TestCase
   end
 
   def test_progress_normal_progress
+    Timecop.freeze("2014-01-20 15:35:02 -0700".to_time) do
     VCR.use_cassette('hartl_history2') do
-      assert_equal "80", @request.progress
+      assert_equal "0", @request.progress
     end
+  end
   end
 
   def test_progress_at_100_percent
+    Timecop.freeze("2014-01-20 15:35:02 -0700".to_time) do
     VCR.use_cassette('hartl_history3') do
-      request2 = GithubApiRequest.new(2, 6, "mhartl")
+      request2 = GithubApiRequest.new(9, 9, "mhartl")
       assert_equal "100", request2.progress
+    end
     end
   end
 
   def test_progress_at_over_100_percent
-    VCR.use_cassette('hartl_history4') do
-      request3 = GithubApiRequest.new(3, 5, "mhartl")
-      assert_equal "140", request3.progress
+    Timecop.freeze("2014-01-20 15:35:02 -0700".to_time) do
+      VCR.use_cassette('hartl_history4') do
+        request3 = GithubApiRequest.new(10, 5, "mhartl")
+        assert_equal "200", request3.progress
+      end
     end
   end
 
   def test_progress_at_uneven_number 
+    Timecop.freeze("2014-01-20 15:35:02 -0700".to_time) do
     VCR.use_cassette('hartl_history5') do
       request4 = GithubApiRequest.new(3, 9, "mhartl")
-      assert_equal "78", request4.progress
+      assert_equal "0", request4.progress
     end
+  end
   end
 end

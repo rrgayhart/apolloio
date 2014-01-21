@@ -17,7 +17,7 @@ http_interactions:
       content-type:
       - application/json;charset=utf-8
       date:
-      - Tue, 21 Jan 2014 20:21:21 GMT
+      - Tue, 21 Jan 2014 21:45:22 GMT
       server:
       - WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
       x-content-type-options:
@@ -30,5 +30,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"username":"mhartl","contributions_today":0,"current_streak":0,"days_without_contributions":112,"days_this_year_with_contributions":13,"days_in_the_year":21,"percentage_days_commited_this_year":0.6190476190476191,"percentage_days_commited_known_history":0.6939890710382514,"commits_this_year":44}'
     http_version: 
-  recorded_at: Tue, 21 Jan 2014 20:21:21 GMT
+  recorded_at: Tue, 21 Jan 2014 21:45:22 GMT
 recorded_with: VCR 2.4.0

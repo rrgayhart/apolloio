@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.8.8
+      - Faraday v0.8.9
   response:
     status:
       code: 500
@@ -17,7 +17,7 @@ http_interactions:
       content-type:
       - text/html;charset=utf-8
       set-cookie:
-      - rack.session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRTdiZmE3YWQ3MzFlZmU5NmE1NmVm%0AMmJhM2Y1ZWZiMjg1Mzg4OGMwOTY0ZTc3ZmI3NzFiYjIyNDBkOWY4Y2JmYWQG%0AOwBGSSIJY3NyZgY7AEZJIiVhZmZiY2MzZTU4MDdiZTVhYWU4NmVjZmZmMzlk%0AMjU2ZgY7AEZJIg10cmFja2luZwY7AEZ7CEkiFEhUVFBfVVNFUl9BR0VOVAY7%0AAFRJIi00YmJlZjExNGU2ODYyNzQ2OWU5MzE1NWNkMmZhOWY0MDNiNDY2ODEx%0ABjsARkkiGUhUVFBfQUNDRVBUX0VOQ09ESU5HBjsAVEkiLWRkZDA5ODkxNzRm%0AMTlhNWIxODc5MTIxM2NjNDBjNWE2MDlkMjU0NmMGOwBGSSIZSFRUUF9BQ0NF%0AUFRfTEFOR1VBR0UGOwBUSSItZGEzOWEzZWU1ZTZiNGIwZDMyNTViZmVmOTU2%0AMDE4OTBhZmQ4MDcwOQY7AEY%3D%0A--d8fc7cac3722c507d3c4cecfcd2df6379b25dd08;
+      - rack.session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRTY3ZTkzZmVhZjk0NjVlMTEzMzY2%0AZDRlMzc4MThlY2UxNzg1MzRlOWViZjA0ZjYwYzIxZGJlMjMzZTcwZTNmZDUG%0AOwBGSSIJY3NyZgY7AEZJIiVhOGY0ODA1YTY1MGNlZTc4MzMzZTliZTJiMWUw%0AYmViNQY7AEZJIg10cmFja2luZwY7AEZ7CEkiFEhUVFBfVVNFUl9BR0VOVAY7%0AAFRJIi0zNjJjNDA4NGVhM2ZkNjQ2MzUyOWU5OTY1NzhjNWNkMDUzM2IyMTM4%0ABjsARkkiGUhUVFBfQUNDRVBUX0VOQ09ESU5HBjsAVEkiLWRkZDA5ODkxNzRm%0AMTlhNWIxODc5MTIxM2NjNDBjNWE2MDlkMjU0NmMGOwBGSSIZSFRUUF9BQ0NF%0AUFRfTEFOR1VBR0UGOwBUSSItZGEzOWEzZWU1ZTZiNGIwZDMyNTViZmVmOTU2%0AMDE4OTBhZmQ4MDcwOQY7AEY%3D%0A--29559a62a3437dd7d581861b58a5c60dec5a76dc;
         path=/; HttpOnly
       x-content-type-options:
       - nosniff
@@ -33,75 +33,7 @@ http_interactions:
       encoding: UTF-8
       string: <h1>Internal Server Error</h1>
     http_version: 
-  recorded_at: Sun, 19 Jan 2014 08:29:22 GMT
-- request:
-    method: get
-    uri: http://exercism.io/api/v1/stats/sdfefsfsfdegasg34253/nitpicks/2014/01
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.8
-  response:
-    status:
-      code: 500
-      message: 
-    headers:
-      content-type:
-      - text/html;charset=utf-8
-      set-cookie:
-      - rack.session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRTdhNjEzYzYzZDJmNjNiMTAzYWY1%0AZDU1YmU5MGI4MjAzNDM2ODU4NWM2NzYyMDg1MTAxNjg4NzBjZDgyZTk0NWYG%0AOwBGSSIJY3NyZgY7AEZJIiUxOWFkNGFhMzVjNWU4MTU2ZWExMWM3MWIzY2Qy%0ANWM2ZgY7AEZJIg10cmFja2luZwY7AEZ7CEkiFEhUVFBfVVNFUl9BR0VOVAY7%0AAFRJIi00YmJlZjExNGU2ODYyNzQ2OWU5MzE1NWNkMmZhOWY0MDNiNDY2ODEx%0ABjsARkkiGUhUVFBfQUNDRVBUX0VOQ09ESU5HBjsAVEkiLWRkZDA5ODkxNzRm%0AMTlhNWIxODc5MTIxM2NjNDBjNWE2MDlkMjU0NmMGOwBGSSIZSFRUUF9BQ0NF%0AUFRfTEFOR1VBR0UGOwBUSSItZGEzOWEzZWU1ZTZiNGIwZDMyNTViZmVmOTU2%0AMDE4OTBhZmQ4MDcwOQY7AEY%3D%0A--8b77e6b3a513f0fdc7d4cfd00b2d1d9f6817ad62;
-        path=/; HttpOnly
-      x-content-type-options:
-      - nosniff
-      x-frame-options:
-      - SAMEORIGIN
-      x-xss-protection:
-      - 1; mode=block
-      content-length:
-      - '30'
-      connection:
-      - Close
-    body:
-      encoding: UTF-8
-      string: <h1>Internal Server Error</h1>
-    http_version: 
-  recorded_at: Sun, 19 Jan 2014 08:29:58 GMT
-- request:
-    method: get
-    uri: http://exercism.io/api/v1/stats/sdfefsf/nitpicks/2014/01
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.8
-  response:
-    status:
-      code: 500
-      message: 
-    headers:
-      content-type:
-      - text/html;charset=utf-8
-      set-cookie:
-      - rack.session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRWM0NTE2NjYwYjMxNDkwNGMwZDQ1%0ANDhjMjY4YTI0ZmZkMTE5OTIzNTRmMjAyOGRkMmRhYWZlYmE1ZmI4MTcwMjMG%0AOwBGSSIJY3NyZgY7AEZJIiVjMjhmODRjMTZmZDBmYmYzZDFmMGYzZWNiZDI3%0AODMwYQY7AEZJIg10cmFja2luZwY7AEZ7CEkiFEhUVFBfVVNFUl9BR0VOVAY7%0AAFRJIi00YmJlZjExNGU2ODYyNzQ2OWU5MzE1NWNkMmZhOWY0MDNiNDY2ODEx%0ABjsARkkiGUhUVFBfQUNDRVBUX0VOQ09ESU5HBjsAVEkiLWRkZDA5ODkxNzRm%0AMTlhNWIxODc5MTIxM2NjNDBjNWE2MDlkMjU0NmMGOwBGSSIZSFRUUF9BQ0NF%0AUFRfTEFOR1VBR0UGOwBUSSItZGEzOWEzZWU1ZTZiNGIwZDMyNTViZmVmOTU2%0AMDE4OTBhZmQ4MDcwOQY7AEY%3D%0A--f18db7b351f03df21d1ddb863b018d07242846ff;
-        path=/; HttpOnly
-      x-content-type-options:
-      - nosniff
-      x-frame-options:
-      - SAMEORIGIN
-      x-xss-protection:
-      - 1; mode=block
-      content-length:
-      - '30'
-      connection:
-      - Close
-    body:
-      encoding: UTF-8
-      string: <h1>Internal Server Error</h1>
-    http_version: 
-  recorded_at: Sun, 19 Jan 2014 08:31:25 GMT
+  recorded_at: Tue, 21 Jan 2014 21:34:07 GMT
 - request:
     method: get
     uri: http://exercism.io/api/v1/stats/thewatts/nitpicks/2014/01
@@ -110,7 +42,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.8.8
+      - Faraday v0.8.9
   response:
     status:
       code: 200
@@ -119,7 +51,7 @@ http_interactions:
       content-type:
       - text/html;charset=utf-8
       set-cookie:
-      - rack.session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRTViNzBhNDI5NmY0NDAwYzhmMzg2%0AOTBjMjRkMDJiNDQ3NGYyZTE5Mzc2NGM4ZTk0ZmMxZTgwM2MwZDVjMjBkMGQG%0AOwBGSSIJY3NyZgY7AEZJIiUwYWE2ZTE3ZTI3NDVmZjA1N2MwM2Q4MzQzMDAz%0AZGE0YQY7AEZJIg10cmFja2luZwY7AEZ7CEkiFEhUVFBfVVNFUl9BR0VOVAY7%0AAFRJIi00YmJlZjExNGU2ODYyNzQ2OWU5MzE1NWNkMmZhOWY0MDNiNDY2ODEx%0ABjsARkkiGUhUVFBfQUNDRVBUX0VOQ09ESU5HBjsAVEkiLWRkZDA5ODkxNzRm%0AMTlhNWIxODc5MTIxM2NjNDBjNWE2MDlkMjU0NmMGOwBGSSIZSFRUUF9BQ0NF%0AUFRfTEFOR1VBR0UGOwBUSSItZGEzOWEzZWU1ZTZiNGIwZDMyNTViZmVmOTU2%0AMDE4OTBhZmQ4MDcwOQY7AEY%3D%0A--f34198c89b6a7dccf78560787a5b71ea4bf0fcd8;
+      - rack.session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRTMwZmQzNmRiMTdjMTExN2U2ZTIz%0ANTZlNThmMDVkYWYxODU5NDAzMmY4YTBmYjA3MmRhYWE1YjE4NGU0NTQ3YWQG%0AOwBGSSIJY3NyZgY7AEZJIiVhZDY4ZTQ4OGY2ZjU2NjVjN2FkZmViYTdhNjYz%0AYzY1NgY7AEZJIg10cmFja2luZwY7AEZ7CEkiFEhUVFBfVVNFUl9BR0VOVAY7%0AAFRJIi0zNjJjNDA4NGVhM2ZkNjQ2MzUyOWU5OTY1NzhjNWNkMDUzM2IyMTM4%0ABjsARkkiGUhUVFBfQUNDRVBUX0VOQ09ESU5HBjsAVEkiLWRkZDA5ODkxNzRm%0AMTlhNWIxODc5MTIxM2NjNDBjNWE2MDlkMjU0NmMGOwBGSSIZSFRUUF9BQ0NF%0AUFRfTEFOR1VBR0UGOwBUSSItZGEzOWEzZWU1ZTZiNGIwZDMyNTViZmVmOTU2%0AMDE4OTBhZmQ4MDcwOQY7AEY%3D%0A--e9d34f9bb75ea248493176a4753bcd79cca9ba5b;
         path=/; HttpOnly
       x-content-type-options:
       - nosniff
@@ -135,5 +67,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"clojure":[{"date":"2014-01-01","count":0},{"date":"2014-01-02","count":0},{"date":"2014-01-03","count":0},{"date":"2014-01-04","count":0},{"date":"2014-01-05","count":0},{"date":"2014-01-06","count":0},{"date":"2014-01-07","count":0},{"date":"2014-01-08","count":0},{"date":"2014-01-09","count":0},{"date":"2014-01-10","count":0},{"date":"2014-01-11","count":0},{"date":"2014-01-12","count":0},{"date":"2014-01-13","count":0},{"date":"2014-01-14","count":0},{"date":"2014-01-15","count":0},{"date":"2014-01-16","count":0},{"date":"2014-01-17","count":0},{"date":"2014-01-18","count":0},{"date":"2014-01-19","count":0},{"date":"2014-01-20","count":0},{"date":"2014-01-21","count":0},{"date":"2014-01-22","count":0},{"date":"2014-01-23","count":0},{"date":"2014-01-24","count":0},{"date":"2014-01-25","count":0},{"date":"2014-01-26","count":0},{"date":"2014-01-27","count":0},{"date":"2014-01-28","count":0},{"date":"2014-01-29","count":0},{"date":"2014-01-30","count":0},{"date":"2014-01-31","count":0}],"coffeescript":[{"date":"2014-01-01","count":0},{"date":"2014-01-02","count":0},{"date":"2014-01-03","count":0},{"date":"2014-01-04","count":0},{"date":"2014-01-05","count":0},{"date":"2014-01-06","count":0},{"date":"2014-01-07","count":0},{"date":"2014-01-08","count":0},{"date":"2014-01-09","count":0},{"date":"2014-01-10","count":0},{"date":"2014-01-11","count":0},{"date":"2014-01-12","count":0},{"date":"2014-01-13","count":0},{"date":"2014-01-14","count":0},{"date":"2014-01-15","count":0},{"date":"2014-01-16","count":0},{"date":"2014-01-17","count":0},{"date":"2014-01-18","count":0},{"date":"2014-01-19","count":0},{"date":"2014-01-20","count":0},{"date":"2014-01-21","count":0},{"date":"2014-01-22","count":0},{"date":"2014-01-23","count":0},{"date":"2014-01-24","count":0},{"date":"2014-01-25","count":0},{"date":"2014-01-26","count":0},{"date":"2014-01-27","count":0},{"date":"2014-01-28","count":0},{"date":"2014-01-29","count":0},{"date":"2014-01-30","count":0},{"date":"2014-01-31","count":0}],"elixir":[{"date":"2014-01-01","count":0},{"date":"2014-01-02","count":0},{"date":"2014-01-03","count":0},{"date":"2014-01-04","count":0},{"date":"2014-01-05","count":0},{"date":"2014-01-06","count":0},{"date":"2014-01-07","count":0},{"date":"2014-01-08","count":0},{"date":"2014-01-09","count":0},{"date":"2014-01-10","count":0},{"date":"2014-01-11","count":0},{"date":"2014-01-12","count":0},{"date":"2014-01-13","count":0},{"date":"2014-01-14","count":0},{"date":"2014-01-15","count":0},{"date":"2014-01-16","count":0},{"date":"2014-01-17","count":0},{"date":"2014-01-18","count":0},{"date":"2014-01-19","count":0},{"date":"2014-01-20","count":0},{"date":"2014-01-21","count":0},{"date":"2014-01-22","count":0},{"date":"2014-01-23","count":0},{"date":"2014-01-24","count":0},{"date":"2014-01-25","count":0},{"date":"2014-01-26","count":0},{"date":"2014-01-27","count":0},{"date":"2014-01-28","count":0},{"date":"2014-01-29","count":0},{"date":"2014-01-30","count":0},{"date":"2014-01-31","count":0}],"go":[{"date":"2014-01-01","count":0},{"date":"2014-01-02","count":0},{"date":"2014-01-03","count":0},{"date":"2014-01-04","count":0},{"date":"2014-01-05","count":0},{"date":"2014-01-06","count":0},{"date":"2014-01-07","count":0},{"date":"2014-01-08","count":0},{"date":"2014-01-09","count":0},{"date":"2014-01-10","count":0},{"date":"2014-01-11","count":0},{"date":"2014-01-12","count":0},{"date":"2014-01-13","count":0},{"date":"2014-01-14","count":0},{"date":"2014-01-15","count":0},{"date":"2014-01-16","count":0},{"date":"2014-01-17","count":0},{"date":"2014-01-18","count":0},{"date":"2014-01-19","count":0},{"date":"2014-01-20","count":0},{"date":"2014-01-21","count":0},{"date":"2014-01-22","count":0},{"date":"2014-01-23","count":0},{"date":"2014-01-24","count":0},{"date":"2014-01-25","count":0},{"date":"2014-01-26","count":0},{"date":"2014-01-27","count":0},{"date":"2014-01-28","count":0},{"date":"2014-01-29","count":0},{"date":"2014-01-30","count":0},{"date":"2014-01-31","count":0}],"haskell":[{"date":"2014-01-01","count":0},{"date":"2014-01-02","count":0},{"date":"2014-01-03","count":0},{"date":"2014-01-04","count":0},{"date":"2014-01-05","count":0},{"date":"2014-01-06","count":0},{"date":"2014-01-07","count":0},{"date":"2014-01-08","count":0},{"date":"2014-01-09","count":0},{"date":"2014-01-10","count":0},{"date":"2014-01-11","count":0},{"date":"2014-01-12","count":0},{"date":"2014-01-13","count":0},{"date":"2014-01-14","count":0},{"date":"2014-01-15","count":0},{"date":"2014-01-16","count":0},{"date":"2014-01-17","count":0},{"date":"2014-01-18","count":0},{"date":"2014-01-19","count":0},{"date":"2014-01-20","count":0},{"date":"2014-01-21","count":0},{"date":"2014-01-22","count":0},{"date":"2014-01-23","count":0},{"date":"2014-01-24","count":0},{"date":"2014-01-25","count":0},{"date":"2014-01-26","count":0},{"date":"2014-01-27","count":0},{"date":"2014-01-28","count":0},{"date":"2014-01-29","count":0},{"date":"2014-01-30","count":0},{"date":"2014-01-31","count":0}],"javascript":[{"date":"2014-01-01","count":0},{"date":"2014-01-02","count":0},{"date":"2014-01-03","count":0},{"date":"2014-01-04","count":0},{"date":"2014-01-05","count":0},{"date":"2014-01-06","count":0},{"date":"2014-01-07","count":0},{"date":"2014-01-08","count":0},{"date":"2014-01-09","count":0},{"date":"2014-01-10","count":0},{"date":"2014-01-11","count":0},{"date":"2014-01-12","count":0},{"date":"2014-01-13","count":0},{"date":"2014-01-14","count":0},{"date":"2014-01-15","count":0},{"date":"2014-01-16","count":0},{"date":"2014-01-17","count":0},{"date":"2014-01-18","count":0},{"date":"2014-01-19","count":0},{"date":"2014-01-20","count":0},{"date":"2014-01-21","count":0},{"date":"2014-01-22","count":0},{"date":"2014-01-23","count":0},{"date":"2014-01-24","count":0},{"date":"2014-01-25","count":0},{"date":"2014-01-26","count":0},{"date":"2014-01-27","count":0},{"date":"2014-01-28","count":0},{"date":"2014-01-29","count":0},{"date":"2014-01-30","count":0},{"date":"2014-01-31","count":0}],"objective-c":[{"date":"2014-01-01","count":0},{"date":"2014-01-02","count":0},{"date":"2014-01-03","count":0},{"date":"2014-01-04","count":0},{"date":"2014-01-05","count":0},{"date":"2014-01-06","count":0},{"date":"2014-01-07","count":0},{"date":"2014-01-08","count":0},{"date":"2014-01-09","count":0},{"date":"2014-01-10","count":0},{"date":"2014-01-11","count":0},{"date":"2014-01-12","count":0},{"date":"2014-01-13","count":0},{"date":"2014-01-14","count":0},{"date":"2014-01-15","count":0},{"date":"2014-01-16","count":0},{"date":"2014-01-17","count":0},{"date":"2014-01-18","count":0},{"date":"2014-01-19","count":0},{"date":"2014-01-20","count":0},{"date":"2014-01-21","count":0},{"date":"2014-01-22","count":0},{"date":"2014-01-23","count":0},{"date":"2014-01-24","count":0},{"date":"2014-01-25","count":0},{"date":"2014-01-26","count":0},{"date":"2014-01-27","count":0},{"date":"2014-01-28","count":0},{"date":"2014-01-29","count":0},{"date":"2014-01-30","count":0},{"date":"2014-01-31","count":0}],"ocaml":[{"date":"2014-01-01","count":0},{"date":"2014-01-02","count":0},{"date":"2014-01-03","count":0},{"date":"2014-01-04","count":0},{"date":"2014-01-05","count":0},{"date":"2014-01-06","count":0},{"date":"2014-01-07","count":0},{"date":"2014-01-08","count":0},{"date":"2014-01-09","count":0},{"date":"2014-01-10","count":0},{"date":"2014-01-11","count":0},{"date":"2014-01-12","count":0},{"date":"2014-01-13","count":0},{"date":"2014-01-14","count":0},{"date":"2014-01-15","count":0},{"date":"2014-01-16","count":0},{"date":"2014-01-17","count":0},{"date":"2014-01-18","count":0},{"date":"2014-01-19","count":0},{"date":"2014-01-20","count":0},{"date":"2014-01-21","count":0},{"date":"2014-01-22","count":0},{"date":"2014-01-23","count":0},{"date":"2014-01-24","count":0},{"date":"2014-01-25","count":0},{"date":"2014-01-26","count":0},{"date":"2014-01-27","count":0},{"date":"2014-01-28","count":0},{"date":"2014-01-29","count":0},{"date":"2014-01-30","count":0},{"date":"2014-01-31","count":0}],"perl5":[{"date":"2014-01-01","count":0},{"date":"2014-01-02","count":0},{"date":"2014-01-03","count":0},{"date":"2014-01-04","count":0},{"date":"2014-01-05","count":0},{"date":"2014-01-06","count":0},{"date":"2014-01-07","count":0},{"date":"2014-01-08","count":0},{"date":"2014-01-09","count":0},{"date":"2014-01-10","count":0},{"date":"2014-01-11","count":0},{"date":"2014-01-12","count":0},{"date":"2014-01-13","count":0},{"date":"2014-01-14","count":0},{"date":"2014-01-15","count":0},{"date":"2014-01-16","count":0},{"date":"2014-01-17","count":0},{"date":"2014-01-18","count":0},{"date":"2014-01-19","count":0},{"date":"2014-01-20","count":0},{"date":"2014-01-21","count":0},{"date":"2014-01-22","count":0},{"date":"2014-01-23","count":0},{"date":"2014-01-24","count":0},{"date":"2014-01-25","count":0},{"date":"2014-01-26","count":0},{"date":"2014-01-27","count":0},{"date":"2014-01-28","count":0},{"date":"2014-01-29","count":0},{"date":"2014-01-30","count":0},{"date":"2014-01-31","count":0}],"python":[{"date":"2014-01-01","count":0},{"date":"2014-01-02","count":0},{"date":"2014-01-03","count":0},{"date":"2014-01-04","count":0},{"date":"2014-01-05","count":0},{"date":"2014-01-06","count":0},{"date":"2014-01-07","count":0},{"date":"2014-01-08","count":0},{"date":"2014-01-09","count":0},{"date":"2014-01-10","count":0},{"date":"2014-01-11","count":0},{"date":"2014-01-12","count":0},{"date":"2014-01-13","count":0},{"date":"2014-01-14","count":0},{"date":"2014-01-15","count":0},{"date":"2014-01-16","count":0},{"date":"2014-01-17","count":0},{"date":"2014-01-18","count":0},{"date":"2014-01-19","count":0},{"date":"2014-01-20","count":0},{"date":"2014-01-21","count":0},{"date":"2014-01-22","count":0},{"date":"2014-01-23","count":0},{"date":"2014-01-24","count":0},{"date":"2014-01-25","count":0},{"date":"2014-01-26","count":0},{"date":"2014-01-27","count":0},{"date":"2014-01-28","count":0},{"date":"2014-01-29","count":0},{"date":"2014-01-30","count":0},{"date":"2014-01-31","count":0}],"ruby":[{"date":"2014-01-01","count":0},{"date":"2014-01-02","count":0},{"date":"2014-01-03","count":0},{"date":"2014-01-04","count":0},{"date":"2014-01-05","count":0},{"date":"2014-01-06","count":0},{"date":"2014-01-07","count":0},{"date":"2014-01-08","count":0},{"date":"2014-01-09","count":0},{"date":"2014-01-10","count":0},{"date":"2014-01-11","count":0},{"date":"2014-01-12","count":0},{"date":"2014-01-13","count":0},{"date":"2014-01-14","count":0},{"date":"2014-01-15","count":0},{"date":"2014-01-16","count":0},{"date":"2014-01-17","count":0},{"date":"2014-01-18","count":0},{"date":"2014-01-19","count":0},{"date":"2014-01-20","count":0},{"date":"2014-01-21","count":0},{"date":"2014-01-22","count":0},{"date":"2014-01-23","count":0},{"date":"2014-01-24","count":0},{"date":"2014-01-25","count":0},{"date":"2014-01-26","count":0},{"date":"2014-01-27","count":0},{"date":"2014-01-28","count":0},{"date":"2014-01-29","count":0},{"date":"2014-01-30","count":0},{"date":"2014-01-31","count":0}],"scala":[{"date":"2014-01-01","count":0},{"date":"2014-01-02","count":0},{"date":"2014-01-03","count":0},{"date":"2014-01-04","count":0},{"date":"2014-01-05","count":0},{"date":"2014-01-06","count":0},{"date":"2014-01-07","count":0},{"date":"2014-01-08","count":0},{"date":"2014-01-09","count":0},{"date":"2014-01-10","count":0},{"date":"2014-01-11","count":0},{"date":"2014-01-12","count":0},{"date":"2014-01-13","count":0},{"date":"2014-01-14","count":0},{"date":"2014-01-15","count":0},{"date":"2014-01-16","count":0},{"date":"2014-01-17","count":0},{"date":"2014-01-18","count":0},{"date":"2014-01-19","count":0},{"date":"2014-01-20","count":0},{"date":"2014-01-21","count":0},{"date":"2014-01-22","count":0},{"date":"2014-01-23","count":0},{"date":"2014-01-24","count":0},{"date":"2014-01-25","count":0},{"date":"2014-01-26","count":0},{"date":"2014-01-27","count":0},{"date":"2014-01-28","count":0},{"date":"2014-01-29","count":0},{"date":"2014-01-30","count":0},{"date":"2014-01-31","count":0}]}'
     http_version: 
-  recorded_at: Sun, 19 Jan 2014 08:32:10 GMT
+  recorded_at: Tue, 21 Jan 2014 21:34:08 GMT
 recorded_with: VCR 2.4.0
