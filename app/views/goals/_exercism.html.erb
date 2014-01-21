@@ -4,8 +4,8 @@
   <div>
   <p class="text-center">
     <span style="font-size: 3em;">Pledge:</span><br/>
-      <span class='github-pledge-display'>
-        <span class='github-pledge'>I am pledging to make <span class='pledge-target'>_</span> <span class='pledge-type'>_</span><span class='pledge-target-type'></span><span class='pledge-commits'></span> every <span class='pledge-period-type'>_</span><span class='pledge-lengths'></span> in <span class='pledge-language'>_</span>
+      <span class='exercism-pledge-display'>
+        <span class='exercism-pledge'>I am pledging to make <span class='pledge-target'>_</span> <span class='pledge-type'>_</span><span class='pledge-target-type'></span><span class='pledge-commits'></span> every <span class='pledge-period-type'>_</span><span class='pledge-lengths'></span> in <span class='pledge-language'>_</span>
       </span>
     </span>
     starting today.
@@ -16,7 +16,7 @@
 
       <%= g.label :target, "Target Goal", class: "col-sm-2 control-label" %>
       <div class="col-sm-10" style="padding-bottom: 1%;">
-        <%= g.select(:target, [['Select A Target To Achieve', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,100], {}, { :class => 'form-control col-sm-2 control-label github-target-input'}) %>
+        <%= g.number_field :target, min: 1, class: 'form-control col-sm-2 control-label github-target-input' %>
       </div>
 
       <%= g.label :commit_type, "Type", class: "col-sm-2 control-label" %>
@@ -36,7 +36,7 @@
 
 
       <%= g.hidden_field :api_account_id, :value => api_account_id %>
-      <%= g.hidden_field :pledge, class: "github-pledge-input"%>
+      <%= g.hidden_field :pledge, class: "exercism-pledge-input"%>
 
       <div class="col-sm-2 control-label"></div>
       <div class="col-sm-10">
@@ -106,9 +106,9 @@
       $('.github-target-input, .github-period-type-input, .github-language-input, .github-type-input' ).change(function(event){
 
           event.preventDefault();
-          var pledges = $('.github-pledge-display');
-          var pledge = $(pledges[1]).text();
-          $('.github-pledge-input').val(pledge);
+          var pledges = $('.exercism-pledge-display');
+          var pledge = $(pledges[0]).text();
+          $('.exercism-pledge-input').val(pledge);
           });
 
   });

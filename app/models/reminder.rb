@@ -64,6 +64,22 @@ class Reminder < ActiveRecord::Base
     monthly? && target_met?
   end
 
+  def is_current_day?
+    self.numerical_day_of_week == Time.now.wday
+  end
+
+  def numerical_day_of_week
+    case self.day_deadline
+    when "Sunday" then 0
+    when "Monday" then 1
+    when "Tuesday" then 2
+    when "Wednesday" then 3
+    when "Thursday" then 4
+    when "Friday" then 5
+    when "Saturday" then 6
+    end
+  end
+
   def change_to_hour
     case self.time_deadline
     when "Morning" then 9
@@ -75,9 +91,9 @@ class Reminder < ActiveRecord::Base
   def commitment_achieved?
     if daily? && is_current_hour?
        daily_target_met?
-    elsif weekly? && is_current_hour?
+    elsif weekly? && is_current_hour? && is_current_day?
       weekly_target_met?
-    elsif monthly? && is_current_hour?
+    elsif monthly? && is_current_hour? && is_current_day?
       monthly_target_met?
     end
   end
