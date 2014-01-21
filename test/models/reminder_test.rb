@@ -120,4 +120,15 @@ class ReminderTest < ActiveSupport::TestCase
     reminder = FactoryGirl.create(:reminder,goal: goal1, time_deadline: "Morning")
     assert reminder.monthly_target_met?, "Has met monthly target"
   end
+
+  def test_get_numerical_reprisentation_of_day
+    reminder = FactoryGirl.create(:reminder, day_deadline: "Wednesday")
+    assert_equal 3, reminder.numerical_day_of_week
+  end
+
+  def test_it_is_not_the_current_day
+    Time.any_instance.stubs(:wday).returns(3)
+    reminder = FactoryGirl.create(:reminder, day_deadline: "Wednesday")
+    assert reminder.is_current_day?
+  end
 end
