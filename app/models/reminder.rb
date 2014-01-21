@@ -82,9 +82,9 @@ class Reminder < ActiveRecord::Base
 
   def change_to_hour
     case self.time_deadline
-    when "Morning" then 9
-    when "Afternoon" then 14
-    when "Evening" then 21
+    when "Morning At 9:00" then 9
+    when "Afternoon At 14:00" then 14
+    when "Evening At 19:00" then 21
     end
   end
 

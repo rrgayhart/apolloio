@@ -14,7 +14,7 @@
           <th><%= r.label :target, "Percentage" %></th>
           <th><%= r.label :time_deadline, "Time Deadline" %></th>
           <% unless @goal.period_type == "day" %>
-          <th><%= r.label :day_deadline, "Day Deadline" %></th>
+            <th><%= r.label :day_deadline, "Day Deadline" %></th>
           <% end %>
           <!--  <th><%= r.label :twitter %></th> -->
           <th><%= r.label :email %></th>
@@ -28,7 +28,7 @@
             <%= r.select(:target, [['Select Target Percentage', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"25%", "50%", "75%"], {}, { :class => ''}) %>
           </td>
           <td>
-            <%= r.select(:time_deadline, [['Select Time Of Reminder', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"Morning", "Afternoon", "Evening"], {}, { :class => ''}) %>
+            <%= r.select(:time_deadline, [['Select Time Of Reminder', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"Morning At 9:00", "Afternoon At 14:00", "Evening At 19:00"], {}, { :class => ''}) %>
           </td>
           <% unless @goal.period_type == "day" %>
           <td>
