@@ -4,8 +4,8 @@
   <div>
   <p class="text-center">
     <span style="font-size: 3em;">Pledge:</span><br/>
-      <span class='github-pledge-display'>
-        <span class='github-pledge'>I am pledging to maintain my streak in <span class='pledge-language'>_</span>
+      <span class='fitbit-pledge-display'>
+        <span class='fitbit-pledge'>I am pledging to maintain my streak in <span class='pledge-language'>_</span>
       </span>
     </span>
     starting today.
@@ -23,7 +23,7 @@
       <%= g.hidden_field :commit_type, :value => "point" %>
       <%= g.hidden_field :period_type, :value => "day" %>
       <%= g.hidden_field :api_account_id, :value => api_account_id %>
-      <%= g.hidden_field :pledge, class: "github-pledge-input"%>
+      <%= g.hidden_field :pledge, class: "fitbit-pledge-input"%>
 
       <div class="col-sm-2 control-label"></div>
       <div class="col-sm-10">
@@ -48,9 +48,9 @@
       $('.github-language-input').change(function(event){
 
           event.preventDefault();
-          var pledges = $('.github-pledge-display');
+          var pledges = $('.fitbit-pledge-display');
           var pledge = $(pledges[0]).text();
-          $('.github-pledge-input').val(pledge);
+          $('.fitbit-pledge-input').val(pledge);
           });
 
   });
