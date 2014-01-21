@@ -14,7 +14,7 @@
           <th><%= r.label :target %></th>
           <th><%= r.label :time_deadline, "Time Deadline" %></th>
           <th><%= r.label :day_deadline, "Day Deadline" %></th>
-          <th><%= r.label :twitter %></th>
+          <!--  <th><%= r.label :twitter %></th> -->
           <th><%= r.label :email %></th>
           <th><%= r.label :sms %></th>
           <th></th>
@@ -31,7 +31,7 @@
           <td>
              <%= r.select(:day_deadline, [['Select Day For Reminder Notification', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], {}, { :class => ''}) %>
           </td>
-          <td><%= r.check_box :twitter %></td>
+          <!-- <td><%= r.check_box :twitter %></td> -->
           <td><%= r.check_box :email %></td>
           <td><%= r.check_box :sms %></td>
           <td><%= r.submit :class => "reminder-submit-button btn btn-primary" %></td>
