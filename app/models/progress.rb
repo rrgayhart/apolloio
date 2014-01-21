@@ -24,15 +24,19 @@ attr_reader :goal
       github_preparation
     when "exercism"
       exercism_preparation
-    when "fitbit"
-      "Fitbit not prepared yet"
+    when "duolingo"
+      duolingo_preparation
     else
      "invalid provider"
     end
   end
 
+  def duolingo_preparation
+    DuolingoApiRequest.new(goal.api_account.api_username, goal.language)
+  end
+
   def exercism_preparation
-    request = ExercismApiRequest.new(days_to_pull, goal.target, goal.api_account.api_username, goal.commit_type, goal.language)
+    ExercismApiRequest.new(days_to_pull, goal.target, goal.api_account.api_username, goal.commit_type, goal.language)
   end
 
   def github_preparation

@@ -31,7 +31,8 @@ def limited_setup
   api1  = FactoryGirl.create(:api, :github)
   api2  = FactoryGirl.create(:api, :exercism)
   api3  = FactoryGirl.create(:api, :fitbit)
-  @apis = [api1, api2, api3]
+  api4  = Api.create(:provider => 'Duolingo', image_url: "duolingologo.png")
+  @apis = [api1, api2, api3, api4]
 
   @api_account1 = FactoryGirl.create(:api_account, api: api1, user: @user, api_username: "mhartl")
   @api_account2 = FactoryGirl.create(:api_account, api: api2, user: @user, api_username: "kytrinyx")
@@ -47,7 +48,8 @@ def capybara_setup
   api1  = FactoryGirl.create(:api, :github)
   api2  = FactoryGirl.create(:api, :exercism)
   api3  = FactoryGirl.create(:api, :fitbit)
-  @apis = [api1, api2, api3]
+  api4  = Api.create(:provider => 'Duolingo', image_url: "duolingologo.png")
+  @apis = [api1, api2, api3, api4]
 
   @api_account1 = FactoryGirl.create(:api_account, api: api1, user: @user, api_username: "mhartl")
   @api_account2 = FactoryGirl.create(:api_account, api: api2, user: @user, api_username: "kytrinyx")

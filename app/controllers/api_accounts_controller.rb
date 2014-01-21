@@ -6,9 +6,11 @@ class ApiAccountsController < ApplicationController
     @github_accounts   = @api_accounts.where(api_id: Api.find_by(provider: "Github").id)
     @fitbit_accounts   = @api_accounts.where(api_id: Api.find_by(provider: "Fitbit").id)
     @exercism_accounts = @api_accounts.where(api_id: Api.find_by(provider: "Exercism").id)
+    @exercism_accounts = @api_accounts.where(api_id: Api.find_by(provider: "Duolingo").id)
     @github_api_id     = Api.find_by(provider: "Github").id
     @fitbit_api_id     = Api.find_by(provider: "Fitbit").id
     @exercism_api_id   = Api.find_by(provider: "Exercism").id
+    @duolingo_api_id   = Api.find_by(provider: "Duolingo").id
   end
 
   def create

@@ -29,22 +29,24 @@
     </div>
 
     <div class="row" style="margin-left: .5%;">
-      <div id="fitbit">
-        <div id="fitbit-image">
-          <%= image_tag("fitbitlogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;", id: "fitbit-logo") %>
+      <div id="duolingo">
+        <div id="duolingo-image">
+          <%= image_tag("duolingologo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;", id: "duolingo-logo") %>
         </div>
-        <h1>Fitbit</h1>
+        <h1>Duolingo</h1>
         <br />
-        <div id="fitbit_form">
+        <div id="duolingo_form">
           <%= form_for @api_account do |api| %>
-            <%= api.text_field :api_username, placeholder: "Fitbit Username" %>
-            <%= api.hidden_field :api_id, :value => @fitbit_api_id %>
+            <%= api.text_field :api_username, placeholder: "Duolingo Username" %>
+            <%= api.hidden_field :api_id, :value => @duolingo_api_id %>
             <%= api.submit "Link My Account" %>
           <% end %>
         </div>
         <div style="margin-left: 21%;">
-          <% @fitbit_accounts.each do |fitbit_account| %>
-            <li><%= fitbit_account.api_username %></li>
+          <% if @duolingo_accounts %>
+            <% @duolingo_accounts.each do |duolingo_account| %>
+              <li><%= duolingo_account.api_username %></li>
+            <% end %>
           <% end %>
         </div>
       </div>
