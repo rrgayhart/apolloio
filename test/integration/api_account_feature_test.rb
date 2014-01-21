@@ -17,7 +17,6 @@ class ApiAccountFeatureTest < Capybara::Rails::TestCase
       within(".api-dashboard-div") do
         click_link @api_account1.api_username
       end
-      save_and_open_page
       assert page.has_content?("github"), "Page shoud have content GitHub"
       assert page.has_content?(@api_account1.api_username), "Page should have content #{@api_account1.api_username}"
       assert page.has_content?("Current Streak")
