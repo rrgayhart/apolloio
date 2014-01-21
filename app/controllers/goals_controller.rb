@@ -22,7 +22,7 @@ class GoalsController < ApplicationController
       redirect_to goal_path(@goal)
     else
       flash[:error] = "Goal Unsuccessfully Created."
-      redirect_to new_goal_path 
+      redirect_to new_goal_path
     end
   end
 

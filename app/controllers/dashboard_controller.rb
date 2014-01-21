@@ -2,6 +2,7 @@ class DashboardController < ApplicationController
   before_action :require_user
   before_action :require_api_account
   before_action :require_goal
+  before_action :public_shaming
 
   def index
     @goals        = current_user.goals
@@ -23,5 +24,19 @@ private
       flash[:no_goals] = "#{view_context.link_to('Add A Goal', new_goal_path)}".html_safe
     end
   end
+
+  def public_shaming
+    @goals = current_user.goals
+    if current_user.has_goal? && current_user.email
+      @goals.each do |goal|
+        goal.reminders.each do |reminder|
+          unless reminder.commitment_achieved?
+            EmailNotifications.remind_user_of_commitment(current_user, reminder).deliver
+          end
+        end
+      end
+    end
+  end
+
 
 end
