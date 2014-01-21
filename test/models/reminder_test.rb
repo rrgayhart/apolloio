@@ -55,4 +55,44 @@ class ReminderTest < ActiveSupport::TestCase
     refute reminder.target_met?, "The reminders target has not been met"
   end
 
+  def test_a_daily_reminder
+    goal1 = FactoryGirl.create(:goal, period_type: "day")
+    reminder = FactoryGirl.create(:reminder, goal: goal1)
+    assert reminder.daily?, "It is a daily reminder"
+  end
+
+  def test_the_daily_target_has_been_met
+    Progress.any_instance.stubs(:result).returns("1")
+    goal1 = FactoryGirl.create(:goal, period_type: "day")
+    reminder = FactoryGirl.create(:reminder, goal: goal1)
+    assert reminder.daily_target_met?, "The daily target has been met"
+  end
+
+  def test_it_converts_period_of_day_to_hour
+    reminder = FactoryGirl.create(:reminder, time_deadline: "Afternoon")
+    assert_equal 14, reminder.change_to_hour
+  end
+
+  def test_it_compares_hour_correctly_to_current_hour
+    Time.any_instance.stubs(:hour).returns(21)
+    reminder = FactoryGirl.create(:reminder, time_deadline: "Evening")
+    assert reminder.is_current_hour?, "Reminder Matches current hour"
+  end
+
+  def test_a_target_was_acheived
+    Time.any_instance.stubs(:hour).returns(9)
+    Progress.any_instance.stubs(:result).returns("1")
+    goal1 = FactoryGirl.create(:goal, period_type: "day")
+    reminder = FactoryGirl.create(:reminder,goal: goal1, time_deadline: "Morning")
+    assert reminder.commitment_achieved?, "The target was achieved"
+  end
+
+  def test_target_was_not_achieved
+    Time.any_instance.stubs(:hour).returns(9)
+    Progress.any_instance.stubs(:result).returns("0")
+    goal1 = FactoryGirl.create(:goal, period_type: "day")
+    reminder = FactoryGirl.create(:reminder,goal: goal1, time_deadline: "Morning")
+    refute reminder.commitment_achieved?, "The target was not achieved"
+  end
+
 end

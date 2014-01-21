@@ -48,7 +48,7 @@ class Reminder < ActiveRecord::Base
     daily? && target_met?
   end
 
-  def period_of_time
+  def change_to_hour
     case self.time_deadline
     when "Morning" then 9
     when "Afternoon" then 14
@@ -57,9 +57,13 @@ class Reminder < ActiveRecord::Base
   end
 
   def commitment_achieved?
-    if daily? && (period_of_time >= Time.now.hour)
+    if daily? && is_current_hour?
        daily_target_met?
     end
+  end
+
+  def is_current_hour?
+    change_to_hour >= Time.now.hour
   end
 
   def set_start_date
