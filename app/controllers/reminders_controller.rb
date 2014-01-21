@@ -19,8 +19,7 @@ class RemindersController < ApplicationController
     if @reminder.save
       redirect_to goal_path(@reminder.goal)
       flash[:success]="Reminder Successfully Saved"
-      UserMailer.reminder_confirmation(current_user).deliver
-      # send_sms
+      notifications(@reminder)
     else
       redirect_to :back
       flash[:error]="Reminder Unsuccesful"
@@ -48,21 +47,23 @@ class RemindersController < ApplicationController
     end
   end
 
-  private
+private
 
   def reminder_params
     params.require(:reminder).permit(:goal_id, :start_date, :target, :time_deadline, :day_deadline, :twitter, :sms, :email, :add_email, :add_phone_number)
   end
 
-  def send_sms
-    # Instantiate a Twilio client
-    client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
-      
-    # Create and send an SMS message
-    client.account.sms.messages.create(
-      from: TWILIO_CONFIG['from'],
-      to: current_user.phone_number,
-      body: "A reminder was created. It will notify you via SMS the #{@reminder.time_deadline} of every #{@reminder.day_deadline} day if you haven't hit your #{@reminder.target} commit."
-    )
+  def notifications(reminder)
+    @reminder = reminder
+    if @reminder.email
+      # Call Background Worker
+      EmailNotifications.reminder_confirmation(current_user).deliver
+      # Have background worker deal with email notifications
+    end
+    if @reminder.sms
+      # Call Background Worker
+      SmsNotifications.send_sms(current_user, @reminder)
+      # Have background worker deal with sms notifications
+    end
   end
 end
