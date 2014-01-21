@@ -38,7 +38,8 @@
           <thead>
             <tr>
               <th>Username/Account</th>
-              <th>Percentage</th>
+              <th>Pledge</th>
+              <th>%</th>
               <th>Deadline</th>
               <th>Time of Reminder</th>
               <th>Start Date</th>
@@ -52,6 +53,7 @@
             <% @reminders.each do |reminder| %>
               <tr>
                 <td><%= link_to reminder.goal.api_account.api_username, api_account_path(reminder.goal.api_account) %>/<%= link_to reminder.goal.api_account.api.provider, api_account_path(reminder.goal.api_account) %></td>
+                <td><%= link_to "#{reminder.goal.pledge}", goal_path(reminder.goal) %></td>
                 <td><%= link_to "#{reminder.target}%", reminder_path(reminder) %></td>
                 <td><%= reminder.goal_render %></td>
                 <td><%= reminder.render_time_deadline %></td>
