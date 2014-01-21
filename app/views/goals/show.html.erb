@@ -65,7 +65,7 @@
     </thead>
     <% @goal.reminders.each do |r| %>
       <tr>
-        <td><%= link_to "I need to reach #{r.target} commits by #{r.render_time_deadline} every #{r.day_deadline} days", reminder_path(r), :class => "view-reminder-link" %></td>
+        <td><%= link_to "I need to reach #{r.target}% of my target before the #{r.render_time_deadline} every #{r.day_deadline} day", reminder_path(r), :class => "view-reminder-link" %></td>
         <td>ON/OFF</td>
       </tr>
     <% end %>

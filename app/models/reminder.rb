@@ -57,7 +57,7 @@ class Reminder < ActiveRecord::Base
   end
 
   def commitment_achieved?
-    if daily? && (period_of_time == Time.now.hour)
+    if daily? && (period_of_time >= Time.now.hour)
        daily_target_met?
     end
   end
