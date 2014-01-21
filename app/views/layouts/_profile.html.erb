@@ -3,12 +3,14 @@ Possible Gravatar Image???
 <br />
 <br />
 <br />
-  Email:
-  <p style="margin-left: 10%"><%= current_user.email %></p>
-  Phone: 
-  <p style="margin-left: 10%"><%= current_user.phone_number %></p>
-  Twitter Handle: 
-  <p style="margin-left: 10%"><%= current_user.name %></p>
+  <% if current_user != nil %>
+    Email:
+    <p style="margin-left: 10%"><%= current_user.email %></p>
+    Phone: 
+    <p style="margin-left: 10%"><%= current_user.phone_number %></p>
+    Twitter Handle: 
+    <p style="margin-left: 10%"><%= current_user.name %></p>
+  <% end %>
   <p>API Accounts:</p>
   <% if @api_accounts != nil %>
     <% @api_accounts.each do |api_account| %>
