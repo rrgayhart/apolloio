@@ -9,6 +9,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'whenever', :require => false
 gem 'pg'
 gem 'twilio-ruby'
 gem 'faraday'
