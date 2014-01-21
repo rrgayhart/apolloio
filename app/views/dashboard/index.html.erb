@@ -1,14 +1,3 @@
-<br>
-<div class="api-dashboard-div">
-  <br />
-  <%= link_to "Add An API Account", api_accounts_path %>
-  <br />
-  <% @api_accounts.each do |api_account| %>
-    <%= api_account.api.provider %>
-    Account: <%= link_to api_account.api_username, api_account_path(api_account), id: "api_account_#{api_account.id}"%><br>
-  <% end %>
-</div>
-
 <div class="bs-example bs-example-tabs" style="margin-bottom: 5%;">
 
   <ul id="myTab" class="nav nav-tabs">
