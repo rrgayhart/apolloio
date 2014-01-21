@@ -16,7 +16,7 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
       click_link 'Add Goal'
       assert page.has_css?('#create-goal-title')
       select('Github', :from => 'api_selection')
-      select('1', :from => 'Target Goal')
+      fill_in 'Target Goal', :with => 1
       select('day', :from => 'Period Type')
       click_button "Submit Goal"
       refute page.has_content?("Target")
@@ -24,13 +24,11 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
       assert page.has_content?("Add Reminder")
       click_link "Add Reminder"
       assert page.has_css?(".reminder-submit-button")
-      select("50%", :from => "Target")
+      select("50%", :from => "reminder[target]")
       select("Afternoon", :from => "Time Deadline")
-      select("Monday", :from => "Day Deadline")
-      check "Twitter"
       # check "Sms"
       # assert page.has_content?("Enter phone number:")
-      # fill_in "reminder[add_phone_number]", :with => "7174250868"
+      # fill_in "reminder[add_phone_number]", :with => "7179990868"
       check "Email"
       assert page.has_content?("Enter email address:")
       fill_in "reminder[add_email]", :with => "example@example.org"
@@ -50,7 +48,7 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
         click_link 'Add Goal'
         assert page.has_css?('#create-goal-title')
         select('Exercism', :from => 'api_selection')
-        select('1', :from => 'Target Goal')
+        fill_in 'Target Goal', :with => 1
         select('day', :from => 'Period Type')
         select('ruby', :from => 'Language')
         select('nitpick', :from => 'Type')
