@@ -7,6 +7,7 @@ class NewUserSignupTest < Capybara::Rails::TestCase
   end
 
   test "user_signs_up_for_app_and_is_redirected_to_connect_api_account" do
+    skip
     visit root_path
     assert_equal current_path, root_path
     
