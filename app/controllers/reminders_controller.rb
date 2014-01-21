@@ -9,10 +9,10 @@ class RemindersController < ApplicationController
     @add_email        = params[:reminder][:add_email]
     @add_phone_number = params[:reminder][:add_phone_number]
     if @add_email
-      current_user.update(email: @add_email) 
+      current_user.update(email: @add_email)
     end
     if @add_phone_number
-      current_user.update(phone_number: @add_phone_number) 
+      current_user.update(phone_number: @add_phone_number)
     end
     @reminder = Reminder.new(reminder_params.except(:add_email))
     @reminder.user_id = current_user.id
