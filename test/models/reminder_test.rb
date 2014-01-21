@@ -55,7 +55,7 @@ class ReminderTest < ActiveSupport::TestCase
     refute reminder.target_met?, "The reminders target has not been met"
   end
 
-  def test_a_daily_reminder
+  def test_it_is_a_daily_reminder
     goal1 = FactoryGirl.create(:goal, period_type: "day")
     reminder = FactoryGirl.create(:reminder, goal: goal1)
     assert reminder.daily?, "It is a daily reminder"
@@ -95,4 +95,29 @@ class ReminderTest < ActiveSupport::TestCase
     refute reminder.commitment_achieved?, "The target was not achieved"
   end
 
+  def test_it_is_a_weekly_reminder
+    goal1 = FactoryGirl.create(:goal, period_type: "week")
+    reminder = FactoryGirl.create(:reminder,goal: goal1, time_deadline: "Morning")
+    assert reminder.weekly?, "Has a weekly target"
+  end
+
+  def test_it_has_met_its_weekly_target
+    Progress.any_instance.stubs(:result).returns("1")
+    goal1 = FactoryGirl.create(:goal, period_type: "week")
+    reminder = FactoryGirl.create(:reminder,goal: goal1, time_deadline: "Morning")
+    assert reminder.weekly_target_met?, "Has met  weekly target"
+  end
+
+  def test_it_has_a_monthly_reminder
+    goal1 = FactoryGirl.create(:goal, period_type: "month")
+    reminder = FactoryGirl.create(:reminder,goal: goal1, time_deadline: "Morning")
+    assert reminder.monthly?, "Has a weekly target"
+  end
+
+  def test_it_has_met_its_monthly_target
+    Progress.any_instance.stubs(:result).returns("1")
+    goal1 = FactoryGirl.create(:goal, period_type: "month")
+    reminder = FactoryGirl.create(:reminder,goal: goal1, time_deadline: "Morning")
+    assert reminder.monthly_target_met?, "Has met monthly target"
+  end
 end

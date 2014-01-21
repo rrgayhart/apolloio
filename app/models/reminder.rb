@@ -44,8 +44,24 @@ class Reminder < ActiveRecord::Base
     self.goal.period_type == "day"
   end
 
+  def weekly?
+    self.goal.period_type == "week"
+  end
+
+  def monthly?
+    self.goal.period_type == "month"
+  end
+
   def daily_target_met?
     daily? && target_met?
+  end
+
+  def weekly_target_met?
+    weekly? && target_met?
+  end
+
+  def monthly_target_met?
+    monthly? && target_met?
   end
 
   def change_to_hour
@@ -59,6 +75,10 @@ class Reminder < ActiveRecord::Base
   def commitment_achieved?
     if daily? && is_current_hour?
        daily_target_met?
+    elsif weekly? && is_current_hour?
+      weekly_target_met?
+    elsif monthly? && is_current_hour?
+      monthly_target_met?
     end
   end
 
