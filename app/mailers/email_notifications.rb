@@ -1,4 +1,4 @@
-class UserMailer < ActionMailer::Base
+class EmailNotifications < ActionMailer::Base
   default from: "from@example.com"
 
   def reminder_confirmation(user)

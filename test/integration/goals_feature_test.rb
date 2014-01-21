@@ -28,9 +28,9 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
       select("Afternoon", :from => "Time Deadline")
       select("Monday", :from => "Day Deadline")
       check "Twitter"
-      check "Sms"
-      assert page.has_content?("Enter phone number:")
-      fill_in "reminder[add_phone_number]", :with => "7174250868"
+      # check "Sms"
+      # assert page.has_content?("Enter phone number:")
+      # fill_in "reminder[add_phone_number]", :with => "7174250868"
       check "Email"
       assert page.has_content?("Enter email address:")
       fill_in "reminder[add_email]", :with => "example@example.org"
