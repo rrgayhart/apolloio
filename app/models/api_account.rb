@@ -4,7 +4,7 @@ class ApiAccount < ActiveRecord::Base
   has_many :goals
   validate :acceptable_user_id
   validate :acceptable_api_id
-  validate :acceptable_username, uniqueness: true
+  # validate :acceptable_username, uniqueness: true
 
   def api_account_exists
     case self.api.provider.downcase

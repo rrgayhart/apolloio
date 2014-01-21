@@ -13,7 +13,7 @@ class ProgressFeatureTest < Capybara::Rails::TestCase
 
   test 'a goal has progress that is shown' do
     Timecop.travel("Sat, 19 Jan 2014".to_date) do
-      click_link 'Add Goal'
+      click_link 'Add Commitment'
       select('Github', :from => 'api_selection')
       fill_in 'Target Goal', :with => 1
       select('day', :from => 'Period Type')
