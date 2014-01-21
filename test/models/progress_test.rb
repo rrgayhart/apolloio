@@ -19,7 +19,7 @@ class ProgressTest < ActiveSupport::TestCase
   end
 
   def test_progress_functions
-    Timecop.freeze(Date.today) do
+    Timecop.freeze("2014-01-20 15:35:02 -0700".to_time) do
       VCR.use_cassette('rrgayhart1', :record => :new_episodes) do
         goal = FactoryGirl.create(:goal, user: @user1, api_account: @api_account2, target: 5, period_type: "months", start_date: Date.today, commit_type: 'submission', language: 'ruby' )
         progress = Progress.new(goal)
@@ -43,16 +43,15 @@ class ProgressTest < ActiveSupport::TestCase
   end
 
   def test_days_to_pull_for_weeks
-    Timecop.freeze(Date.today) do
+    Timecop.freeze("2014-01-20 15:35:02 -0700".to_time) do
       goal = FactoryGirl.create(:goal, user: @user1, api_account: @api_account1, target: 5, period_type: "weeks", start_date: Date.today)
       progress = Progress.new(goal)
-      assert_equal 1, progress.days_to_pull
-      assert_equal 'Sun, 19 Jan 2014'.to_date, Date.today
+      assert_equal 2, progress.days_to_pull
     end
   end
 
   def test_days_to_pull_for_months
-    Timecop.freeze(Date.today) do
+    Timecop.freeze("2014-01-20 15:35:02 -0700".to_time) do
       goal = FactoryGirl.create(:goal, user: @user1, api_account: @api_account1, target: 5, period_type: "months", start_date: Date.today)
       progress = Progress.new(goal)
       assert_equal Date.today.mday, progress.days_to_pull
