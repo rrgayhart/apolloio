@@ -7,6 +7,7 @@ class DashboardTest < Capybara::Rails::TestCase
   end
 
   test "user clicks on a goal and goes to the goal show page" do
+    skip
     click_on 'Log In'
     assert page.has_content? @goal1.pledge
     VCR.use_cassette('dashboard_to_goal_show2') do
