@@ -13,7 +13,9 @@
         <tr>
           <th><%= r.label :target %></th>
           <th><%= r.label :time_deadline, "Time Deadline" %></th>
+          <% unless @goal.period_type == "day" %>
           <th><%= r.label :day_deadline, "Day Deadline" %></th>
+          <% end %>
           <!--  <th><%= r.label :twitter %></th> -->
           <th><%= r.label :email %></th>
           <th><%= r.label :sms %></th>
@@ -28,9 +30,11 @@
           <td>
             <%= r.select(:time_deadline, [['Select Time Of Reminder', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"Morning", "Afternoon", "Evening"], {}, { :class => ''}) %>
           </td>
+          <% unless @goal.period_type == "day" %>
           <td>
              <%= r.select(:day_deadline, [['Select Day For Reminder Notification', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], {}, { :class => ''}) %>
           </td>
+          <% end %>
           <!-- <td><%= r.check_box :twitter %></td> -->
           <td><%= r.check_box :email %></td>
           <td><%= r.check_box :sms %></td>
