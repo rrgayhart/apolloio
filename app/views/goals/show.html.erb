@@ -1,4 +1,4 @@
-<div>User Account: <%= link_to @goal.api_account.api_username, api_account_path(@goal.api_account) %></div>
+<div><%= @goal.api_account.api.provider%> user: <%= link_to @goal.api_account.api_username, api_account_path(@goal.api_account) %></div>
 
 <h1 class="goal-title"><%= @goal.pledge %></h1>
 
@@ -41,22 +41,12 @@
           <td><%= r.submit :class => "reminder-submit-button btn btn-primary" %></td>
         </tr>
           <tr id="add-email-tr">
-              <% if current_user.email %>
-              <td>Email Address</td>
-              <td><%= current_user.email %></td>
-             <% else %>
-              <td>Enter email address:</td>
-              <td><%= r.text_field :add_email %></td>
-            <% end %>
+            <td>Email Address</td>
+            <td><%= r.text_field :add_email, value: current_user.email %></td>
           </tr>
           <tr id="add-phone-number-tr">
-            <% if current_user.phone_number %>
-              <td>Phone Number</td>
-              <td><%= current_user.phone_number %></td>
-            <% else %>
-              <td>Enter phone number:</td>
-              <td><%= r.text_field :add_phone_number %></td>
-            <% end %>
+            <td>Phone Number</td>
+            <td><%= r.text_field :add_phone_number, value: current_user.phone_number %></td>
           </tr>
       </tbody>
       <%= r.hidden_field :goal_id, value: @goal.id%>
@@ -76,7 +66,6 @@
     <% @goal.reminders.each do |r| %>
       <tr>
         <td><%= link_to "I need to reach #{r.target}% of my target before the #{r.render_time_deadline} every #{r.day_deadline} day", reminder_path(r), :class => "view-reminder-link" %></td>
-        <td>ON/OFF</td>
       </tr>
     <% end %>
   </table>
@@ -85,9 +74,11 @@
 <script>
   jQuery(document).ready(function($) {
     $('input#reminder_email').change(function(){
+
       if ($(this).is(':checked')) $('#add-email-tr').show();
       else $('#add-email-tr').hide();
       }).change();
+
     $('input#reminder_sms').change(function(){
       if ($(this).is(':checked')) $('#add-phone-number-tr').show();
       else $('#add-phone-number-tr').hide();
