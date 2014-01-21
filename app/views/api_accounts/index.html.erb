@@ -21,8 +21,10 @@
           <% end %>
         </div>
         <div style="margin-left: 21%;">
-          <% @github_accounts.each do |github_account| %>
-            <li><%= github_account.api_username %></li>
+          <% if @github_accounts != nil %>
+            <% @github_accounts.each do |github_account| %>
+              <li><%= github_account.api_username %></li>
+            <% end %>
           <% end %>
         </div>
       </div>
@@ -43,7 +45,7 @@
           <% end %>
         </div>
         <div style="margin-left: 21%;">
-          <% if @duolingo_accounts %>
+          <% if @duolingo_accounts != nil %>
             <% @duolingo_accounts.each do |duolingo_account| %>
               <li><%= duolingo_account.api_username %></li>
             <% end %>
@@ -67,8 +69,10 @@
           <% end %>
         </div>
         <div style="margin-left: 21%;">
-          <% @exercism_accounts.each do |exercism_account| %>
-            <li><%= exercism_account.api_username %></li>
+          <% if @exercism_accounts != nil %>
+            <% @exercism_accounts.each do |exercism_account| %>
+              <li><%= exercism_account.api_username %></li>
+            <% end %>
           <% end %>
         </div>
       </div>
