@@ -21,7 +21,7 @@ private
 
   def require_goal
     unless current_user.has_goal?
-      flash[:no_goals] = "#{view_context.link_to('Add A Goal', new_goal_path)}".html_safe
+      flash[:no_goals] = "#{view_context.link_to('Add A Commitment', new_goal_path)}".html_safe
     end
   end
 

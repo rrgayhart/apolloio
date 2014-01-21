@@ -43,18 +43,21 @@
           <tr id="add-email-tr">
               <% if current_user.email %>
               <td>Email Address</td>
-              <td><%= current_user.email %>
+              <td><%= current_user.email %></td>
              <% else %>
               <td>Enter email address:</td>
               <td><%= r.text_field :add_email %></td>
             <% end %>
           </tr>
-        <% unless current_user.phone_number %>
           <tr id="add-phone-number-tr">
-            <td>Enter phone number:</td>
-            <td><%= r.text_field :add_phone_number %></td>
+            <% if current_user.phone_number %>
+              <td>Phone Number</td>
+              <td><%= current_user.phone_number %></td>
+            <% else %>
+              <td>Enter phone number:</td>
+              <td><%= r.text_field :add_phone_number %></td>
+            <% end %>
           </tr>
-        <% end %>
       </tbody>
       <%= r.hidden_field :goal_id, value: @goal.id%>
     </table>
