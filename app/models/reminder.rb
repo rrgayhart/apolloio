@@ -40,6 +40,28 @@ class Reminder < ActiveRecord::Base
     progress.to_i >= self.target
   end
 
+  def send_message
+    if daily?
+      daily_target_met?
+    end
+  end
+
+  def daily?
+    self.goal.period_type == "day"
+  end
+
+  def period_of_time
+    case self.time_deadline
+    when "Morning" then 9
+    when "Afternoon" then 14
+    when "Evening" then 19
+    end
+  end
+
+  def daily_target_met?
+    daily? && target_met?
+  end
+
   def set_start_date
     update(start_date: DateTime.now.to_date)
   end
