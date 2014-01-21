@@ -1,6 +1,6 @@
 <div id="reminder-show-page">
   <h1>Reminder</h1>
-  Target: <%= best_in_place @reminder, :target %> <br>
+  Target: <%= best_in_place @reminder, :target, :type => :select, :collection => [[25, "25%"], [50, "50%"], [75, "75%"]]%> <br>
   Day Deadline: <%= best_in_place @reminder, :day_deadline %><br>
   Time Deadline:  <%= best_in_place @reminder, :time_deadline %><br>
   Start Date: <%= best_in_place @reminder, :start_date, :type => :date %><br>
