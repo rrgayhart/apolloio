@@ -23,10 +23,8 @@ class ExercismApiTest < ActiveSupport::TestCase
 
   def test_valid_exercism_name
     VCR.use_cassette('invalic_checks', :record => :new_episodes) do
-      invalid = ApiRequest.new('sdfefsf', 'exercism')
-      refute invalid.valid_username_exercism?
-      valid = ApiRequest.new('thewatts', 'exercism')
-      assert valid.valid_username_exercism?
+      refute ExercismApiRequest.valid_username?('sdfefsf')
+      assert ExercismApiRequest.valid_username?('thewatts')
     end
   end
 

@@ -34,6 +34,8 @@ Apolloio::Application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
+  config.cache_store = :null_store
+
   # Test mock for omniauth
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({

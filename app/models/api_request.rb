@@ -17,18 +17,12 @@ class ApiRequest
     end
   end
 
-  def valid_username_exercism?
-    Faraday.get("http://exercism.io/api/v1/stats/#{username}/nitpicks/2014/01").status == 200
-  end
-
-  def valid_username_duolingo?
-    Faraday.get("http://www.duolingo.com/users/#{username}").status == 200
-  end
-
   def github_hash
     url = "http://github-history.herokuapp.com/find/#{username}.json"
-    response = Faraday.get(url)
-    JSON.parse(response.body)
+    Rails.cache.fetch("github_api_#{username}", expires_in: 5.minutes) do
+      response = Faraday.get(url)
+      JSON.parse(response.body)
+    end
   end
 
   def get_streak

@@ -13,3 +13,7 @@ class AfternoonReminderWorker
   end
   
 end
+
+#Rails.cache.delete('the key string')
+  
+end

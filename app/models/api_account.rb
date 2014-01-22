@@ -23,9 +23,9 @@ class ApiAccount < ActiveRecord::Base
     when 'github'
       !ApiRequest.new(api_username, "github").github_error?
     when 'exercism'
-      ApiRequest.new(api_username, "exercism").valid_username_exercism?
+      ExercismApiRequest.valid_username?(api_username)
     when 'duolingo'
-      ApiRequest.new(api_username, "duolingo").valid_username_duolingo?
+      DuolingoApiRequest.valid_username_duolingo?(api_username)
     end
   end
 
