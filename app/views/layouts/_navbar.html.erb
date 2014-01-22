@@ -12,7 +12,9 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <% if current_user %>
-          <li class="active"><%= link_to "Dashboard", dashboard_path %></li>
+          <li><%= link_to "Dashboard", dashboard_path %></li>
+          <li><%= link_to "Accounts", api_accounts_path %></li>
+          <li><%= link_to "Make a Commitment", new_goal_path %></li>
         <% else %>
           <li><a></a></li>
         <% end %>

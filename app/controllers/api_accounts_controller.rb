@@ -1,3 +1,5 @@
+require 'json'
+
 class ApiAccountsController < ApplicationController
 
   def index
@@ -29,6 +31,10 @@ class ApiAccountsController < ApplicationController
 
   def show
     @api_account = current_user.api_accounts.where(id: params[:id]).first
+    @test_value = 26
+    @test = ExercismApiRequest.new(5, 1, @api_account.api_username, 'submission', 'any language')
+    @github_two = GithubApiRequest.new(10, 1, @api_account.api_username).pull_dates
+    @github_two_months = @github_two
     if @api_account
       @provider        = @api_account.api.provider.downcase
       @username        = @api_account.api_username

@@ -34,6 +34,18 @@ class ExercismApiRequest
     a.inject(0) {|sum, date| sum + date['count'] }
   end
 
+  def get_all_by_language
+    array = []
+    languages = ["clojure", "coffeescript", "elixir", "go", "haskell", "javascript", "objective-c", "ocaml", "perl5", "python", "ruby", "scala"]
+    languages.each do |l|
+     new_array = []
+     new_array << l
+     new_array << get_contribution_count_by_language(l)
+     array << new_array
+    end
+    array
+  end
+
   def get_array_by_language(language)
     if language != "any language"
       dates = generate_hash.map {|o| o.slice(language).values}

@@ -5,78 +5,10 @@
   </div>
   
   <div class="panel-body">
-
-    <div class="row center-block" style="margin-left: .5%;">
-      <div id="github">
-        <div id="github-image">
-          <%= image_tag("githublogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;", id: "github-logo" ) %>
-        </div>
-        <h1>Github</h1>
-        <br />
-        <div id="github_form">
-          <%= form_for @api_account do |api| %>
-            <%= api.text_field :api_username, placeholder: "Github Username" %>
-            <%= api.hidden_field :api_id, :value => @github_api_id %>
-            <%= api.submit "Link My Account" %>
-          <% end %>
-        </div>
-        <div style="margin-left: 21%;">
-          <% if @github_accounts != nil %>
-            <% @github_accounts.each do |github_account| %>
-              <li><%= link_to github_account.api_username, api_account_path(github_account), id: "api_account_#{github_account.id}"%></li>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
+    <div class="row">
+      <%= render partial: "github_new" %>
+      <%= render partial: "duolingo_new" %>
+      <%= render partial: "exercism_new" %>
     </div>
-
-    <div class="row" style="margin-left: .5%;">
-      <div id="duolingo">
-        <div id="duolingo-image">
-          <%= image_tag("duolingologo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;", id: "duolingo-logo") %>
-        </div>
-        <h1>Duolingo</h1>
-        <br />
-        <div id="duolingo_form">
-          <%= form_for @api_account do |api| %>
-            <%= api.text_field :api_username, placeholder: "Duolingo Username" %>
-            <%= api.hidden_field :api_id, :value => @duolingo_api_id %>
-            <%= api.submit "Link My Account" %>
-          <% end %>
-        </div>
-        <div style="margin-left: 21%;">
-          <% if @duolingo_accounts != nil %>
-            <% @duolingo_accounts.each do |duolingo_account| %>
-              <li><%= link_to duolingo_account.api_username, api_account_path(duolingo_account), id: "api_account_#{duolingo_account.id}"%></li>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-    <div class="row" style="margin-left: .5%; margin-bottom: 10%;">
-      <div id="exercism">
-        <div id="exercism-image">
-          <%= image_tag("exercismlogo.png", class: "img-cirlce pull-left", style: "margin-left: 20%; margin-right: 15%;", id: "exercism-logo") %>
-        </div>
-        <h1>Exercism</h1>
-        <br />
-        <div id="exercism_form">
-          <%= form_for @api_account do |api| %>
-            <%= api.text_field :api_username, placeholder: "Exercism Username" %>
-            <%= api.hidden_field :api_id, :value => @exercism_api_id %>
-            <%= api.submit "Link My Account" %>
-          <% end %>
-        </div>
-        <div style="margin-left: 21%;">
-          <% if @exercism_accounts != nil %>
-            <% @exercism_accounts.each do |exercism_account| %>
-              <li><%= link_to exercism_account.api_username, api_account_path(exercism_account), id: "api_account_#{exercism_account.id}"%></li>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
