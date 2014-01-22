@@ -19,7 +19,10 @@ class RemindersController < ApplicationController
     if @reminder.save
       redirect_to goal_path(@reminder.goal)
       flash[:success]="Reminder Successfully Saved"
-      notifications(@reminder)
+      # Create background job in redis server
+      # Cron jobs should trigger the workers
+
+      # notifications(@reminder)
     else
       redirect_to :back
       flash[:error]="Reminder Unsuccesful"

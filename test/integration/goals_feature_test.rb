@@ -30,7 +30,7 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
       # assert page.has_content?("Enter phone number:")
       # fill_in "reminder[add_phone_number]", :with => "7179990868"
       check "Email"
-      assert page.has_content?("Enter email address:")
+      assert page.has_content?("Email address")
       fill_in "reminder[add_email]", :with => "example@example.org"
       click_button "Create Reminder"
       click_link "Add Reminder"
