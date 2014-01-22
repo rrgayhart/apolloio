@@ -1,6 +1,6 @@
 <div class="api-account-title">
-  <h2><%= image_tag("mini-#{@goal.api_account.api.image_url}") %> <%= link_to @goal.api_account.api_username, api_account_path(@goal.api_account)%> 
-    <small><%= @goal.api_account.api.provider %></small> 
+  <h2><%= image_tag("mini-#{@goal.api_account.api.image_url}") %> <%= link_to @goal.api_account.api_username, api_account_path(@goal.api_account)%>
+    <small><%= @goal.api_account.api.provider %></small>
  </h2>
 </div>
 
@@ -16,7 +16,7 @@
       <thead>
         <tr>
           <th><%= r.label :target, "Percentage" %></th>
-          <th><%= r.label :time_deadline, "Time Deadline" %></th>
+          <th><%= r.label :time_deadline, "Time For Reminder" %></th>
           <% unless @goal.period_type == "day" %>
             <th><%= r.label :day_deadline, "Day Deadline" %></th>
           <% end %>
@@ -29,7 +29,7 @@
       <tbody>
         <tr>
           <td>
-            <%= r.select(:target, [['Select Target Percentage', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"25%", "50%", "75%"], {}, { :class => ''}) %>
+            <%= r.select(:target, [['Select Percentage Of Pledge To Achieve', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"25%", "50%", "75%"], {}, { :class => ''}) %>
           </td>
           <td>
             <%= r.select(:time_deadline, [['Select Time Of Reminder', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"Morning At 9:00", "Afternoon At 14:00", "Evening At 19:00"], {}, { :class => ''}) %>
