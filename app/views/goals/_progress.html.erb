@@ -1,0 +1,12 @@
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= @percent %>%;">
+    <span class="sr-only"><%= @percent %>% Complete</span>
+  </div>
+</div>
+Progress: <%= @percent %>% Complete
+<br>
+Time Left to Complete Goal: <%= @progress.time_left %>
+<br>
+Number of <%= @goal.get_commit_type.pluralize %> Left to Complete Goal: <%= @progress.count_to_complete %>
+<br>
+

@@ -12,5 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require best_in_place
 //= require turbolinks
 //= require_tree .
+
+
+
+$(document).ready( function(){
+  window.activateSidr();
+})
+$(document).on('page:load', function(){
+  window.activateSidr();
+})

@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Apolloio</title>
+  <title>apollo.io</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.0.1-p7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.0.1-p7/css/bootstrap-theme.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.0.1-p7/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <div class="content">
+  <div class="container">
 
-    <div class="header">
+    <div class="row">
       <%= render partial: "layouts/navbar" %>
     </div>
 
-    <%= yield %>
-  </div>
+    <div class="row">
+      <%= render partial: "layouts/flashes" %>
+      <div style="margin-top:6.5%">
+        <%= yield %>
+      </div>
+    </div>
 
+  </div>
 </body>
 </html>

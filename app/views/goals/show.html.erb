@@ -1,0 +1,99 @@
+<div class="api-account-title">
+  <h2><%= image_tag("mini-#{@goal.api_account.api.image_url}") %> <%= link_to @goal.api_account.api_username, api_account_path(@goal.api_account)%>
+    <small><%= @goal.api_account.api.provider %></small>
+ </h2>
+</div>
+
+<h1 class="goal-title"><%= @goal.pledge %></h1>
+
+<%= render partial: "progress" %>
+
+<div><a href="#" class="reminder-button">Add Reminder</a></div>
+
+<div class="reminders-form well" hidden="true">
+  <%= form_for @reminders do |r| %>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th><%= r.label :target, "Percentage" %></th>
+          <th><%= r.label :time_deadline, "Time For Reminder" %></th>
+          <% unless @goal.period_type == "day" %>
+            <th><%= r.label :day_deadline, "Day Deadline" %></th>
+          <% end %>
+          <!--  <th><%= r.label :twitter %></th> -->
+          <th><%= r.label :email %></th>
+          <th><%= r.label :sms, "SMS" %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <%= r.select(:target, [['Select Percentage Of Pledge To Achieve', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"25%", "50%", "75%"], {}, { :class => ''}) %>
+          </td>
+          <td>
+            <%= r.select(:time_deadline, [['Select Time Of Reminder', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"Morning At 9:00", "Afternoon At 14:00", "Evening At 19:00"], {}, { :class => ''}) %>
+          </td>
+          <% unless @goal.period_type == "day" %>
+          <td>
+             <%= r.select(:day_deadline, [['Select Day For Reminder Notification', {'value' => '', 'disabled' => 'disabled', 'selected' => 'selected' }],"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], {}, { :class => ''}) %>
+          </td>
+          <% end %>
+          <!-- <td><%= r.check_box :twitter %></td> -->
+          <td><%= r.check_box :email %></td>
+          <td><%= r.check_box :sms %></td>
+          <td><%= r.submit :class => "reminder-submit-button btn btn-primary" %></td>
+        </tr>
+          <tr id="add-email-tr">
+            <td>Email Address</td>
+            <td><%= r.text_field :add_email, value: current_user.email %></td>
+          </tr>
+          <tr id="add-phone-number-tr">
+            <td>Phone Number</td>
+            <td><%= r.text_field :add_phone_number, value: current_user.phone_number %></td>
+          </tr>
+      </tbody>
+      <%= r.hidden_field :goal_id, value: @goal.id%>
+    </table>
+  <% end %>
+</div>
+
+<div class='center-block' >
+  <h3>Current Reminders For Goal</h3>
+  <table class='table table-hover'>
+    <thead>
+      <tr>
+        <th>Reminder</th>
+        <th></th>
+      </tr>
+    </thead>
+    <% @goal.reminders.each do |r| %>
+      <tr>
+        <td><%= link_to "I need to reach #{r.target}% of my target before the #{r.render_time_deadline} every #{r.day_deadline} day", reminder_path(r), :class => "view-reminder-link" %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<script>
+  jQuery(document).ready(function($) {
+    $('input#reminder_email').change(function(){
+
+      if ($(this).is(':checked')) $('#add-email-tr').show();
+      else $('#add-email-tr').hide();
+      }).change();
+
+    $('input#reminder_sms').change(function(){
+      if ($(this).is(':checked')) $('#add-phone-number-tr').show();
+      else $('#add-phone-number-tr').hide();
+      }).change();
+  });
+</script>
+
+<script>
+  $(".reminder-button").click(function(event) {
+    event.preventDefault();
+    $(".reminders-form").toggle();
+  });
+</script>
+
