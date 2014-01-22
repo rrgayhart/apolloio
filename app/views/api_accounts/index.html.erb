@@ -23,7 +23,7 @@
         <div style="margin-left: 21%;">
           <% if @github_accounts != nil %>
             <% @github_accounts.each do |github_account| %>
-              <li><%= github_account.api_username %></li>
+              <li><%= link_to github_account.api_username, api_account_path(github_account), id: "api_account_#{github_account.id}"%></li>
             <% end %>
           <% end %>
         </div>
@@ -47,7 +47,7 @@
         <div style="margin-left: 21%;">
           <% if @duolingo_accounts != nil %>
             <% @duolingo_accounts.each do |duolingo_account| %>
-              <li><%= duolingo_account.api_username %></li>
+              <li><%= link_to duolingo_account.api_username, api_account_path(duolingo_account), id: "api_account_#{duolingo_account.id}"%></li>
             <% end %>
           <% end %>
         </div>
@@ -71,7 +71,7 @@
         <div style="margin-left: 21%;">
           <% if @exercism_accounts != nil %>
             <% @exercism_accounts.each do |exercism_account| %>
-              <li><%= exercism_account.api_username %></li>
+              <li><%= link_to exercism_account.api_username, api_account_path(exercism_account), id: "api_account_#{exercism_account.id}"%></li>
             <% end %>
           <% end %>
         </div>
