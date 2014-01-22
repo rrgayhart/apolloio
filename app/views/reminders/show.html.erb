@@ -1,5 +1,7 @@
 <div id="reminder-show-page">
-  <h1>Reminder</h1>
+  <h3>Account: <%= @reminder.goal.api_account.api_username %></h3>
+  <h3>Commitment: <%= @reminder.goal.pledge %></h3>
+  <h3>Reminder</h3>
   Target: <%= best_in_place @reminder, :target, :type => :select, :collection => [[25, "25%"], [50, "50%"], [75, "75%"]]%> <br>
   Day Deadline: <%= best_in_place @reminder, :day_deadline %><br>
   Time Deadline:  <%= best_in_place @reminder, :time_deadline %><br>
