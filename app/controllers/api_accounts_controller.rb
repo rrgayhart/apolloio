@@ -6,11 +6,9 @@ class ApiAccountsController < ApplicationController
     @api_account       = ApiAccount.new
     @api_accounts      = current_user.api_accounts
     @github_accounts   = @api_accounts.where(api_id: Api.find_by(provider: "Github").id)
-    @fitbit_accounts   = @api_accounts.where(api_id: Api.find_by(provider: "Fitbit").id)
     @exercism_accounts = @api_accounts.where(api_id: Api.find_by(provider: "Exercism").id)
     @duolingo_accounts = @api_accounts.where(api_id: Api.find_by(provider: "Duolingo").id)
     @github_api_id     = Api.find_by(provider: "Github").id
-    @fitbit_api_id     = Api.find_by(provider: "Fitbit").id
     @exercism_api_id   = Api.find_by(provider: "Exercism").id
     @duolingo_api_id   = Api.find_by(provider: "Duolingo").id
   end
@@ -31,10 +29,7 @@ class ApiAccountsController < ApplicationController
 
   def show
     @api_account = current_user.api_accounts.where(id: params[:id]).first
-    @test_value = 26
-    @test = ExercismApiRequest.new(5, 1, @api_account.api_username, 'submission', 'any language')
-    @github_two = GithubApiRequest.new(10, 1, @api_account.api_username).pull_dates
-    @github_two_months = @github_two
+    @github_two_months = GithubApiRequest.new(10, 1, @api_account.api_username).pull_dates
     if @api_account
       @provider        = @api_account.api.provider.downcase
       @username        = @api_account.api_username
