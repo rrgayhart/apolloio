@@ -6,20 +6,20 @@ Possible Gravatar Image???
   <% if current_user != nil %>
     Email:
     <p style="margin-left: 10%"><%= current_user.email %></p>
-    Phone: 
+    Phone:
     <p style="margin-left: 10%"><%= current_user.phone_number %></p>
-    Twitter Handle: 
+    Twitter Handle:
     <p style="margin-left: 10%"><%= current_user.name %></p>
   <% end %>
   <p>API Accounts:</p>
   <% if @api_accounts != nil %>
     <% @api_accounts.each do |api_account| %>
       <p style="margin-left: 10%">
-        <%= api_account.api.provider %>: 
+        <%= api_account.api.provider %>:
         <%= link_to api_account.api_username, api_account_path(api_account), id: "api_account_#{api_account.id}"%>
       </p>
     <% end %>
   <% end %>
-    <%= link_to "Add An API Account", api_accounts_path %>
+    <%= button_to "Add An API Account", api_accounts_path, method: :get %>
   <hr>
 </div>

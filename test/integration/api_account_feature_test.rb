@@ -13,27 +13,24 @@ class ApiAccountFeatureTest < Capybara::Rails::TestCase
 
   test "api account show page holds correct data for github accounts" do
     assert page.has_css?("#api_account_#{@api_account1.id}"), "Expecting link for api account"
-    VCR.use_cassette('api_account_show_1') do
+    VCR.use_cassette('api_account_show_github_hartl', :record => :new_episodes) do
       within(".api-dashboard-div") do
         click_link @api_account1.api_username
       end
-      assert page.has_content?("Github"), "Page shoud have content GitHub"
+      assert page.has_content?("github"), "Page shoud have content GitHub"
       assert page.has_content?(@api_account1.api_username), "Page should have content #{@api_account1.api_username}"
-      assert page.has_content?("Languages")
       assert page.has_content?("Current Streak")
-      assert page.has_content?("Commits This Year")
-      assert page.has_content?("Number of Repos")
-      assert page.has_content?("Goals List")
     end
   end
 
   test "add a github api account" do
-    assert page.has_content?("Add An API Account")
-    click_link "Add An API Account"
+    within ".api-dashboard-div" do
+      click_on "Add An API Account"
+    end
     assert page.has_content?("Connect An API Account")
     assert page.has_content?("Github")
     assert page.has_css?("#github_form")
-    VCR.use_cassette('new_api_account') do
+    VCR.use_cassette('api_account_show_github') do
       within("#github_form") do
         fill_in("api_account_api_username", with: "jcasimir")
         click_button "Link My Account"
@@ -41,26 +38,22 @@ class ApiAccountFeatureTest < Capybara::Rails::TestCase
     end
     assert page.has_content?("Added API Account")
     assert page.has_content?("jcasimir")
-    #Testing logo for api
     assert page.has_css?('#github-logo'), "Page is missing '#logo' element"
-    #Testing the show page
-    #click_link "jcasimir"
-    #assert page.has_content?("Streak")
   end
 
-  test "add a fitbit api account" do
+  test "add a duolingo api account" do
     skip
     assert page.has_content?("Add An API Account")
     click_link "Add An API Account"
     assert page.has_content?("Connect An API Account")
-    assert page.has_content?("Fitbit")
-    assert page.has_css?("#fitbit_form")
-    within("#fitbit_form") do
-      fill_in("api_account_api_username", with: "jamesaccount")
+    assert page.has_content?("duolingo")
+    assert page.has_css?("#duolingo_form")
+    within("#duolingo_form") do
+      fill_in("api_account_api_username", with: "novohispano")
       click_button "Link My Account"
     end
     assert page.has_content?("Added API Account")
-    assert page.has_content?("jamesaccount")
+    assert page.has_content?("novohispano")
     #Testing logo for api
     assert page.has_css?('#fitbit-logo'), "Page is missing '#logo' element"
     #Testing the show page

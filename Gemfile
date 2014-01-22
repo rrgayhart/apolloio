@@ -9,6 +9,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'whenever', :require => false
+gem 'sidekiq'
+gem 'sinatra'
 gem 'pg'
 gem 'twilio-ruby'
 gem 'faraday'
@@ -34,7 +37,6 @@ group :development, :test do
   gem "capybara-webkit"
   gem 'minitest-metadata', :require => false
   gem 'figaro'
-  gem 'spring'
 end
 
 group :doc do

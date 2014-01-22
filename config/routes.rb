@@ -1,4 +1,7 @@
 Apolloio::Application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   root to: "landing#index"
 
   resources :reminders

@@ -1,10 +1,13 @@
 <div id="reminder-show-page">
-  <h1>Reminder</h1>
-  Api Account: <%= @reminder.goal.api_account.api.provider %> - <%= link_to @reminder.goal.api_account.api_username, api_account_path(@reminder.goal.api_account) %> <br>
-  Commitment: <%= @reminder.goal.pledge%><br>
+  <h2><%= image_tag("mini-#{@reminder.goal.api_account.api.image_url}") %> <%= link_to @reminder.goal.api_account.api_username, api_account_path(@reminder.goal.api_account)%>
+    <small><%= @reminder.goal.api_account.api.provider %></small>
+  </h2>
+
+  <h2>Commitment: <%= @reminder.goal.pledge%><h2>
+
+  <h1>Reminder Information</h1>
   Target: <%= best_in_place @reminder, :target, :type => :select, :collection => [[25, "25%"], [50, "50%"], [75, "75%"]]%> <br>
   Day Deadline: <%= best_in_place @reminder, :day_deadline %><br>
   Time Deadline:  <%= best_in_place @reminder, :time_deadline %><br>
   Start Date: <%= best_in_place @reminder, :start_date, :type => :date %><br>
-  
 </div>
