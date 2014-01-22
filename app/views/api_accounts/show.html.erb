@@ -20,6 +20,10 @@
     <% @goals.each do |goal| %>
       <%= goal.pledge %>
     <% end %>
+  <div>
+    <br>
+    <%= button_to "Add A Goal", new_goal_path, method: :get %>
+  </div>
   </div>
 
   <div class="col-md-8">
