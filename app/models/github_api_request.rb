@@ -17,8 +17,10 @@ class GithubApiRequest
   end
 
   def get_contributions_array(url)
+    Rails.cache.fetch("github_#{username}", expires_in: 5.minutes) do
       response = Faraday.get(url)
       JSON.parse(response.body)
+    end
   end
 
   def pull_dates

@@ -11,9 +11,15 @@ def initialize(username, language)
   @language = language
 end
 
+def self.valid_username?(username)
+  Faraday.get("http://www.duolingo.com/users/#{username}").status == 200
+end
+
 def call
-  response = Faraday.get("http://www.duolingo.com/users/#{username}")
-  JSON.parse(response.body)
+  Rails.cache.fetch("duolingo_#{username}", expires_in: 5.minutes) do
+    response = Faraday.get("http://www.duolingo.com/users/#{username}")
+    JSON.parse(response.body)
+  end
 end
 
 def get_site_streak
