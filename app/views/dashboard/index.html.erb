@@ -59,10 +59,10 @@
                 <td><%= reminder.goal_render %></td>
                 <td><%= reminder.render_time_deadline %></td>
                 <td><%= reminder.created_at.strftime("%d %b. %Y") %></td>
-                <td><%= reminder.twitter.to_s.capitalize %></td>
+                <td><%= display_reminder(reminder.twitter) %></td>
                 <td></td>
-                <td><%= reminder.email.to_s.capitalize %></td>
-                <td><%= reminder.sms.to_s.capitalize %></td>
+                <td><%= display_reminder(reminder.email) %></td>
+                <td><%= display_reminder(reminder.sms) %></td>
                 <td>On/Off</td>
               </tr>
             <% end %>
