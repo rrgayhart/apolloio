@@ -21,7 +21,6 @@
 
 <script>
 var data = <%= raw @github_two_months.to_json %>;
-debugger
 d3.select(".chart")
   .selectAll("div")
     .data(data)
