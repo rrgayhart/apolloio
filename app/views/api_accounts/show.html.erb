@@ -16,13 +16,13 @@
 
 <div class="row">
   <div class="col-md-4">
-    <h4>My Goals</h4>
+    <h4>My Commitments</h4>
     <% @goals.each do |goal| %>
       <%= goal.pledge %>
     <% end %>
   <div>
     <br>
-    <%= button_to "Add A Goal", new_goal_path %>
+    <%= button_to "Make A Commitment", new_goal_path %>
   </div>
   </div>
 
