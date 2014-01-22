@@ -1,4 +1,30 @@
-<dl>
-  <dt></dt>
-  <dd></dd>
-</dl>
+<%= @test.get_all_by_language %>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+<style>
+
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
+</style>
+
+<div class="chart">
+
+</div>
+
+<script>
+
+var data = [[4, 'Spanish'], [8, 'Portuguese'], [15, 'German'], [16, 'French'], [<%= @test_value %>, 'Italian']];
+d3.select(".chart")
+  .selectAll("div")
+    .data(data)
+  .enter().append("div")
+    .style("width", function(d) { return d[0] * 25 + "px"; })
+    .text(function(d) { return d[1]; });
+</script>

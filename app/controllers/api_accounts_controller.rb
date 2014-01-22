@@ -29,6 +29,8 @@ class ApiAccountsController < ApplicationController
 
   def show
     @api_account = current_user.api_accounts.where(id: params[:id]).first
+    @test_value = 26
+    @test = ExercismApiRequest.new(50, 1, @api_account.api_username, 'submission', 'any language')
     if @api_account
       @provider        = @api_account.api.provider.downcase
       @username        = @api_account.api_username
