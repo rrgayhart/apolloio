@@ -25,7 +25,7 @@ class GoalsFeatureTest < Capybara::Rails::TestCase
       click_link "Add Reminder"
       assert page.has_css?(".reminder-submit-button")
       select("50%", :from => "reminder[target]")
-      select("Afternoon", :from => "Time Deadline")
+      select("Afternoon", :from => "Time For Reminder")
       # check "Sms"
       # assert page.has_content?("Enter phone number:")
       # fill_in "reminder[add_phone_number]", :with => "7179990868"
