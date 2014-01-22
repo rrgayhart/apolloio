@@ -5,3 +5,15 @@
   border-color: #dddddd; 
   border-width: 1px;
 }
+
+dl {
+  margin-bottom: 0px !important;
+}
+
+.dl-horizontal dt {
+  width: 175px !important;
+}
+
+.dl-horizontal dd {
+  margin-left: 200px !important;
+}

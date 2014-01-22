@@ -14,13 +14,23 @@
   </div>
 </div>
 
-<% if @goals.any? %>
-  <div class="row">
-    <div class="col-md-6">
+<div class="row">
+  <div class="col-md-4">
     <h4>My Goals</h4>
-      <% @goals.each do |goal| %>
-        <%= goal.pledge %>
-      <% end %>
+    <% @goals.each do |goal| %>
+      <%= goal.pledge %>
+    <% end %>
+  <div>
+    <br>
+    <%= button_to "Add A Goal", new_goal_path %>
+  </div>
+  </div>
+
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-body center-block">
+        <%= render partial: "#{@provider}_graph" %>
+      </div>
     </div>
   </div>
-<% end %>
+</div>
