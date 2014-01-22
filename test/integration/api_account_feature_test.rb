@@ -24,7 +24,9 @@ class ApiAccountFeatureTest < Capybara::Rails::TestCase
   end
 
   test "add a github api account" do
-    click_link "Add An API Account"
+    within ".api-dashboard-div" do
+      click_on "Add An API Account"
+    end
     assert page.has_content?("Connect An API Account")
     assert page.has_content?("Github")
     assert page.has_css?("#github_form")

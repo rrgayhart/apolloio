@@ -35,7 +35,6 @@ group :development, :test do
   gem "capybara-webkit"
   gem 'minitest-metadata', :require => false
   gem 'figaro'
-  gem 'spring'
 end
 
 group :doc do
