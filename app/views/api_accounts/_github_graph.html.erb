@@ -1,4 +1,5 @@
-<%= @test.get_all_by_language %>
+
+<%= @github_two_months.class %>
 
 
 <style>
@@ -19,12 +20,12 @@
 </div>
 
 <script>
-
-var data = [[4, 'Spanish'], [8, 'Portuguese'], [15, 'German'], [16, 'French'], [<%= @test_value %>, 'Italian']];
+var data = <%= raw @github_two_months.to_json %>;
+debugger
 d3.select(".chart")
   .selectAll("div")
     .data(data)
   .enter().append("div")
-    .style("width", function(d) { return d[0] * 25 + "px"; })
+    .style("width", function(d) { return (d[1] + 1) * 25 + "px"; })
     .text(function(d) { return d[1]; });
 </script>
