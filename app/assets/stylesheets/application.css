@@ -16,3 +16,11 @@
 .reminders-form{
   margin-top: 20px;
 }
+
+.dl-horizontal dt {
+width: 260px;
+}
+
+.dl-horizontal dd {
+margin-left: 280px;
+}

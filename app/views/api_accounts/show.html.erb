@@ -1,11 +1,26 @@
-<h1>Linked Account</h1>
-<div>
-  <div class="api-account-title">
-    <h2><%= @api_account.api_username %> <small><%= @provider %></small></h2>
+<div class="row">
+  <div class="col-md-4">
+    <%= image_tag("small-#{@api_account.api.image_url}") %>
+    <div class="api-account-title">
+      <h2><%= @api_account.api_username %> <small><%= @provider %></small></h2>
+    </div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-body center-block">
-      <%= render partial: "#{@provider}_show" %>
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-body center-block">
+        <%= render partial: "#{@provider}_show" %>
+      </div>
     </div>
   </div>
 </div>
+
+<% if @goals.any? %>
+  <div class="row">
+    <div class="col-md-6">
+    <h4>My Goals</h4>
+      <% @goals.each do |goal| %>
+        <%= goal.pledge %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
