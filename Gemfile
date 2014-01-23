@@ -41,5 +41,6 @@ group :development, :test do
 end
 
 group :doc do
+  gem 'rails_12factor'
   gem 'sdoc', require: false
 end
