@@ -27,17 +27,28 @@ class ApiAccountsController < ApplicationController
     end
   end
 
-  def show
+  def show    
     @api_account = current_user.api_accounts.where(id: params[:id]).first
-    @github_two_months = GithubApiRequest.new(10, 1, @api_account.api_username).pull_dates
     if @api_account
-      @provider        = @api_account.api.provider.downcase
-      @username        = @api_account.api_username
+      @provider = @api_account.api.provider.downcase
+      @username = @api_account.api_username
       @api_request     = ApiRequest.new(@username, @provider)
       @streak          = @api_account.streak
       @year_percentage = @api_request.get_percentage_days_commited_this_year
       @this_year       = @api_request.get_this_years_total_commits
       @goals = @api_account.goals
+      if @provider.downcase == "github"
+        @github_array = GithubApiRequest.new(365, 1, @username).user_array
+        gchartarray = @github_array.map{|a| a.last}
+        @line_chart = Gchart.sparkline(:data => gchartarray, :title => "365 Days of Commit History", :size => '875x300', :line_colors => '0077CC', :axis_with_labels => 'x,y',
+              :axis_labels => [["#{Date::MONTHNAMES[(Date.today - 360).month]} #{(Date.today - 360).year}", Date::MONTHNAMES[(Date.today - 180).month], "#{Date::MONTHNAMES[Date.today.month]} #{Date.today.year}"], [ '', (gchartarray.max / 2), gchartarray.max]])
+      elsif @provider.downcase == "exercism"
+        echart1 = ExercismChart.new
+        @generate_chart_nits = echart1.generate_chart_nits(@username)
+        @generate_chart_subs = echart1.generate_chart_subs(@username)
+      else
+        @generate_chart_languages = DuolingoApiRequest.make_chart(@username)
+      end
     else
       redirect_to dashboard_path
     end

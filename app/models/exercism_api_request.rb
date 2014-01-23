@@ -15,6 +15,8 @@ class ExercismApiRequest
     @language = language
   end
 
+
+
   def self.valid_username?(username)
     Faraday.get("http://exercism.io/api/v1/stats/#{username}/nitpicks/2014/01").status == 200
   end

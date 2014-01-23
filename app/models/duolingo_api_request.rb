@@ -11,6 +11,18 @@ def initialize(username, language)
   @language = language
 end
 
+def self.make_chart(username)
+  response = Faraday.get("http://www.duolingo.com/users/#{username}")
+  info = JSON.parse(response.body)
+  points = info['languages'].map{ |l| l["points"]}
+  language_keys = info['languages'].map{|l| l['language_string']}
+  
+  language_kp = language_keys.each_index.map{|i| "#{language_keys[i]}: #{points[i]}" }
+
+  Gchart.pie_3d(:title => 'Points Per Language', :size => '600x300',
+              :data => points, :labels => language_kp )
+end
+
 def self.valid_username?(username)
   Faraday.get("http://www.duolingo.com/users/#{username}").status == 200
 end

@@ -1,11 +1,11 @@
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-3 col-md-offset-1">
     <%= image_tag("small-#{@api_account.api.image_url}") %>
     <div class="api-account-title">
       <h2><%= @api_account.api_username %> <small><%= @provider %></small></h2>
     </div>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-7">
     <div class="panel panel-default">
       <div class="panel-body center-block">
         <%= render partial: "#{@provider}_show" %>
@@ -15,21 +15,27 @@
 </div>
 
 <div class="row">
-  <div class="col-md-4">
-    <h4>My Commitments</h4>
-    <% @goals.each do |goal| %>
-      <%= goal.pledge %>
-    <% end %>
-  <div>
-    <br>
-    <%= button_to "Make A Commitment", new_goal_path %>
-  </div>
-  </div>
-
-  <div class="col-md-8">
+  <div class="col-md-10 col-md-offset-1">
     <div class="panel panel-default">
-      <div class="panel-body center-block">
+      <div class="panel-body center-block text-center">
         <%= render partial: "#{@provider}_graph" %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-body center-block text-center">
+        <h4>My Commitments</h4>
+          <% @goals.each do |goal| %>
+            <%= goal.pledge %>
+          <% end %>
+        <h4>
+          <%= link_to "Make A Commitment", new_goal_path, class: "btn btn-primary" %>
+        </h4>
       </div>
     </div>
   </div>
