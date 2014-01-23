@@ -20,6 +20,7 @@ gem 'travis-lint'
 gem 'best_in_place', github: 'aaronchi/best_in_place'
 gem 'timecop'
 gem "googlecharts", :require => "gchart"
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'database_cleaner'
@@ -41,6 +42,5 @@ group :development, :test do
 end
 
 group :doc do
-  gem 'rails_12factor'
   gem 'sdoc', require: false
 end
