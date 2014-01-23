@@ -1,34 +1,33 @@
-
-  <div class="col-md-4">
-    <div id="exercism-image" style="margin-left: 20%">
-      <%= image_tag("exercismlogo.png", id: "exercism-logo") %>
-    </div>
+<div class="col-md-4">
+  <div id="exercism-image" style="margin-left: 20%">
+    <%= image_tag("exercismlogo.png", id: "exercism-logo") %>
   </div>
-  <div class="col-md-8">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h1>Exercism</h1>
+</div>
+<div class="col-md-8">
+  <div class="panel panel-default" style="border:1px solid; margin-right: 2%">
+    <div class="panel-heading">
+      <h1>Exercism</h1>
+    </div>
+    <div class="panel-body">
+      <div id="exercism_form">
+        <%= form_for @api_account do |api| %>
+          <%= api.text_field :api_username, placeholder: "Exercism Username" %>
+          <%= api.hidden_field :api_id, :value => @exercism_api_id %>
+          <%= api.submit "Link My Account" %>
+        <% end %>
       </div>
-      <div class="panel-body">
-        <div id="exercism_form">
-          <%= form_for @api_account do |api| %>
-            <%= api.text_field :api_username, placeholder: "Exercism Username" %>
-            <%= api.hidden_field :api_id, :value => @exercism_api_id %>
-            <%= api.submit "Link My Account" %>
-          <% end %>
-        </div>
-        <div id="api_account_listings">
-          <% if @exercism_accounts != nil %>
-            <ul class="list-group">
-              <h4>Linked Accounts</h4>
-              <% @exercism_accounts.each do |exercism_account| %>
-                <h4><li class="list-group-item"><%= link_to exercism_account.api_username, api_account_path(exercism_account) %></li></h4>
-              <% end %>
-            </ul>
-          <% end %>
-        </div>
+      <div id="api_account_listings">
+        <% if @exercism_accounts != nil %>
+          <ul class="list-group">
+            <h4>Linked Accounts</h4>
+            <% @exercism_accounts.each do |exercism_account| %>
+              <h4><li class="list-group-item"><%= link_to exercism_account.api_username, api_account_path(exercism_account) %></li></h4>
+            <% end %>
+          </ul>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
 
 

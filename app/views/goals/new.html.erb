@@ -1,4 +1,4 @@
-<div class="panel panel-default background-pattern">
+<div class="panel panel-default background-pattern" style="border:1px solid;">
 
   <div class="panel-heading">
     <h3 class="panel-title" id="create-goal-title">Create A New Commitment</h3>
@@ -22,7 +22,7 @@
         </p>
       </div>
 
-      <div class="col-md-12 panel panel-default" id="all-forms" >
+      <div class="col-md-12 panel panel-default" id="all-forms" style="border:1px solid;">
         <div class="panel-body">
           <% @api_accounts.each do |api_account| %>
             <% if api_account.api.provider.downcase == "github" %>

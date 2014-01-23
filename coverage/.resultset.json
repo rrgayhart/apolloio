@@ -1,54 +1,42 @@
 {
   "Unit Tests": {
     "coverage": {
-      "/Users/rrgayhart/sites/apolloio/app/helpers/api_accounts_helper.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/helpers/api_accounts_helper.rb": [
         1,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/helpers/application_helper.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/helpers/dashboard_helper.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/helpers/dashboard_helper.rb": [
         1,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/helpers/goals_helper.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/helpers/goals_helper.rb": [
         1,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/helpers/landing_helper.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/helpers/landing_helper.rb": [
         1,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/helpers/reminders_helper.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/helpers/reminders_helper.rb": [
         1,
         1,
         0,
         null,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/helpers/sessions_helper.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/helpers/sessions_helper.rb": [
         1,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/models/user.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/models/user.rb": [
         1,
         1,
         1,
         1,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
         null,
         1,
         0,
@@ -56,10 +44,22 @@
         null,
         1,
         0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
         null,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/mailers/email_notifications.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/mailers/email_notifications.rb": [
         1,
         1,
         null,
@@ -76,42 +76,42 @@
         null
       ]
     },
-    "timestamp": 1390452189
+    "timestamp": 1390457314
   },
   "Integration Tests": {
     "coverage": {
-      "/Users/rrgayhart/sites/apolloio/app/helpers/api_accounts_helper.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/helpers/api_accounts_helper.rb": [
         1,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/helpers/application_helper.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/helpers/dashboard_helper.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/helpers/dashboard_helper.rb": [
         1,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/helpers/goals_helper.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/helpers/goals_helper.rb": [
         1,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/helpers/landing_helper.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/helpers/landing_helper.rb": [
         1,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/helpers/reminders_helper.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/helpers/reminders_helper.rb": [
         1,
         1,
         81,
         null,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/helpers/sessions_helper.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/helpers/sessions_helper.rb": [
         1,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/models/user.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/models/user.rb": [
         1,
         1,
         1,
@@ -138,12 +138,12 @@
         null,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/models/api.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/models/api.rb": [
         1,
         1,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/models/api_account.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/models/api_account.rb": [
         1,
         1,
         1,
@@ -196,7 +196,7 @@
         null,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/models/goal.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/models/goal.rb": [
         1,
         1,
         1,
@@ -236,7 +236,7 @@
         null,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/models/reminder.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/models/reminder.rb": [
         1,
         null,
         1,
@@ -346,7 +346,7 @@
         null,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/controllers/landing_controller.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/controllers/landing_controller.rb": [
         1,
         null,
         1,
@@ -356,7 +356,7 @@
         null,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/controllers/application_controller.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -377,7 +377,7 @@
         1,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/controllers/sessions_controller.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/controllers/sessions_controller.rb": [
         1,
         null,
         1,
@@ -393,7 +393,7 @@
         null,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/controllers/dashboard_controller.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/controllers/dashboard_controller.rb": [
         1,
         1,
         1,
@@ -437,7 +437,7 @@
         null,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/controllers/api_accounts_controller.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/controllers/api_accounts_controller.rb": [
         1,
         null,
         1,
@@ -502,7 +502,7 @@
         null,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/models/api_request.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/models/api_request.rb": [
         1,
         1,
         null,
@@ -574,7 +574,7 @@
         null,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/controllers/goals_controller.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/controllers/goals_controller.rb": [
         1,
         null,
         1,
@@ -611,7 +611,7 @@
         null,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/models/progress.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/models/progress.rb": [
         1,
         null,
         1,
@@ -696,7 +696,7 @@
         null,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/models/github_api_request.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/models/github_api_request.rb": [
         1,
         1,
         null,
@@ -742,7 +742,7 @@
         null,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/controllers/reminders_controller.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/controllers/reminders_controller.rb": [
         1,
         1,
         null,
@@ -816,7 +816,7 @@
         null,
         null
       ],
-      "/Users/rrgayhart/sites/apolloio/app/models/exercism_api_request.rb": [
+      "/Users/jonahmoses/Dropbox/ruby/projects/apollo.io/app/models/exercism_api_request.rb": [
         1,
         1,
         null,
@@ -931,6 +931,6 @@
         null
       ]
     },
-    "timestamp": 1390452213
+    "timestamp": 1390457338
   }
 }

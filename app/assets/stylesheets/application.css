@@ -57,6 +57,10 @@ border-top-left-radius:25px;
 border-top-right-radius:25px;
 }
 
+.rounded-top-right {
+border-top-right-radius:25px;
+}
+
 .dl-horizontal dd {
 margin-left: 280px;
 }
