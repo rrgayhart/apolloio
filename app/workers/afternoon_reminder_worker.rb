@@ -11,8 +11,6 @@ class AfternoonReminderWorker
     EmailNotifications.reminder_confirmation(user).deliver if reminder.email
     SmsNotifications.send_sms(user, reminder) if reminder.sms
   end
-  
-end
 
 #Rails.cache.delete('the key string')
   
