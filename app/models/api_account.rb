@@ -25,7 +25,7 @@ class ApiAccount < ActiveRecord::Base
     when 'exercism'
       ExercismApiRequest.valid_username?(api_username)
     when 'duolingo'
-      DuolingoApiRequest.valid_username_duolingo?(api_username)
+      DuolingoApiRequest.valid_username?(api_username)
     end
   end
 
