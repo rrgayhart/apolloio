@@ -12,6 +12,32 @@
  *= require_tree .
  */
 
+.white-bg{
+background-color: white;
+}
+
+.gray-bg{
+background-color: #C2C2C2;
+}
+
+.logos{
+  margin-left: 12%;
+}
+
+.border-left
+{
+border-top-style:dashed;
+border-right-style:dashed;
+border-left-style:dashed;
+border-width:1px;
+}
+
+.border-right
+{
+border-top-style:dashed;
+border-right-style:dashed;
+border-width:1px;
+}
 
 .reminders-form{
   margin-top: 20px;
@@ -21,6 +47,28 @@
 width: 260px;
 }
 
+.rounded-bottoms {
+border-bottom-left-radius:25px; 
+border-bottom-right-radius:25px;
+}
+
+.rounded-tops {
+border-top-left-radius:25px; 
+border-top-right-radius:25px;
+}
+
 .dl-horizontal dd {
 margin-left: 280px;
+}
+
+.background-img {
+background-image:url('background.jpg'); 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+.background-pattern {
+background-image:url('natural_paper.png');
 }
