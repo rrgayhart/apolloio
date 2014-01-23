@@ -12,6 +12,32 @@
  *= require_tree .
  */
 
+.white-bg{
+background-color: white;
+}
+
+.gray-bg{
+background-color: #C2C2C2;
+}
+
+.logos{
+  margin-left: 12%;
+}
+
+.border-left
+{
+border-top-style:dashed;
+border-right-style:dashed;
+border-left-style:dashed;
+border-width:1px;
+}
+
+.border-right
+{
+border-top-style:dashed;
+border-right-style:dashed;
+border-width:1px;
+}
 
 .reminders-form{
   margin-top: 20px;
@@ -23,4 +49,10 @@ width: 260px;
 
 .dl-horizontal dd {
 margin-left: 280px;
+}
+
+.background-img {
+background-image:url('wood.jpg');
+background-repeat:no-repeat;
+background-position:right top;
 }
